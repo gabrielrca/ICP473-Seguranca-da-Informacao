@@ -1,10 +1,18 @@
-# SimpleDarkBlue Beamer Theme
+# ICP473 - Segurança da Informação (Slides)
 
-The **SimpleDarkBlue Beamer Theme** is a simple LaTeX template designed for academic and scientific presentations.
+Este repositório contém os slides utilizados na disciplina **ICP473 - Segurança da Informação** do **Instituto de Computação da UFRJ**.
 
--   CTAN: https://ctan.org/pkg/beamertheme-simpledarkblue
--   Github: https://github.com/pm25/SimpleDarkBlue-BeamerTheme
+O material foi desenvolvido em **LaTeX/Beamer**, com foco em apoiar as aulas da disciplina e servir como referência para os alunos.  
+Os slides acompanham o conteúdo programático da disciplina, abordando fundamentos de segurança, criptografia, autenticação, controle de acesso, aspectos legais, entre outros tópicos.
 
-## License
+## Código da Turma
+**ICP473**
 
-This project is released under the **Unlicense License**, granting you complete freedom to use, modify, and distribute the template. For more details, see the [LICENSE](./LICENSE) file.
+## Estrutura
+- `slides-por-aula/` → slides organizados por encontro
+- `Figuras/` → imagens e diagramas utilizados
+
+
+## Observação
+Este repositório contém o material de apoio didático e está em constante modificação.  
+O uso é destinado aos alunos matriculados na disciplina e a outros interessados em segurança da informação.
