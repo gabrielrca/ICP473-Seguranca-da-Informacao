@@ -1,0 +1,393 @@
+\begin{frame}{Terminologia Básica em Segurança da Informação}
+\begin{itemize}
+    \item \textbf{Adversário (Agente de Ameaça)}:
+Indivíduo, grupo, organização ou governo que conduz ou pretende conduzir atividades prejudiciais.
+
+
+\item \textbf{Recurso do Sistema (Ativo)}:
+Aplicação, sistema, equipamento, pessoal ou grupo lógico de sistemas essenciais para a missão.
+ 
+
+
+
+
+\item \textbf{Política de Segurança}:
+Um conjunto de critérios para a prestação de serviços de segurança. Ele define e restringe as atividades de uma instalação de processamento de dados para manter uma condição de segurança para sistemas e dados.
+
+ \item \textbf{Contramedida}:
+Um dispositivo ou técnica que tem como objetivo prejudicar a efetividade operacional de atividades indesejadas ou adversárias, ou a prevenção de espionagem, sabotagem, roubo, ou acesso ou uso não autorizado de informações sensíveis ou sistemas de informação.
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Terminologia Básica em Segurança da Informação (continuação)}
+\begin{itemize}
+  
+
+
+
+
+\item \textbf{Vulnerabilidade}:
+Fraqueza em um sistema de informação, procedimentos de segurança do sistema, controles internos ou implementação que possa ser explorada ou acionada por uma fonte de ameaça.
+
+
+
+\item \textbf{Ameaça}:
+Qualquer circunstância ou evento com potencial para impactar negativamente as operações organizacionais (incluindo missão, funções, imagem ou reputação), ativos organizacionais, indivíduos, outras organizações ou a Nação por meio de um sistema de informação, através de acesso não autorizado, destruição, divulgação, modificação de informações e/ou negação de serviço.
+
+\item \textbf{Ataque}:
+Atividade maliciosa que tenta coletar, interromper, negar, degradar ou destruir recursos ou informações do sistema.
+
+  \item \textbf{Risco}:
+Medida da extensão em que um evento pode ameaçar uma entidade, considerando impactos adversos e probabilidade.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Diferença entre Ameaça e Ataque}
+
+\begin{block}{Ameaça}
+Qualquer circunstância ou evento com potencial para causar dano à segurança do sistema, ativos ou informações.  
+\textit{Exemplo:} Tentativa de invasão por um hacker (potencial perigo).
+\end{block}
+
+\begin{block}{Ataque}
+Ação maliciosa concreta que explora vulnerabilidades para causar dano ou violar a segurança.  
+\textit{Exemplo:} Hacker invadindo o sistema e roubando dados (ação realizada).
+\end{block}
+
+\vspace{0.5cm}
+\textbf{Resumo:}  
+\begin{itemize}
+    \item \textbf{Ameaça} = Potencial perigo.  
+    \item \textbf{Ataque} = Ação efetiva que causa dano.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Cenário Prático em Segurança da Informação}
+
+\textbf{Contexto:} Uma universidade possui um sistema online de registro de notas dos alunos.
+
+\vspace{0.3cm}
+
+\begin{itemize}
+  \item \textbf{Adversário (Agente de Ameaça):}  
+  Um ex-aluno insatisfeito que deseja vazar notas confidenciais para prejudicar a reputação da universidade.
+
+  \item \textbf{Recurso do Sistema (Ativo):}  
+  O sistema de gestão acadêmica que armazena e processa as notas dos alunos.
+
+  \item \textbf{Política de Segurança:}  
+  Regras que determinam que somente alunos, professores e a coordenação podem acessar as notas e que todos os acessos são registrados e auditados.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Cenário Prático em Segurança da Informação (Continuação)}
+\begin{itemize}
+    \item \textbf{Vulnerabilidade:}  
+  Senha fraca usada por um funcionário da secretaria, permitindo acesso não autorizado ao sistema.
+
+  \item \textbf{Ameaça:}  
+  O risco de que o aluno consiga acessar e alterar as notas dos alunos sem permissão.
+
+  \item \textbf{Ataque:}  
+  O aluno usa credenciais roubadas para entrar no sistema, acessar e alterar dados confidenciais.
+
+  \item \textbf{Contramedida:}  
+  Implementação de autenticação multifator (MFA) e monitoramento de acessos suspeitos.
+
+  \item \textbf{Risco:}  
+  A combinação da vulnerabilidade (senha fraca) e da ameaça (aluno malicioso) gera um risco alto de vazamento de dados.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Modelo de Segurança da Informação}
+\begin{block}{Ativos do Sistema}
+Recursos ou ativos que usuários e proprietários desejam proteger:
+\begin{itemize}
+  \item \textbf{Hardware:} Computadores, dispositivos de armazenamento e comunicação.
+  \item \textbf{Software:} Sistemas operacionais, utilitários e aplicações.
+  \item \textbf{Dados:} Arquivos, bancos de dados e dados sensíveis (ex: senhas).
+  \item \textbf{Comunicações:} Redes locais ou remotas, roteadores, pontes, etc.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Vulnerabilidades e Propriedades de Segurança}
+\begin{block}{Tipos de Vulnerabilidades}
+\begin{itemize}
+  \item \textbf{Corrupção:} Modificação indevida dos dados (violação da \textbf{integridade}).
+  \item \textbf{Vazamento:} Acesso não autorizado a informações (violação da \textbf{confidencialidade}).
+  \item \textbf{Indisponibilidade:} Sistema inacessível ou muito lento (violação da \textbf{disponibilidade}).
+\end{itemize}
+\end{block}
+
+\begin{block}{Conceitos Associados}
+\begin{itemize}
+  \item \textbf{Ameaça:} Potencial violação de segurança.
+  \item \textbf{Ataque:} Ato concreto que explora uma vulnerabilidade.
+  \item \textbf{Agente de ameaça:} Responsável por conduzir o ataque.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Classificação de Ataques e Contramedidas}
+\begin{block}{Tipos de Ataque}
+\begin{itemize}
+  \item \textbf{Ativo:} Modifica recursos do sistema ou seu funcionamento.
+  \item \textbf{Passivo:} Observa dados sem afetar os recursos.
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{Interno:} Realizado por usuários autorizados que abusam dos acessos.
+  \item \textbf{Externo:} Realizado por usuários não autorizados, fora da rede.
+\end{itemize}
+\end{block}
+
+\begin{block}{Contramedidas}
+Ações tomadas para prevenir, detectar ou recuperar ataques.  
+Podem reduzir o risco, mas também introduzir novas vulnerabilidades.  
+\textbf{Risco residual} é o risco que permanece após a adoção de contramedidas.
+\end{block}
+\end{frame}
+
+\begin{frame}{Nível de Impacto: \textit{Baixo}}
+
+\textbf{Definição:}  
+A perda pode ter um efeito adverso limitado nas operações da organização, em seus ativos ou em indivíduos.
+
+\vspace{0.5em}
+\begin{block}{Exemplos de Efeitos Adversos Limitados}
+\begin{itemize}
+    \item Degradação na capacidade de missão, com redução perceptível na eficácia das funções.
+    \item Danos menores aos ativos da organização.
+    \item Perda financeira de pequeno impacto.
+    \item Prejuízo leve a indivíduos.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Nível de Impacto: \textit{Moderado}}
+
+\textbf{Definição:}  
+A perda pode ter um efeito adverso sério nas operações da organização, em seus ativos ou em indivíduos.
+
+\vspace{0.5em}
+\begin{block}{Exemplos de Efeitos Adversos Sérios}
+\begin{itemize}
+    \item Degradação significativa da capacidade de missão, com redução efetiva das funções principais.
+    \item Danos significativos aos ativos da organização.
+    \item Perda financeira significativa.
+    \item Prejuízo relevante a indivíduos, sem envolver morte ou ferimentos com risco de vida.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Nível de Impacto: \textit{Alto}}
+
+\textbf{Definição:}  
+A perda pode ter um efeito adverso severo ou catastrófico nas operações da organização, em seus ativos ou em indivíduos.
+
+\vspace{0.5em}
+\begin{block}{Exemplos de Efeitos Adversos Severos ou Catastróficos}
+\begin{itemize}
+    \item Perda ou degradação severa da capacidade de missão, impedindo a realização de uma ou mais funções principais.
+    \item Danos de grande escala aos ativos da organização.
+    \item Perda financeira significativa.
+    \item Prejuízo severo a indivíduos, incluindo risco à vida ou ferimentos com risco de morte.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Confidencialidade - Classificação de Informações Acadêmicas}
+
+
+\begin{block}{\textbf{Informações com diferentes níveis de confidencialidade:}}
+\begin{itemize}
+  \item \textbf{Alta Confidencialidade:} Informações de saúde dos alunos
+  \begin{itemize}
+    \item Protegidas por regulamento ou lei
+    \item Acesso restrito a alunos, pais (ou responsáveis) e funcionários autorizados
+  \end{itemize}
+  
+  \item \textbf{Confidencialidade Moderada:} Dados de matrícula
+  \begin{itemize}
+    \item Ainda sob proteção legal, mas acessados com mais frequência
+    \item Menor impacto em caso de vazamento
+  \end{itemize}
+  
+  \item \textbf{Baixa Confidencialidade ou Pública:} Listas de diretório (alunos, docentes)
+  \begin{itemize}
+    \item Frequentemente divulgadas no site da instituição
+    \item Consideradas de interesse público
+  \end{itemize}
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Integridade - Caso: Informações de Alergia em Hospital}
+
+\textbf{Cenário:}  
+Informações sobre alergias de pacientes armazenadas em um banco de dados hospitalar.
+
+\vspace{0.5em}
+\begin{block}{\textbf{Requisitos de Integridade}}
+\begin{itemize}
+  \item As informações devem estar corretas e atualizadas para garantir tratamentos seguros.
+  \item Um médico precisa confiar que os dados de alergia são precisos.
+\end{itemize}
+\end{block}
+
+\begin{exampleblock}{\textbf{Falha de Integridade e Rastreabilidade}}
+\begin{itemize}
+  \item Funcionário autorizado (ex: enfermeira) altera deliberadamente os dados para causar dano.
+  \item O sistema deve permitir:
+    \begin{itemize}
+      \item Restauração rápida da base confiável de dados.
+      \item Rastreio da ação até o responsável.
+    \end{itemize}
+\end{itemize}
+\end{exampleblock}
+
+
+\textbf{Conclusão:} Integridade crítica — erro pode causar morte e gerar grande responsabilidade legal para o hospital.
+
+\end{frame}
+
+\begin{frame}{Exemplos de Requisitos de Integridade}
+  
+  \begin{block}{\textbf{Nível Moderado de Integridade}}
+    \begin{itemize}
+      \item \textbf{Exemplo:} Fórum online para usuários registrados
+      \item \textbf{Riscos:}
+      \begin{itemize}
+        \item Falsificação de postagens por usuários ou hackers
+        \item Defacement do site
+      \end{itemize}
+      \item \textbf{Impacto Tolerável quando:}
+      \begin{itemize}
+        \item Fórum apenas para entretenimento
+        \item Baixa ou nenhuma receita publicitária
+        \item Não utilizado para fins importantes (ex: pesquisa)
+      \end{itemize}
+      \item \textbf{Consequências:}
+      \begin{itemize}
+        \item Perda de dados limitada
+        \item Impacto financeiro pequeno
+        \item Perda de tempo do webmaster
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}{Exemplos de Requisitos de Integridade (2)}
+    
+  \begin{block}{\textbf{Nível Baixo de Integridade}}
+    \begin{itemize}
+      \item \textbf{Exemplo:} Pesquisa online anônima
+      \item \textbf{Características:}
+      \begin{itemize}
+        \item Poucas salvaguardas técnicas
+        \item Natureza não-científica reconhecida
+        \item Incerteza esperada nos resultados
+      \end{itemize}
+      \item \textbf{Contexto Típico:}
+      \begin{itemize}
+        \item Sites de notícias
+        \item Enquetes informais
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Disponibilidade - Níveis de Criticidade}
+
+\textbf{Conceito:} Quanto mais crítico o serviço ou componente, maior o nível de disponibilidade exigido.
+
+\vspace{0.5em}
+\begin{block}{\textbf{Exemplos por Nível de Disponibilidade}}
+\begin{itemize}
+  \item \textbf{Alta Disponibilidade:} Serviço de autenticação para sistemas críticos
+  \begin{itemize}
+    \item Interrupção impede acesso a recursos computacionais e tarefas essenciais
+    \item Resulta em perdas financeiras e de produtividade
+  \end{itemize}
+
+  \item \textbf{Disponibilidade Moderada:} Website público de universidade
+  \begin{itemize}
+    \item Afeta a imagem institucional e experiência de alunos e doadores
+    \item Não compromete operações internas
+  \end{itemize}
+
+  \item \textbf{Baixa Disponibilidade:} Aplicativo de consulta telefônica
+  \begin{itemize}
+    \item Sua ausência temporária é um incômodo leve
+    \item Há alternativas como listas impressas ou centrais telefônicas
+  \end{itemize}
+\end{itemize}
+\end{block}
+
+\begin{itemize}
+    \item \textbf{Pergunta:} A criticidade pode ser \textbf{sazonal}?
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Desafios da Segurança da Informação (1/3)}
+
+\textbf{Segurança e a sua complexidade}
+
+\vspace{0.5em}
+\begin{enumerate}
+  \item \textbf{Não é tão simples quanto parece:} Conceitos como confidencialidade e integridade parecem diretos, mas os mecanismos para alcançá-los são complexos.
+  
+  \item \textbf{Ataques inesperados:} É preciso considerar que o atacante pode pensar de forma não convencional e explorar fraquezas sutis.
+  
+  \item \textbf{Mecanismos contraintuitivos:} Algumas soluções parecem exageradas, até que as ameaças reais sejam compreendidas.
+  
+  \item \textbf{Decidir onde aplicar segurança:}
+    \begin{itemize}
+      \item \textit{Fisicamente:} Em quais pontos da rede?
+      \item \textit{Logicamente:} Em quais camadas da arquitetura (ex: TCP/IP)?
+    \end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Desafios da Segurança da Informação (2/3)}
+
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item \textbf{Mais do que algoritmos:} Envolve segredos (ex: chaves criptográficas), que exigem controle de criação, distribuição e proteção.
+
+  \item \textbf{Batalha de inteligência:} O atacante precisa encontrar uma falha. O defensor precisa fechar todas.
+
+  \item \textbf{Valor percebido só após falhas:} Muitas vezes o investimento em segurança só é reconhecido após um incidente.
+
+  \item \textbf{Exige monitoramento contínuo:} Difícil de manter em ambientes sobrecarregados e de curto prazo.
+\end{enumerate}
+
+\begin{enumerate}
+  \setcounter{enumi}{8}
+  \item \textbf{Segurança como pós-requisito:} Muitas vezes é incorporada tardiamente, depois que o sistema já foi projetado.
+
+  \item \textbf{Vista como obstáculo:} Usuários e até administradores veem segurança forte como algo que atrapalha a usabilidade ou eficiência do sistema.
+\end{enumerate}
+
+\end{frame}
+

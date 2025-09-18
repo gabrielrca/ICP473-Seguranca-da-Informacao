@@ -1,0 +1,8 @@
+\frametitle{Compilando o código com rdrand}
+\begin{verbatim}
+$nasm -f elf64 rdrand_bin.asm -o rdrand_bin.o
+$ld rdrand_bin.o -o rdrand_bin
+$ ./rdrand_bin | hexdump -C
+
+\end{verbatim}
+

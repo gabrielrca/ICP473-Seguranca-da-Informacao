@@ -1,0 +1,70 @@
+
+\begin{frame}{Exercício 1: Cifra de Substituição Simples com Frase-Chave}
+\textbf{Ideia:}  
+Cada letra do texto plano é substituída por outra letra, usando um \textbf{alfabeto substituto} gerado a partir de uma frase.
+
+\medskip
+\textbf{Passos:}
+\begin{enumerate}
+    \item Escolher uma chave (frase).  
+    \item Remover letras repetidas, mantendo apenas a primeira ocorrência.  
+    \item Completar o alfabeto com as letras que não apareceram na chave.  
+\end{enumerate}
+
+\medskip
+\textbf{Exemplo:}  
+\begin{itemize}
+    \item Texto plano: \texttt{abcdefghijklmnopqrstuvwxyz}  
+    \item Chave: \texttt{segurança da informação}  
+    \item Alfabeto cifrado: \texttt{segurancdifom...}  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercício 1:  Decriptação com Substituição}
+Um modo de solucionar o problema de distribuição de chave é usar uma linha de um livro que o emissor e o receptor possuem. Normalmente, pelo menos em romances de espionagem, a primeira sentença de um livro serve como chave. 
+
+\medskip
+O esquema em particular discutido neste problema é de um dos melhores romances de suspense envolvendo códigos secretos, \textit{Talking to Strange Men}, de Ruth Rendell. 
+
+\medskip
+\textbf{Exercício:}  
+Descubra essa frase:
+
+\begin{block}{Texto cifrado}
+\centering
+\texttt{SIDKHKDM AF HCRKIABIE SHIMC KD LFEAILA}
+\end{block}
+
+\textbf{Dica:} O texto foi cifrado usando a primeira sentença de \textit{The Other Side of Silence} (sobre o espião Kim Philby):
+
+\smallskip
+\emph{``the snow lay thick on the steps and the snowflakes driven by the wind looked black in the headlights of the cars''}
+\end{frame}
+
+
+\begin{frame}{Exercício 1:  Resposta}
+\textbf{Sentença usada como chave:} \\
+\emph{``the snow lay thick on the steps and the snowflakes driven by the wind looked black in the headlights of the cars''}
+
+\medskip
+\textbf{Letras únicas na ordem de aparição:} \\
+t, h, e, s, n, o, w, l, a, y, i, c, k, p, d, r, v, u, b, g, f
+
+\medskip
+\textbf{Tabela de substituição:}
+
+
+\footnotesize
+\begin{tabular}{ccccccccccccccccccccccccccc}
+ a & b & c & d & e & f & g & h & i & j & k & l & m & n & o & p & q & r & s & t & u & v & w & x & y & z \\
+\hline
+t & h & e & s & n & o & w & l & a & y & i & c & k & p & d & r & v & f & b & g & j & m & q & u & x & z \\
+\end{tabular}
+
+
+\medskip
+\begin{block}{Texto decifrado}
+\centering
+\texttt{BASILISK TO LEVIATHAN BLAKE IS CONTACT}
+\end{block}
+\end{frame}
