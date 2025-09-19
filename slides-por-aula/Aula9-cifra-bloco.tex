@@ -898,6 +898,12 @@ aplicação das subchaves é invertida. Além disso, as permutações inicial e 
         \end{itemize}
         \item O processo de confidencialidade é baseado no modo CTR (\textit{Counter Mode}).
         \item A autenticação é realizada pela função \textbf{GHASH}, que usa multiplicações em $\text{GF}(2^{128})$.
+        \begin{itemize}
+            \item \(GF(2^{128})\) é o campo de Galois com 128 bits: cada bloco de 128 bits é tratado como um polinômio de grau \(\leq 127\) com coeficientes 0 ou 1; a soma é XOR e a multiplicação é feita módulo 
+\[
+p(x) = x^{128}+x^7+x^2+x+1.
+\]
+        \end{itemize}
         \item O \textit{hash subkey} $H$ é obtido aplicando AES sobre o bloco nulo.
         \item O \textit{tag} de autenticação $T$ é gerado a partir dos dados confidenciais e dos dados adicionais autenticados (AAD).
         \item Na decriptação autenticada, o \textit{tag} é verificado para garantir integridade e autenticidade.
@@ -911,4 +917,48 @@ aplicação das subchaves é invertida. Além disso, as permutações inicial e 
 \centering
     \includegraphics[width=0.8\linewidth]{Figuras/aes-modo-gcm.png}
     
+\end{frame}
+
+\begin{frame}{AES-GCM: Campo de Galois e GHASH}
+\begin{itemize}
+    \item O GCM usa o campo finito \(GF(2^{128})\) para autenticação.
+    \item Cada bloco de 128 bits é tratado como um polinômio de grau até 127:
+    \[
+        b_0 + b_1 x + b_2 x^2 + \dots + b_{127} x^{127}, \quad b_i \in \{0,1\}
+    \]
+    \item A chave de hash \(H\) é gerada cifrando um bloco de zeros com AES.
+    \item O GHASH combina cada bloco de dados ou AAD com \(H\) assim:
+    \[
+        X_i = (X_{i-1} \oplus B_i) \cdot H \mod p(x)
+    \]
+    \item O polinômio irreducível usado é fixo pelo padrão NIST:
+    \[
+        p(x) = x^{128} + x^7 + x^2 + x + 1
+    \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fluxo de autenticação no AES-GCM (GHASH)}
+O fluxo de autenticação no AES-GCM (GHASH) funciona assim:
+
+\begin{enumerate}
+    \item Pega o acumulador do bloco anterior $X$ (ou zero no primeiro bloco).
+    \item Faz XOR com o bloco atual da mensagem $P$.
+    \item Multiplica o resultado pelo $H$, que é a chave de hash obtida cifrando um bloco de zeros com AES.
+    \item Reduz módulo o polinômio
+    \[
+        p(x) = x^{128} + x^7 + x^2 + x + 1
+    \]
+    para manter 128 bits.
+\end{enumerate}
+
+Ou seja, cada passo é:
+\[
+X_i = ((X_{i-1} \oplus P_i) \cdot H) \bmod p(x)
+\]
+
+\begin{itemize}
+    \item O XOR encadeia os blocos e mistura os dados.
+    \item O módulo garante que o resultado continue com 128 bits, pronto para o próximo bloco ou para gerar a Tag final.
+\end{itemize}
 \end{frame}
