@@ -1,4 +1,4 @@
-# ICP473 - Segurança da Informação (Slides)
+# ICP473 - Segurança da Informação
 
 Este repositório contém os slides utilizados na disciplina **ICP473 - Segurança da Informação** do **Instituto de Computação da UFRJ**.
 
@@ -9,8 +9,9 @@ Os slides acompanham o conteúdo programático da disciplina, abordando fundamen
 **ICP473**
 
 ## Estrutura
-- `slides-por-aula/` → slides organizados por encontro
-- `Figuras/` → imagens e diagramas utilizados
+- `ICP473-Listas` → Listas de exercícios criadas para a disciplina
+- `ICP473-Slides` → Slides dos temas abordados em aula 
+- `ICP473-Codigo` → Códigos abordados em aula 
 
 
 ## Observação
