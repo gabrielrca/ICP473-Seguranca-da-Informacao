@@ -1,9 +1,9 @@
-PWD /home/coder/project/ICP473-Segurança-da-Informação-Listas
+PWD /home/coder/project/ICP473-Segurança-da-Informação/ICP473-Listas
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/coder/project/ICP473-Segurança-da-Informação-Listas/main.tex
+INPUT /home/coder/project/ICP473-Segurança-da-Informação/ICP473-Listas/main.tex
 OUTPUT main.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
