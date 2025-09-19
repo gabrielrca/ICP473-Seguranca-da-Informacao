@@ -1,0 +1,116 @@
+\title{Laboratório WEP}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+\section*{Informações Gerais}
+
+Este laboratório consiste na exploração prática das vulnerabilidades dos protocolos de segurança WEP, WPA e WPA2 discutidas em aula.
+
+\textbf{Ferramental utilizado:}
+\begin{itemize}
+    \item \texttt{iwconfig}: Ferramenta nativa nos sistemas UNIX-like usada para verificar o estado e configurar interfaces de rede sem fio
+    \item \texttt{Aircrack-NG}: Suite de ferramentas para auditoria em redes 802.11
+    \begin{itemize}
+        \item \texttt{airmon-ng}: Habilita e desabilita o modo “Monitor” nas interfaces de rede sem fio
+        \item \texttt{airodump-ng}: Captura quadros 802.11 completos
+        \item \texttt{aireplay-ng}: Injeta e reenvia quadros 802.11, além de implementar alguns ataques
+        \item \texttt{airolib-ng}: Pré-computa chaves WPA ou WPA2 para agilizar quebra por força bruta
+        \item \texttt{aircrack-ng}: Quebra chaves WEP e WPA/WPA2 no modo pessoal
+        \item \texttt{airdecap-ng}: Decodifica arquivos de captura codificados com WEP, WPA ou WPA2
+    \end{itemize}
+\end{itemize}
+
+\section*{Parte I: Exploração do ataque estatístico sobre redes 802.11 com WEP}
+
+\textbf{Objetivo:} Recuperar a chave de uma rede 802.11 que utiliza WEP \cite{vibhuti2005ieee}.  
+
+\textbf{Tempo previsto:} 45 minutos  
+
+A técnica utilizada foi publicada em \cite{Fluhrer2001} e estendida em \cite{Tews2007}. Ela explora falhas intrínsecas do RC4 (como repetição de IVs) e falhas de implementação (como correlação entre bits da chave WEP e o primeiro byte de todos os IVs).
+
+\subsection*{Procedimentos}
+
+\textbf{Passo 1: Configurar a interface no modo “Monitor”}
+\begin{itemize}
+    \item \textbf{Ferramentas:} \texttt{airmon-ng}, \texttt{iwconfig}
+    \item airmon-ng start wlan0: Coloca a interface wlan0 em modo “Monitor”
+ \item iwconfig :Checa se a interface foi colocada em modo monitoração
+É possível que uma interface virtual seja criada em modo monitor
+
+    \item \textbf{Comandos:}
+    \begin{verbatim}
+    airmon-ng start wlan0
+    iwconfig
+    \end{verbatim}
+\end{itemize}
+
+\textbf{Passo 2: Capturar quadros da rede alvo}
+\begin{itemize}
+    \item \textbf{Ferramentas:} \texttt{airodump-ng}
+ \item airodump-ng mon0
+ \begin{itemize}
+     \item Mostra todas as redes sem fio no alcance
+     \item Obtem as seguintes informações:
+     \item BSSID do AP,
+     \item Canal em que a rede está operando,
+     \item Endereço MAC de um cliente ativo na rede (preferência para um que esteja gerando muito tráfego).
+ \end{itemize}
+\item airodump-ng --channel [CHANNEL] --bssid [BSSID] -w [PREFFIX] mon0: 
+\begin{itemize}
+    \item Captura de quadros específica da rede sem fio alvo 
+    \item -w [PREFIX]: significa que você vai passar um prefixo de arquivo para salvar ou carregar
+\end{itemize}
+
+
+
+    
+    \item \textbf{Comandos:}
+    \begin{verbatim}
+    airodump-ng mon0
+    airodump-ng --channel [CHANNEL] --bssid [BSSID] -w [PREFFIX] mon0
+    \end{verbatim}
+\end{itemize}
+
+\textbf{Passo 3: Acelerar geração de IVs}
+\begin{itemize}
+    \item \textbf{Ferramentas:} \texttt{aireplay-ng}
+    \item Executa o ataque 3 da ferramenta aireplay-ng
+        \item o ARP Request Replay Attack
+Reenvia quadros “ARP Request” capturados vindos do MAC especificado
+   \item Cada quadro “ARP Request” provoca um “ARP Response” com um novo IV
+
+    \item \textbf{Comando:}
+    \begin{verbatim}
+    aireplay-ng -3 -b [BSSID] -m [MAC] mon0
+    \end{verbatim}
+\end{itemize}
+
+\textbf{Passo 4: Recuperar a chave WEP}
+\begin{itemize}
+    \item \textbf{Ferramentas:} \texttt{aircrack-ng}
+    \item Especifica que o ataque de \cite{Tews2007} deve ser executado antes do de \cite{Fluhrer2001}
+    \item Procura repetição de IVs no arquivo de captura passado como parâmetro
+    \item Exibe a chave WEP recuperada
+
+    \item \textbf{Comando:}
+    \begin{verbatim}
+    aircrack-ng -P 2 [PREFFIX]-01.cap
+    \end{verbatim}
+\end{itemize}
+
+\textbf{Passo 5: Decodificar o arquivo de captura}
+\begin{itemize}
+    \item \textbf{Ferramentas:} \texttt{airdecap-ng}
+    \item \textbf{Comando:}
+    \begin{verbatim}
+    airdecap-ng -w [CHAVE] [PREFFIX]-01.cap
+    \end{verbatim}
+\end{itemize}
+
+\bibliographystyle{plain}
+    \bibliography{bib}
+
+\end{document}

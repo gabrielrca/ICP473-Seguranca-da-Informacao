@@ -1,0 +1,63 @@
+\title{Lista de exercícios: Números aleatórios e cifras de bloco}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{PRNG e TRNG}
+Tradicionalmente, a preocupação na geração de uma sequência de números supostamente aleatórios é garantir que a sequência seja estatisticamente aleatória. 
+\begin{itemize}
+    \item Explique a diferença fundamental entre um TRNG e um PRNG.
+    \item Cite dois critérios principais que são usados para validar a aleatoriedade.
+    \item O que é propensão, que os TRNG costumam apresentar
+    \item É comum que os TRNG sejam usados para alimentar um PRNG. Diga como e qual o motivo disso acontecer.
+\end{itemize}
+Justifique suas respostas.
+
+
+\section{Princípios de Shannon na Cifra de Feistel} 
+
+Considere o código abaixo:
+\begin{verbatim}
+def funcao_F(R,K):
+  return (R * K ) & 0xFF
+
+chave = 0b10101010                   
+bloco = 0b1100110010101010   
+L = (bloco >> 8) & 0xFF
+R = bloco & 0xFF 
+F = funcao_F(R, chave)
+L1 = R
+R1 = L ^ F
+cifrado = (L1 << 8) | R1 
+L = (cifrado >> 8) & 0xFF
+R = cifrado & 0xFF
+invertido = (R << 8) | L
+print(f"Fim: {invertido:016b}")      
+\end{verbatim}
+
+\begin{itemize}
+    \item Explique os seguintes conceitos propostos por Claude Shannon: Confusão e Difusão. 
+    \item Relacione como cada um deles é implementado na estrutura de uma Cifra de Feistel, usando o a implementação de uma rodada de Feistel apresentada em aula.
+    \item A Função F do código apresentado em aula é dado por: $(R * K) \& 0xFF$. Essa função é linear. Shannon enfatizou a necessidade de não-linearidade para a função F. Discuta.
+    \item Apesar de simples, a Cifra de Feistel é base para uma série de cifras comerciais, antigas e atuais. Diga quais são os principais parâmetros que podemos modificar em uma Cifra de Feistel que pode deixá-la mais robusta e resistente à ataques.
+\end{itemize}
+
+\section{DES e o 3DES}
+
+O 3DES foi criado em resposta a problemas de segurança encontrados no DES.
+\begin{enumerate}
+    \item Discorra sobre os motivos principais que motivaram a substituição do DES.
+    \item O 3DES teve como objetivo ser compatível com o DES. Explique como essa compatibilidade foi alcançada.
+    \item Considerando que o 3DES aplica o algoritmo DES três vezes, qual é o tamanho efetivo de chave quando utilizamos:
+    \begin{enumerate}
+        \item Três chaves independentes ($K_1$, $K_2$, $K_3$)?
+        \item Apenas duas chaves ($K_1 = K_3$)?
+    \end{enumerate}
+    \item Apesar de o 3DES utilizar 3 chaves, o que na prática nos dá uma chave maior que o DES, ele tinha o mesmo tamanho de bloco. Qual era o problema disso?
+    Justifique sua resposta.
+\end{enumerate}
+
+\end{document}

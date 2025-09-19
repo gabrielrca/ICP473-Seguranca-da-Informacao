@@ -1,0 +1,56 @@
+\title{Lista de exercícios: Cifras de Fluxo e RC4}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+\section{RC4 – Inicialização do Vetor S (KSA)}  
+
+    
+    
+    Considere a chave $K=[0x01,0x02,0x03]$ (3 bytes).
+    \begin{enumerate}
+        \item Descreva os passos da inicialização do vetor $S$ no RC4 (Key Scheduling Algorithm).
+        \item Como fica o vetor $T$ após o preenchimento com a chave?
+        \item Calcule $j$ para o primeiro índice $i=0$. Dica: $j=(j+S[i]+T[i]) \bmod 256$.
+        \item Após calcular $j$, diga o que deve ser feito e como ficará a sequência.
+    \end{enumerate}
+
+\section{Vulnerabilidades em Cifras de Fluxo}  
+    
+    Suponha que duas mensagens $p_1$ e $p_2$ foram cifradas com a mesma chave $k$ usando uma cifra de fluxo:
+    \[
+        c_1 = p_1 \oplus k \quad\quad c_2 = p_2 \oplus k
+    \]
+    \begin{enumerate}
+        \item Um adversário intercepta $c_1$ e $c_2$. Mostre como ele pode obter $p_1 \oplus p_2$.
+        \item Por que isso é perigoso se o adversário conhece parte de $p_1$ (por exemplo, o formato de um protocolo, como \texttt{GET / HTTP/1.1})? Relacione com o ataque de texto conhecido.
+        \item Digamos que, sabendo de partes de $p_1$, temos capturados $c_1$ e $c_2$, e no fluxo binário, na posição $i$, temos $c_1[i] = 1$, $c_2[i] = 0$, $p_1[i] = 1$. Qual o valor de $p_2[i]$?
+    \end{enumerate}
+
+\section{Previsibilidade de Números Pseudoaleatórios}  
+    
+    Em aplicações como autenticação recíproca, geração de chaves de sessão e cifras de fluxo, o requisito principal não é a uniformidade estatística, mas a \textbf{imprevisibilidade} dos números sucessivos. Um gerador de fluxo de chaves deve produzir uma sequência que se aproxime de um fluxo verdadeiramente aleatório.
+    \begin{enumerate}
+        \item Como um gerador pseudoaleatório pode usar uma fonte de entropia?
+        \item Exemplifique tipos de fontes de entropia.
+        \item O que pode acontecer se o fluxo de chaves for previsível?
+    \end{enumerate}
+
+\section{RC4 no WEP}  
+    
+    O RC4 foi utilizado no protocolo WEP (Wired Equivalent Privacy), mas com várias limitações.
+    \begin{enumerate}
+        \item Explique o que é o \textit{IV} (Initialization Vector) e como o WEP o utilizou em conjunto com a chave secreta.
+        \item Além do uso do IV, o WEP também adota um método de autenticação \textit{challenge-response}. Por que esse método é inseguro?
+    \end{enumerate}
+
+\section{Cifra de Fluxo vs. One-Time Pad (OTP)}
+    \begin{enumerate}
+        \item Quais são as semelhanças e diferenças entre uma cifra de fluxo e o One-Time Pad?
+        \item Por que o One-Time Pad é considerado inquebrável?
+        \item Por que não é prático usar o One-Time Pad em grande escala?
+    \end{enumerate}
+
+\end{document}
