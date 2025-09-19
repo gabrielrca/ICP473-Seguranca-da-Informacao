@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.9.18)  18 SEP 2025 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.9.18)  19 SEP 2025 02:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -861,7 +861,7 @@ Package pdftex.def Info: Figuras/esquema4-hash.png  used on input line 300.
 <Figuras/hash-certificado-digtal1.png, id=223, 554.82281pt x 137.7647pt>
 File: Figuras/hash-certificado-digtal1.png Graphic file (type png)
 <use Figuras/hash-certificado-digtal1.png>
-Package pdftex.def Info: Figuras/hash-certificado-digtal1.png  used on input line 317.
+Package pdftex.def Info: Figuras/hash-certificado-digtal1.png  used on input line 316.
 (pdftex.def)             Requested size: 288.00952pt x 71.514pt.
  [21
 
@@ -869,7 +869,7 @@ Package pdftex.def Info: Figuras/hash-certificado-digtal1.png  used on input lin
 <Figuras/hash-certificado-digtal2.png, id=230, 554.82281pt x 137.7647pt>
 File: Figuras/hash-certificado-digtal2.png Graphic file (type png)
 <use Figuras/hash-certificado-digtal2.png>
-Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input line 330.
+Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input line 329.
 (pdftex.def)             Requested size: 288.00952pt x 71.514pt.
  [22
 
@@ -881,7 +881,7 @@ Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input lin
 <Figuras/funcao-hash-simples.png, id=249, 596.2275pt x 281.05pt>
 File: Figuras/funcao-hash-simples.png Graphic file (type png)
 <use Figuras/funcao-hash-simples.png>
-Package pdftex.def Info: Figuras/funcao-hash-simples.png  used on input line 386.
+Package pdftex.def Info: Figuras/funcao-hash-simples.png  used on input line 385.
 (pdftex.def)             Requested size: 205.72198pt x 96.97092pt.
  [25
 
@@ -889,7 +889,7 @@ Package pdftex.def Info: Figuras/funcao-hash-simples.png  used on input line 386
 <Figuras/hash-simples-xor.png, id=257, 752.8125pt x 591.71063pt>
 File: Figuras/hash-simples-xor.png Graphic file (type png)
 <use Figuras/hash-simples-xor.png>
-Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 394.
+Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 393.
 (pdftex.def)             Requested size: 267.43607pt x 210.20772pt.
  [26
 
@@ -903,10 +903,10 @@ Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 394.
 <Figuras/requisitos-funcao-hash.png, id=282, 648.92438pt x 313.17pt>
 File: Figuras/requisitos-funcao-hash.png Graphic file (type png)
 <use Figuras/requisitos-funcao-hash.png>
-Package pdftex.def Info: Figuras/requisitos-funcao-hash.png  used on input line 436.
+Package pdftex.def Info: Figuras/requisitos-funcao-hash.png  used on input line 435.
 (pdftex.def)             Requested size: 370.29706pt x 178.70467pt.
 
-Overfull \vbox (1.23929pt too high) detected at line 436
+Overfull \vbox (1.23929pt too high) detected at line 435
  []
 
 [30
@@ -923,10 +923,10 @@ Overfull \vbox (1.23929pt too high) detected at line 436
 <Figuras/relacao-entre-propriedades-hash.png, id=311, 837.88031pt x 322.95656pt>
 File: Figuras/relacao-entre-propriedades-hash.png Graphic file (type png)
 <use Figuras/relacao-entre-propriedades-hash.png>
-Package pdftex.def Info: Figuras/relacao-entre-propriedades-hash.png  used on input line 508.
+Package pdftex.def Info: Figuras/relacao-entre-propriedades-hash.png  used on input line 507.
 (pdftex.def)             Requested size: 370.29706pt x 142.72716pt.
 
-Overfull \vbox (9.19096pt too high) detected at line 508
+Overfull \vbox (9.19096pt too high) detected at line 507
  []
 
 [35
@@ -935,7 +935,7 @@ Overfull \vbox (9.19096pt too high) detected at line 508
 <Figuras/propriedades-resistencia-hash.png, id=318, 837.88031pt x 306.39468pt>
 File: Figuras/propriedades-resistencia-hash.png Graphic file (type png)
 <use Figuras/propriedades-resistencia-hash.png>
-Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on input line 518.
+Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on input line 517.
 (pdftex.def)             Requested size: 411.44397pt x 150.45262pt.
  [36
 
@@ -953,12 +953,12 @@ Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on inpu
 <Figuras/resumo-do-esforco-exigido.png, id=353, 508.14844pt x 143.78719pt>
 File: Figuras/resumo-do-esforco-exigido.png Graphic file (type png)
 <use Figuras/resumo-do-esforco-exigido.png>
-Package pdftex.def Info: Figuras/resumo-do-esforco-exigido.png  used on input line 576.
+Package pdftex.def Info: Figuras/resumo-do-esforco-exigido.png  used on input line 575.
 (pdftex.def)             Requested size: 288.00952pt x 81.4988pt.
  [42
 
  <./Figuras/resumo-do-esforco-exigido.png>]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 593.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 592.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 ) [43
@@ -971,7 +971,7 @@ File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 <Figuras/estrutura-gera-hash-seguro.png, id=377, 1017.8025pt x 369.63094pt>
 File: Figuras/estrutura-gera-hash-seguro.png Graphic file (type png)
 <use Figuras/estrutura-gera-hash-seguro.png>
-Package pdftex.def Info: Figuras/estrutura-gera-hash-seguro.png  used on input line 625.
+Package pdftex.def Info: Figuras/estrutura-gera-hash-seguro.png  used on input line 624.
 (pdftex.def)             Requested size: 370.29706pt x 134.47705pt.
  [46
 
@@ -979,7 +979,7 @@ Package pdftex.def Info: Figuras/estrutura-gera-hash-seguro.png  used on input l
 <Figuras/pode-ser-resumida-seg-forma.png, id=384, 522.45187pt x 149.05687pt>
 File: Figuras/pode-ser-resumida-seg-forma.png Graphic file (type png)
 <use Figuras/pode-ser-resumida-seg-forma.png>
-Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input line 633.
+Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input line 632.
 (pdftex.def)             Requested size: 370.29706pt x 105.64915pt.
  [47
 
@@ -997,7 +997,7 @@ Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input 
 <Figuras/tabela-sha.png, id=417, 1023.825pt x 429.10312pt>
 File: Figuras/tabela-sha.png Graphic file (type png)
 <use Figuras/tabela-sha.png>
-Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 709.
+Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 708.
 (pdftex.def)             Requested size: 411.44397pt x 172.44356pt.
  [53
 
@@ -1009,7 +1009,7 @@ Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 709.
 <Figuras/buffer-hash-sha256.png, id=435, 570.63188pt x 117.43875pt>
 File: Figuras/buffer-hash-sha256.png Graphic file (type png)
 <use Figuras/buffer-hash-sha256.png>
-Package pdftex.def Info: Figuras/buffer-hash-sha256.png  used on input line 753.
+Package pdftex.def Info: Figuras/buffer-hash-sha256.png  used on input line 752.
 (pdftex.def)             Requested size: 389.54391pt x 80.16908pt.
  [56
 
