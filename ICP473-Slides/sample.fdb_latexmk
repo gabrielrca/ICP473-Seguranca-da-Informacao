@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1758386033 "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Slides/sample.tex" "sample.pdf" "sample" 1758386035 0
+["pdflatex"] 1758388352 "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Slides/sample.tex" "sample.pdf" "sample" 1758388355 0
   "/etc/texmf/web2c/texmf.cnf" 1758382269 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Slides/sample.tex" 1758386023 1266 1fc5fb6c693a58347f0d0c3495baa11a ""
+  "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Slides/sample.tex" 1758388352 1261 5b691e94d8c48b14c3025a4adeaf5f5d ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1136768653 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -245,10 +245,10 @@
   "beamerfontthemeSimpleDarkBlue.sty" 1758227326 1415 7f3c6b511b7db0d7ad2ec03af90863b5 ""
   "beamerinnerthemeSimpleDarkBlue.sty" 1758227326 2393 f22e69a0c8325624047edfa537865049 ""
   "beamerthemeSimpleDarkBlue.sty" 1758227326 643 e52de2bf7b2f3372599a1697f857ed0d ""
-  "sample.aux" 1758386035 8048 3da08f97d6bf186d17b4972a54d7623e "pdflatex"
-  "sample.nav" 1758386035 5387 34cb902ffa9b5ca7a490f9b3dd2c5d5b "pdflatex"
-  "sample.out" 1758386033 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "sample.tex" 1758386023 1266 1fc5fb6c693a58347f0d0c3495baa11a ""
+  "sample.aux" 1758388355 8048 3da08f97d6bf186d17b4972a54d7623e "pdflatex"
+  "sample.nav" 1758388355 5387 34cb902ffa9b5ca7a490f9b3dd2c5d5b "pdflatex"
+  "sample.out" 1758388353 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "sample.tex" 1758388352 1261 5b691e94d8c48b14c3025a4adeaf5f5d ""
   "slides-por-aula/Aula10-hash.tex" 1758385826 34669 301d0b9ded84daeab3a228ccee04290b ""
   (generated)
   "sample.aux"
