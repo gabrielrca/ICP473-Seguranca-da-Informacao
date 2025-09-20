@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758293950 "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Listas/main.tex" "main.pdf" "main" 1758293951 0
+["pdflatex"] 1758317112 "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Listas/main.tex" "main.pdf" "main" 1758317113 0
   "/etc/texmf/web2c/texmf.cnf" 1758215940 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/coder/project/ICP473-Segurança-da-Informação/ICP473-Listas/main.tex" 1758250247 156 b2c6db0d73dc268404fca03c90918061 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -61,8 +61,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1758215971 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1758216059 7881694 ad805bbbe6ee15638b9cd34cc21554ef ""
-  "listas-de-exercicios/lista3.tex" 1758293950 2772 2c9c609664fd893bd4005d1aa7d44f9e ""
-  "main.aux" 1758293951 361 61aa1f3b0cdb8e57e027e08e2c992c21 "pdflatex"
+  "listas-de-exercicios/lista3.tex" 1758317112 2772 2c9c609664fd893bd4005d1aa7d44f9e ""
+  "main.aux" 1758317113 361 61aa1f3b0cdb8e57e027e08e2c992c21 "pdflatex"
   "main.tex" 1758250247 156 b2c6db0d73dc268404fca03c90918061 ""
   (generated)
   "main.aux"
