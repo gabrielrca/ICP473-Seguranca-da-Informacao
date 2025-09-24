@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.9.23)  23 SEP 2025 21:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.9.23)  24 SEP 2025 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -751,7 +751,7 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/share/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./sample.nav) (./slides-por-aula/Aula10-hash.tex
+) (./sample.nav) (./slides-por-aula/Apresentação-do-Curso.tex
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 3.
@@ -761,104 +761,170 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+<Figuras/livro-stallings-sec.png, id=34, 499.11469pt x 653.44125pt>
+File: Figuras/livro-stallings-sec.png Graphic file (type png)
+<use Figuras/livro-stallings-sec.png>
+Package pdftex.def Info: Figuras/livro-stallings-sec.png  used on input line 46.
+(pdftex.def)             Requested size: 164.5782pt x 215.46677pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 37.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 46.
  (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
+Overfull \vbox (3.20137pt too high) detected at line 46
+ []
+
+
 
 [2
 
-]
+ <./Figuras/livro-stallings-sec.png>]
+<Figuras/livro-stallings-cripto.png, id=44, 461.47406pt x 621.07031pt>
+File: Figuras/livro-stallings-cripto.png Graphic file (type png)
+<use Figuras/livro-stallings-cripto.png>
+Package pdftex.def Info: Figuras/livro-stallings-cripto.png  used on input line 66.
+(pdftex.def)             Requested size: 164.5782pt x 221.49077pt.
+
+Overfull \vbox (9.22537pt too high) detected at line 66
+ []
+
+
 
 [3
 
-]
+ <./Figuras/livro-stallings-cripto.png>]
+Overfull \vbox (9.92389pt too high) detected at line 96
+ []
+
+
 
 [4
 
-]
-<Figuras/Hash-moedor.png, id=53, 584.93532pt x 300.3722pt>
-File: Figuras/Hash-moedor.png Graphic file (type png)
-<use Figuras/Hash-moedor.png>
-Package pdftex.def Info: Figuras/Hash-moedor.png  used on input line 79.
-(pdftex.def)             Requested size: 329.15642pt x 169.03226pt.
+]) (./slides-por-aula/Aula1-Motivacao-inicial.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
 
 
 [5
 
- <./Figuras/Hash-moedor.png>]
+]
+<Figuras/IoT-ransomware.png, id=113, 742.775pt x 653.44125pt>
+File: Figuras/IoT-ransomware.png Graphic file (type png)
+<use Figuras/IoT-ransomware.png>
+Package pdftex.def Info: Figuras/IoT-ransomware.png  used on input line 29.
+(pdftex.def)             Requested size: 259.2117pt x 228.03983pt.
+
+Overfull \vbox (15.77443pt too high) detected at line 29
+ []
+
+
 
 [6
 
-]
+ <./Figuras/IoT-ransomware.png>]
 
 [7
 
 ]
+<Figuras/gmail1.png, id=163, 987.69pt x 875.27pt>
+File: Figuras/gmail1.png Graphic file (type png)
+<use Figuras/gmail1.png>
+Package pdftex.def Info: Figuras/gmail1.png  used on input line 66.
+(pdftex.def)             Requested size: 197.49133pt x 175.01083pt.
+<Figuras/gmail2.png, id=164, 486.31688pt x 480.29437pt>
+File: Figuras/gmail2.png Graphic file (type png)
+<use Figuras/gmail2.png>
+Package pdftex.def Info: Figuras/gmail2.png  used on input line 66.
+(pdftex.def)             Requested size: 197.49133pt x 195.0458pt.
+
 
 [8
 
-]
-<Figuras/autenticacao-basica.png, id=78, 349.305pt x 227.34938pt>
-File: Figuras/autenticacao-basica.png Graphic file (type png)
-<use Figuras/autenticacao-basica.png>
-Package pdftex.def Info: Figuras/autenticacao-basica.png  used on input line 143.
-(pdftex.def)             Requested size: 246.86888pt x 160.68027pt.
+ <./Figuras/gmail1.png> <./Figuras/gmail2.png>]
+<Figuras/crowdstrike1.png, id=173, 593.96906pt x 542.025pt>
+File: Figuras/crowdstrike1.png Graphic file (type png)
+<use Figuras/crowdstrike1.png>
+Package pdftex.def Info: Figuras/crowdstrike1.png  used on input line 81.
+(pdftex.def)             Requested size: 197.49133pt x 180.2169pt.
+<Figuras/crowdstrike2.png, id=174, 4047.12pt x 3035.34pt>
+File: Figuras/crowdstrike2.png Graphic file (type png)
+<use Figuras/crowdstrike2.png>
+Package pdftex.def Info: Figuras/crowdstrike2.png  used on input line 81.
+(pdftex.def)             Requested size: 197.49133pt x 148.11696pt.
 
 
 [9
 
- <./Figuras/autenticacao-basica.png>]
-<Figuras/mitm-autenticacao-hash.png, id=99, 578.91281pt x 532.23843pt>
-File: Figuras/mitm-autenticacao-hash.png Graphic file (type png)
-<use Figuras/mitm-autenticacao-hash.png>
-Package pdftex.def Info: Figuras/mitm-autenticacao-hash.png  used on input line 151.
-(pdftex.def)             Requested size: 246.86888pt x 226.96579pt.
+ <./Figuras/crowdstrike1.png> <./Figuras/crowdstrike2.png>]
+<Figuras/megavazamento1.png, id=183, 388.45125pt x 191.21437pt>
+File: Figuras/megavazamento1.png Graphic file (type png)
+<use Figuras/megavazamento1.png>
+Package pdftex.def Info: Figuras/megavazamento1.png  used on input line 96.
+(pdftex.def)             Requested size: 197.49133pt x 97.21751pt.
+<Figuras/megavazamento2.png, id=184, 392.21532pt x 213.04594pt>
+File: Figuras/megavazamento2.png Graphic file (type png)
+<use Figuras/megavazamento2.png>
+Package pdftex.def Info: Figuras/megavazamento2.png  used on input line 96.
+(pdftex.def)             Requested size: 197.49133pt x 107.27689pt.
+<Figuras/megavazamento3.png, id=185, 377.15906pt x 327.47343pt>
+File: Figuras/megavazamento3.png Graphic file (type png)
+<use Figuras/megavazamento3.png>
+Package pdftex.def Info: Figuras/megavazamento3.png  used on input line 96.
+(pdftex.def)             Requested size: 197.49133pt x 171.47142pt.
 
-Overfull \vbox (14.7004pt too high) detected at line 151
+Overfull \vbox (1.83316pt too high) detected at line 96
  []
 
 
 
 [10
 
- <./Figuras/mitm-autenticacao-hash.png>]
+ <./Figuras/megavazamento1.png> <./Figuras/megavazamento2.png> <./Figuras/megavazamento3.png>]
+Overfull \vbox (1.2474pt too high) detected at line 123
+ []
+
+
 
 [11
 
-]
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 [12
 
 ]
-<Figuras/esquema1-hash.png, id=125, 501.37312pt x 128.73094pt>
-File: Figuras/esquema1-hash.png Graphic file (type png)
-<use Figuras/esquema1-hash.png>
-Package pdftex.def Info: Figuras/esquema1-hash.png  used on input line 195.
-(pdftex.def)             Requested size: 288.00952pt x 73.95094pt.
-
 
 [13
 
- <./Figuras/esquema1-hash.png>]
-<Figuras/esquema2-hash.png, id=133, 425.33907pt x 120.45pt>
-File: Figuras/esquema2-hash.png Graphic file (type png)
-<use Figuras/esquema2-hash.png>
-Package pdftex.def Info: Figuras/esquema2-hash.png  used on input line 209.
-(pdftex.def)             Requested size: 288.00952pt x 81.56488pt.
+]
+<Figuras/budget-seguranca-antes-depois.png, id=299, 1505.625pt x 2007.5pt>
+File: Figuras/budget-seguranca-antes-depois.png Graphic file (type png)
+<use Figuras/budget-seguranca-antes-depois.png>
+Package pdftex.def Info: Figuras/budget-seguranca-antes-depois.png  used on input line 171.
+(pdftex.def)             Requested size: 157.99367pt x 210.65587pt.
+<Figuras/empregado-clicou-errado.png, id=300, 903.375pt x 587.19376pt>
+File: Figuras/empregado-clicou-errado.png Graphic file (type png)
+<use Figuras/empregado-clicou-errado.png>
+Package pdftex.def Info: Figuras/empregado-clicou-errado.png  used on input line 171.
+(pdftex.def)             Requested size: 197.49133pt x 128.36768pt.
 
 
 [14
 
- <./Figuras/esquema2-hash.png>]
+ <./Figuras/budget-seguranca-antes-depois.png> <./Figuras/empregado-clicou-errado.png>]) (./slides-por-aula/Aula2-Conceitos-Confidencialidade-Integridade.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
 
 [15
 
@@ -867,16 +933,10 @@ Package pdftex.def Info: Figuras/esquema2-hash.png  used on input line 209.
 [16
 
 ]
-<Figuras/esquema3-hash.png, id=186, 441.14813pt x 104.64093pt>
-File: Figuras/esquema3-hash.png Graphic file (type png)
-<use Figuras/esquema3-hash.png>
-Package pdftex.def Info: Figuras/esquema3-hash.png  used on input line 264.
-(pdftex.def)             Requested size: 288.00952pt x 68.31915pt.
-
 
 [17
 
- <./Figuras/esquema3-hash.png>]
+]
 
 [18
 
@@ -885,36 +945,18 @@ Package pdftex.def Info: Figuras/esquema3-hash.png  used on input line 264.
 [19
 
 ]
-<Figuras/esquema4-hash.png, id=204, 506.6428pt x 104.64093pt>
-File: Figuras/esquema4-hash.png Graphic file (type png)
-<use Figuras/esquema4-hash.png>
-Package pdftex.def Info: Figuras/esquema4-hash.png  used on input line 300.
-(pdftex.def)             Requested size: 288.00952pt x 59.48627pt.
-
 
 [20
 
- <./Figuras/esquema4-hash.png>]
-<Figuras/hash-certificado-digtal1.png, id=223, 554.82281pt x 137.7647pt>
-File: Figuras/hash-certificado-digtal1.png Graphic file (type png)
-<use Figuras/hash-certificado-digtal1.png>
-Package pdftex.def Info: Figuras/hash-certificado-digtal1.png  used on input line 316.
-(pdftex.def)             Requested size: 288.00952pt x 71.514pt.
-
+]
 
 [21
 
- <./Figuras/hash-certificado-digtal1.png>]
-<Figuras/hash-certificado-digtal2.png, id=230, 554.82281pt x 137.7647pt>
-File: Figuras/hash-certificado-digtal2.png Graphic file (type png)
-<use Figuras/hash-certificado-digtal2.png>
-Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input line 329.
-(pdftex.def)             Requested size: 288.00952pt x 71.514pt.
-
+]
 
 [22
 
- <./Figuras/hash-certificado-digtal2.png>]
+]
 
 [23
 
@@ -923,30 +965,25 @@ Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input lin
 [24
 
 ]
-<Figuras/funcao-hash-simples.png, id=249, 596.2275pt x 281.05pt>
-File: Figuras/funcao-hash-simples.png Graphic file (type png)
-<use Figuras/funcao-hash-simples.png>
-Package pdftex.def Info: Figuras/funcao-hash-simples.png  used on input line 385.
-(pdftex.def)             Requested size: 205.72198pt x 96.97092pt.
-
 
 [25
 
- <./Figuras/funcao-hash-simples.png>]
-<Figuras/hash-simples-xor.png, id=257, 752.8125pt x 591.71063pt>
-File: Figuras/hash-simples-xor.png Graphic file (type png)
-<use Figuras/hash-simples-xor.png>
-Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 393.
-(pdftex.def)             Requested size: 267.43607pt x 210.20772pt.
+]
+Overfull \vbox (6.87157pt too high) detected at line 238
+ []
+
 
 
 [26
 
- <./Figuras/hash-simples-xor.png>]
+]
 
 [27
 
 ]
+\openout4 = `sample.vrb'.
+
+ (./sample.vrb)
 
 [28
 
@@ -954,21 +991,16 @@ Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 393.
 
 [29
 
-]
-<Figuras/requisitos-funcao-hash.png, id=282, 648.92438pt x 313.17pt>
-File: Figuras/requisitos-funcao-hash.png Graphic file (type png)
-<use Figuras/requisitos-funcao-hash.png>
-Package pdftex.def Info: Figuras/requisitos-funcao-hash.png  used on input line 435.
-(pdftex.def)             Requested size: 370.29706pt x 178.70467pt.
+]) (./slides-por-aula/Aula3-Disponibilidade-Flows-de-Rede.tex
 
-Overfull \vbox (1.63928pt too high) detected at line 435
- []
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
 
 
 
 [30
 
- <./Figuras/requisitos-funcao-hash.png>]
+]
 
 [31
 
@@ -977,38 +1009,32 @@ Overfull \vbox (1.63928pt too high) detected at line 435
 [32
 
 ]
+<Figuras/9s-disponibilidade.png, id=474, 636.87938pt x 453.19313pt>
+File: Figuras/9s-disponibilidade.png Graphic file (type png)
+<use Figuras/9s-disponibilidade.png>
+Package pdftex.def Info: Figuras/9s-disponibilidade.png  used on input line 64.
+(pdftex.def)             Requested size: 288.00952pt x 204.93771pt.
 
-[33
-
-]
-
-[34
-
-]
-<Figuras/relacao-entre-propriedades-hash.png, id=311, 837.88031pt x 322.95656pt>
-File: Figuras/relacao-entre-propriedades-hash.png Graphic file (type png)
-<use Figuras/relacao-entre-propriedades-hash.png>
-Package pdftex.def Info: Figuras/relacao-entre-propriedades-hash.png  used on input line 507.
-(pdftex.def)             Requested size: 370.29706pt x 142.72716pt.
-
-Overfull \vbox (9.59096pt too high) detected at line 507
+Overfull \vbox (6.27232pt too high) detected at line 64
  []
 
 
 
+[33
+
+ <./Figuras/9s-disponibilidade.png>]
+
+[34
+
+]
+
 [35
 
- <./Figuras/relacao-entre-propriedades-hash.png>]
-<Figuras/propriedades-resistencia-hash.png, id=318, 837.88031pt x 306.39468pt>
-File: Figuras/propriedades-resistencia-hash.png Graphic file (type png)
-<use Figuras/propriedades-resistencia-hash.png>
-Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on input line 517.
-(pdftex.def)             Requested size: 411.44397pt x 150.45262pt.
-
+]
 
 [36
 
- <./Figuras/propriedades-resistencia-hash.png>]
+]
 
 [37
 
@@ -1025,52 +1051,63 @@ Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on inpu
 [40
 
 ]
+<Figuras/nfdump.png, id=573, 757.83125pt x 382.42876pt>
+File: Figuras/nfdump.png Graphic file (type png)
+<use Figuras/nfdump.png>
+Package pdftex.def Info: Figuras/nfdump.png  used on input line 262.
+(pdftex.def)             Requested size: 349.72987pt x 176.48538pt.
+
 
 [41
 
-]
-<Figuras/resumo-do-esforco-exigido.png, id=353, 508.14844pt x 143.78719pt>
-File: Figuras/resumo-do-esforco-exigido.png Graphic file (type png)
-<use Figuras/resumo-do-esforco-exigido.png>
-Package pdftex.def Info: Figuras/resumo-do-esforco-exigido.png  used on input line 575.
-(pdftex.def)             Requested size: 288.00952pt x 81.4988pt.
+ <./Figuras/nfdump.png>]
+<Figuras/nfdump-filtros-processando.png, id=581, 782.17218pt x 372.64218pt>
+File: Figuras/nfdump-filtros-processando.png Graphic file (type png)
+<use Figuras/nfdump-filtros-processando.png>
+Package pdftex.def Info: Figuras/nfdump-filtros-processando.png  used on input line 272.
+(pdftex.def)             Requested size: 349.72987pt x 166.61845pt.
 
 
 [42
 
- <./Figuras/resumo-do-esforco-exigido.png>]
+ <./Figuras/nfdump-filtros-processando.png>]
 
 [43
 
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+]
+<Figuras/front-end-nfsen.png, id=596, 642.4pt x 422.57875pt>
+File: Figuras/front-end-nfsen.png Graphic file (type png)
+<use Figuras/front-end-nfsen.png>
+Package pdftex.def Info: Figuras/front-end-nfsen.png  used on input line 304.
+(pdftex.def)             Requested size: 308.58298pt x 202.99669pt.
+
 
 [44
 
-]
+ <./Figuras/front-end-nfsen.png>]
+<Figuras/apresentacao-nfdump-nfsen-layson.png, id=603, 1023.07219pt x 572.1375pt>
+File: Figuras/apresentacao-nfdump-nfsen-layson.png Graphic file (type png)
+<use Figuras/apresentacao-nfdump-nfsen-layson.png>
+Package pdftex.def Info: Figuras/apresentacao-nfdump-nfsen-layson.png  used on input line 317.
+(pdftex.def)             Requested size: 308.58298pt x 172.56796pt.
+
 
 [45
 
-]
-<Figuras/estrutura-gera-hash-seguro.png, id=377, 1017.8025pt x 369.63094pt>
-File: Figuras/estrutura-gera-hash-seguro.png Graphic file (type png)
-<use Figuras/estrutura-gera-hash-seguro.png>
-Package pdftex.def Info: Figuras/estrutura-gera-hash-seguro.png  used on input line 624.
-(pdftex.def)             Requested size: 370.29706pt x 134.47705pt.
+ <./Figuras/apresentacao-nfdump-nfsen-layson.png>]) (./slides-por-aula/Aula4-Conceitos-básicos-de-segurança.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
 
 
 [46
 
- <./Figuras/estrutura-gera-hash-seguro.png>]
-<Figuras/pode-ser-resumida-seg-forma.png, id=384, 522.45187pt x 149.05687pt>
-File: Figuras/pode-ser-resumida-seg-forma.png Graphic file (type png)
-<use Figuras/pode-ser-resumida-seg-forma.png>
-Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input line 632.
-(pdftex.def)             Requested size: 370.29706pt x 105.64915pt.
-
+]
 
 [47
 
- <./Figuras/pode-ser-resumida-seg-forma.png>]
+]
 
 [48
 
@@ -1091,16 +1128,10 @@ Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input 
 [52
 
 ]
-<Figuras/tabela-sha.png, id=417, 1023.825pt x 429.10312pt>
-File: Figuras/tabela-sha.png Graphic file (type png)
-<use Figuras/tabela-sha.png>
-Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 708.
-(pdftex.def)             Requested size: 411.44397pt x 172.44356pt.
-
 
 [53
 
- <./Figuras/tabela-sha.png>]
+]
 
 [54
 
@@ -1109,14 +1140,1593 @@ Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 708.
 [55
 
 ]
-<Figuras/buffer-hash-sha256.png, id=435, 570.63188pt x 117.43875pt>
+Overfull \vbox (4.46384pt too high) detected at line 284
+ []
+
+
+
+[56
+
+]
+\openout4 = `sample.vrb'.
+
+ (./sample.vrb)
+Overfull \vbox (5.26056pt too high) detected at line 306
+ []
+
+
+
+[57
+
+]
+
+[58
+
+]
+\openout4 = `sample.vrb'.
+
+ (./sample.vrb)
+
+[59
+
+]
+<Figuras/Figure1.1.png, id=795, 308.65312pt x 335.00156pt>
+File: Figuras/Figure1.1.png Graphic file (type png)
+<use Figuras/Figure1.1.png>
+Package pdftex.def Info: Figuras/Figure1.1.png  used on input line 361.
+(pdftex.def)             Requested size: 205.72198pt x 223.2895pt.
+
+Overfull \vbox (11.02411pt too high) detected at line 361
+ []
+
+
+
+[60
+
+ <./Figuras/Figure1.1.png>]) (./slides-por-aula/Aula5-Conceitos-criptografia-simetrica.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[61
+
+]
+
+[62
+
+]
+
+[63
+
+]
+
+[64
+
+]
+
+[65
+
+]
+<Figuras/modelo-cripto-simetrica.png, id=837, 1010.27437pt x 375.65344pt>
+File: Figuras/modelo-cripto-simetrica.png Graphic file (type png)
+<use Figuras/modelo-cripto-simetrica.png>
+Package pdftex.def Info: Figuras/modelo-cripto-simetrica.png  used on input line 99.
+(pdftex.def)             Requested size: 411.44397pt x 152.98714pt.
+
+
+[66
+
+ <./Figuras/modelo-cripto-simetrica.png>]
+
+[67
+
+]
+
+[68
+
+]
+
+[69
+
+]
+<Figuras/modelo-cripto-simetrico-2.png, id=875, 1005.7575pt x 563.85657pt>
+File: Figuras/modelo-cripto-simetrico-2.png Graphic file (type png)
+<use Figuras/modelo-cripto-simetrico-2.png>
+Package pdftex.def Info: Figuras/modelo-cripto-simetrico-2.png  used on input line 149.
+(pdftex.def)             Requested size: 370.29706pt x 207.59981pt.
+
+
+[70
+
+ <./Figuras/modelo-cripto-simetrico-2.png>]
+
+[71
+
+]
+
+[72
+
+]
+
+[73
+
+]
+
+[74
+
+]
+
+[75
+
+]
+
+[76
+
+]
+<Figuras/tabela-cifra-cesar.png, id=931, 434.37282pt x 666.23906pt>
+File: Figuras/tabela-cifra-cesar.png Graphic file (type png)
+<use Figuras/tabela-cifra-cesar.png>
+Package pdftex.def Info: Figuras/tabela-cifra-cesar.png  used on input line 278.
+(pdftex.def)             Requested size: 144.00789pt x 220.87616pt.
+
+Overfull \vbox (8.61076pt too high) detected at line 278
+ []
+
+
+
+[77
+
+ <./Figuras/tabela-cifra-cesar.png>]
+
+[78
+
+]
+
+[79
+
+]
+
+[80
+
+]
+
+[81
+
+]
+
+[82
+
+]
+Overfull \hbox (19.27145pt too wide) in paragraph at lines 425--425
+[][]  
+ []
+
+
+
+[83
+
+]
+<Figuras/frequencia-letras-ingles.png, id=969, 916.92563pt x 627.09282pt>
+File: Figuras/frequencia-letras-ingles.png Graphic file (type png)
+<use Figuras/frequencia-letras-ingles.png>
+Package pdftex.def Info: Figuras/frequencia-letras-ingles.png  used on input line 433.
+(pdftex.def)             Requested size: 329.15642pt x 225.11214pt.
+
+Overfull \vbox (12.84674pt too high) detected at line 433
+ []
+
+
+
+[84
+
+ <./Figuras/frequencia-letras-ingles.png>]
+
+[85
+
+]
+Overfull \vbox (2.86386pt too high) detected at line 482
+ []
+
+
+
+[86
+
+]
+
+[87
+
+]
+<Figuras/Cifra-playfair.png, id=992, 362.10281pt x 162.6075pt>
+File: Figuras/Cifra-playfair.png Graphic file (type png)
+<use Figuras/Cifra-playfair.png>
+Package pdftex.def Info: Figuras/Cifra-playfair.png  used on input line 514.
+(pdftex.def)             Requested size: 329.15642pt x 147.81425pt.
+
+
+[88
+
+ <./Figuras/Cifra-playfair.png>]
+
+[89
+
+]
+
+[90
+
+]
+
+[91
+
+]
+
+[92
+
+]
+<Figuras/Exemplo-Cifra-de-Vigenere.png, id=1022, 800.9925pt x 245.41687pt>
+File: Figuras/Exemplo-Cifra-de-Vigenere.png Graphic file (type png)
+<use Figuras/Exemplo-Cifra-de-Vigenere.png>
+Package pdftex.def Info: Figuras/Exemplo-Cifra-de-Vigenere.png  used on input line 619.
+(pdftex.def)             Requested size: 411.44397pt x 126.06342pt.
+
+
+[93
+
+ <./Figuras/Exemplo-Cifra-de-Vigenere.png>]
+
+[94
+
+]
+
+[95
+
+]
+Overfull \vbox (12.86386pt too high) detected at line 692
+ []
+
+
+
+[96
+
+]
+<Figuras/cifra-de-vernam.png, id=1044, 733.23938pt x 247.67531pt>
+File: Figuras/cifra-de-vernam.png Graphic file (type png)
+<use Figuras/cifra-de-vernam.png>
+Package pdftex.def Info: Figuras/cifra-de-vernam.png  used on input line 702.
+(pdftex.def)             Requested size: 411.44397pt x 138.98067pt.
+
+
+[97
+
+ <./Figuras/cifra-de-vernam.png>]
+
+[98
+
+]
+<Figuras/exemplo-one-time-pad.png, id=1057, 733.23938pt x 247.67531pt>
+File: Figuras/exemplo-one-time-pad.png Graphic file (type png)
+<use Figuras/exemplo-one-time-pad.png>
+Package pdftex.def Info: Figuras/exemplo-one-time-pad.png  used on input line 731.
+(pdftex.def)             Requested size: 411.44397pt x 138.98067pt.
+
+
+[99
+
+ <./Figuras/exemplo-one-time-pad.png>]
+Overfull \vbox (0.49379pt too high) detected at line 754
+ []
+
+
+
+[100
+
+]) (./slides-por-aula/Aula6-Cifras-de-fluxo.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[101
+
+]
+
+[102
+
+]
+
+[103
+
+]
+
+[104
+
+]
+
+[105
+
+]
+<Figuras/Cifra-de-fluxo.png, id=1143, 883.04906pt x 398.23781pt>
+File: Figuras/Cifra-de-fluxo.png Graphic file (type png)
+<use Figuras/Cifra-de-fluxo.png>
+Package pdftex.def Info: Figuras/Cifra-de-fluxo.png  used on input line 139.
+(pdftex.def)             Requested size: 411.44397pt x 185.5554pt.
+
+
+[106
+
+ <./Figuras/Cifra-de-fluxo.png>]
+
+[107
+
+]
+<Figuras/xor-cifrado-fluxo.png, id=1155, 642.90187pt x 237.13594pt>
+File: Figuras/xor-cifrado-fluxo.png Graphic file (type png)
+<use Figuras/xor-cifrado-fluxo.png>
+Package pdftex.def Info: Figuras/xor-cifrado-fluxo.png  used on input line 160.
+(pdftex.def)             Requested size: 411.44397pt x 151.76646pt.
+
+
+[108
+
+ <./Figuras/xor-cifrado-fluxo.png>]
+
+[109
+
+]
+
+[110
+
+]
+
+[111
+
+]
+
+[112
+
+]
+
+[113
+
+]
+
+[114
+
+]
+
+[115
+
+]
+
+[116
+
+]
+
+[117
+
+]
+
+[118
+
+]
+
+[119
+
+]
+
+[120
+
+]
+<Figuras/rc4-inicializacao.png, id=1225, 286.82156pt x 115.18031pt>
+File: Figuras/rc4-inicializacao.png Graphic file (type png)
+<use Figuras/rc4-inicializacao.png>
+Package pdftex.def Info: Figuras/rc4-inicializacao.png  used on input line 371.
+(pdftex.def)             Requested size: 411.44397pt x 165.2303pt.
+
+
+[121
+
+ <./Figuras/rc4-inicializacao.png>]
+
+[122
+
+]
+<Figuras/rc4-permutacao-inicial.png, id=1238, 380.17032pt x 145.29282pt>
+File: Figuras/rc4-permutacao-inicial.png Graphic file (type png)
+<use Figuras/rc4-permutacao-inicial.png>
+Package pdftex.def Info: Figuras/rc4-permutacao-inicial.png  used on input line 412.
+(pdftex.def)             Requested size: 411.44397pt x 157.24866pt.
+
+Overfull \vbox (15.35204pt too high) detected at line 412
+ []
+
+
+
+[123
+
+ <./Figuras/rc4-permutacao-inicial.png>]
+<Figuras/rc4-geracao-de-fluxo.png, id=1245, 292.09125pt x 221.32687pt>
+File: Figuras/rc4-geracao-de-fluxo.png Graphic file (type png)
+<use Figuras/rc4-geracao-de-fluxo.png>
+Package pdftex.def Info: Figuras/rc4-geracao-de-fluxo.png  used on input line 435.
+(pdftex.def)             Requested size: 164.57507pt x 124.7088pt.
+
+Overfull \vbox (0.9101pt too high) detected at line 435
+ []
+
+
+
+[124
+
+ <./Figuras/rc4-geracao-de-fluxo.png>]
+<Figuras/rc4-big-picture.png, id=1252, 887.56593pt x 604.50844pt>
+File: Figuras/rc4-big-picture.png Graphic file (type png)
+<use Figuras/rc4-big-picture.png>
+Package pdftex.def Info: Figuras/rc4-big-picture.png  used on input line 446.
+(pdftex.def)             Requested size: 308.58298pt x 210.16985pt.
+
+
+[125
+
+ <./Figuras/rc4-big-picture.png>]
+
+[126
+
+]) (./slides-por-aula/Aula7-WEP.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[127
+
+]
+
+[128
+
+]
+
+[129
+
+]
+
+[130
+
+]
+
+[131
+
+]
+
+[132
+
+]
+
+[133
+
+]
+
+[134
+
+]
+<Figuras/wep-auth.png, id=1319, 319.94531pt x 251.43938pt>
+File: Figuras/wep-auth.png Graphic file (type png)
+<use Figuras/wep-auth.png>
+Package pdftex.def Info: Figuras/wep-auth.png  used on input line 186.
+(pdftex.def)             Requested size: 226.29543pt x 177.8441pt.
+
+
+[135
+
+ <./Figuras/wep-auth.png>]
+<Figuras/wep-authentication-message.png, id=1338, 508.90125pt x 125.46875pt>
+File: Figuras/wep-authentication-message.png Graphic file (type png)
+<use Figuras/wep-authentication-message.png>
+Package pdftex.def Info: Figuras/wep-authentication-message.png  used on input line 215.
+(pdftex.def)             Requested size: 226.29543pt x 55.79224pt.
+
+
+[136
+
+ <./Figuras/wep-authentication-message.png>]
+
+[137
+
+]
+
+[138
+
+]
+
+[139
+
+]
+
+[140
+
+]
+<Figuras/rc4-wep-stream.png, id=1414, 427.5975pt x 125.46875pt>
+File: Figuras/rc4-wep-stream.png Graphic file (type png)
+<use Figuras/rc4-wep-stream.png>
+Package pdftex.def Info: Figuras/rc4-wep-stream.png  used on input line 310.
+(pdftex.def)             Requested size: 226.29543pt x 66.40047pt.
+
+
+[141
+
+ <./Figuras/rc4-wep-stream.png>]
+
+[142
+
+]
+
+[143
+
+]
+<Figuras/wep-iv-secret-key.png, id=1444, 333.49594pt x 137.01187pt>
+File: Figuras/wep-iv-secret-key.png Graphic file (type png)
+<use Figuras/wep-iv-secret-key.png>
+Package pdftex.def Info: Figuras/wep-iv-secret-key.png  used on input line 362.
+(pdftex.def)             Requested size: 226.29543pt x 92.97241pt.
+
+
+[144
+
+ <./Figuras/wep-iv-secret-key.png>]
+<Figuras/frame-encrypted-using-wep.png, id=1451, 411.03563pt x 158.84344pt>
+File: Figuras/frame-encrypted-using-wep.png Graphic file (type png)
+<use Figuras/frame-encrypted-using-wep.png>
+Package pdftex.def Info: Figuras/frame-encrypted-using-wep.png  used on input line 377.
+(pdftex.def)             Requested size: 370.29706pt x 143.10077pt.
+
+
+[145
+
+ <./Figuras/frame-encrypted-using-wep.png>]
+
+[146
+
+]
+
+[147
+
+]
+
+[148
+
+]
+
+[149
+
+]
+
+[150
+
+]
+
+[151
+
+]
+
+[152
+
+]
+
+[153
+
+]
+
+[154
+
+]
+
+[155
+
+]
+
+[156
+
+]
+
+[157
+
+]
+
+[158
+
+]
+
+[159
+
+]
+
+[160
+
+]
+
+[161
+
+]
+
+[162
+
+]
+
+[163
+
+]) (./slides-por-aula/Aula8-nums-pseudoal.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[164
+
+]
+
+[165
+
+]
+
+[166
+
+]
+<Figuras/veracrypt-randomness.png, id=1613, 595.47469pt x 375.65344pt>
+File: Figuras/veracrypt-randomness.png Graphic file (type png)
+<use Figuras/veracrypt-randomness.png>
+Package pdftex.def Info: Figuras/veracrypt-randomness.png  used on input line 76.
+(pdftex.def)             Requested size: 329.15642pt x 207.6475pt.
+
+
+[167
+
+ <./Figuras/veracrypt-randomness.png>]
+
+[168
+
+]
+
+[169
+
+]
+
+[170
+
+]
+<Figuras/TRNgsPRNGsPRFs.png, id=1637, 925.20656pt x 521.69907pt>
+File: Figuras/TRNgsPRNGsPRFs.png Graphic file (type png)
+<use Figuras/TRNgsPRNGsPRFs.png>
+Package pdftex.def Info: Figuras/TRNgsPRNGsPRFs.png  used on input line 128.
+(pdftex.def)             Requested size: 370.29706pt x 208.80328pt.
+
+
+[171
+
+ <./Figuras/TRNgsPRNGsPRFs.png>]
+
+[172
+
+]
+
+[173
+
+]
+
+[174
+
+]
+
+[175
+
+]
+
+[176
+
+]
+
+[177
+
+]
+
+[178
+
+]
+
+[179
+
+]
+
+[180
+
+]
+
+[181
+
+]
+<Figuras/semente-entrando-prng.png, id=1746, 769.37437pt x 359.84438pt>
+File: Figuras/semente-entrando-prng.png Graphic file (type png)
+<use Figuras/semente-entrando-prng.png>
+Package pdftex.def Info: Figuras/semente-entrando-prng.png  used on input line 289.
+(pdftex.def)             Requested size: 370.29706pt x 173.19554pt.
+
+
+[182
+
+ <./Figuras/semente-entrando-prng.png>]
+
+[183
+
+]
+
+[184
+
+]
+
+[185
+
+]
+<Figuras/tabelaprngtrng.png, id=1771, 925.20656pt x 243.15843pt>
+File: Figuras/tabelaprngtrng.png Graphic file (type png)
+<use Figuras/tabelaprngtrng.png>
+Package pdftex.def Info: Figuras/tabelaprngtrng.png  used on input line 360.
+(pdftex.def)             Requested size: 370.29706pt x 97.32101pt.
+
+
+[186
+
+ <./Figuras/tabelaprngtrng.png>]
+
+[187
+
+]
+
+[188
+
+]
+
+[189
+
+]
+
+[190
+
+]
+<Figuras/gerador-numero-aleatorio-intel.png, id=1801, 925.20656pt x 540.51938pt>
+File: Figuras/gerador-numero-aleatorio-intel.png Graphic file (type png)
+<use Figuras/gerador-numero-aleatorio-intel.png>
+Package pdftex.def Info: Figuras/gerador-numero-aleatorio-intel.png  used on input line 425.
+(pdftex.def)             Requested size: 370.29706pt x 216.33588pt.
+
+Overfull \vbox (4.07048pt too high) detected at line 425
+ []
+
+
+
+[191
+
+ <./Figuras/gerador-numero-aleatorio-intel.png>]
+
+[192
+
+]
+
+[193
+
+]
+
+[194
+
+]
+Overfull \vbox (9.12372pt too high) detected at line 491
+ []
+
+
+
+[195
+
+]
+
+[196
+
+]
+<Figuras/estrutura-logica-drng-intel.png, id=1895, 769.37437pt x 743.02594pt>
+File: Figuras/estrutura-logica-drng-intel.png Graphic file (type png)
+<use Figuras/estrutura-logica-drng-intel.png>
+Package pdftex.def Info: Figuras/estrutura-logica-drng-intel.png  used on input line 521.
+(pdftex.def)             Requested size: 226.29543pt x 218.54451pt.
+
+Overfull \vbox (6.27911pt too high) detected at line 521
+ []
+
+
+
+[197
+
+ <./Figuras/estrutura-logica-drng-intel.png>]
+\openout4 = `sample.vrb'.
+
+ (./sample.vrb)
+
+[198
+
+]
+\openout4 = `sample.vrb'.
+
+ (./sample.vrb)
+
+[199
+
+]) (./slides-por-aula/Aula9-cifra-bloco.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[200
+
+]
+
+[201
+
+]
+<Figuras/cifra-de-bloco-cifra-de-fluxo.png, id=1933, 743.02594pt x 470.50781pt>
+File: Figuras/cifra-de-bloco-cifra-de-fluxo.png Graphic file (type png)
+<use Figuras/cifra-de-bloco-cifra-de-fluxo.png>
+Package pdftex.def Info: Figuras/cifra-de-bloco-cifra-de-fluxo.png  used on input line 50.
+(pdftex.def)             Requested size: 370.29706pt x 234.48512pt.
+
+Overfull \vbox (22.21973pt too high) detected at line 50
+ []
+
+
+
+[202
+
+ <./Figuras/cifra-de-bloco-cifra-de-fluxo.png>]
+
+LaTeX Warning: Citation `SHAN49' on page 203 undefined on input line 69.
+
+
+
+[203
+
+]
+Overfull \vbox (7.95999pt too high) detected at line 90
+ []
+
+
+
+[204
+
+]
+
+[205
+
+]
+<Figuras/cifra-de-feistel.png, id=1958, 743.02594pt x 660.21657pt>
+File: Figuras/cifra-de-feistel.png Graphic file (type png)
+<use Figuras/cifra-de-feistel.png>
+Package pdftex.def Info: Figuras/cifra-de-feistel.png  used on input line 118.
+(pdftex.def)             Requested size: 246.86888pt x 219.35303pt.
+
+Overfull \vbox (7.08763pt too high) detected at line 118
+ []
+
+
+
+[206
+
+ <./Figuras/cifra-de-feistel.png>]
+
+[207
+
+]
+
+[208
+
+]
+
+[209
+
+]
+
+[210
+
+]
+
+[211
+
+]
+
+[212
+
+]
+<Figuras/ultima-milha-feistel.png, id=1996, 738.50906pt x 301.8778pt>
+File: Figuras/ultima-milha-feistel.png Graphic file (type png)
+<use Figuras/ultima-milha-feistel.png>
+Package pdftex.def Info: Figuras/ultima-milha-feistel.png  used on input line 253.
+(pdftex.def)             Requested size: 205.72198pt x 84.09221pt.
+<Figuras/propriedades-xor-feistel.png, id=1997, 486.31688pt x 263.48438pt>
+File: Figuras/propriedades-xor-feistel.png Graphic file (type png)
+<use Figuras/propriedades-xor-feistel.png>
+Package pdftex.def Info: Figuras/propriedades-xor-feistel.png  used on input line 253.
+(pdftex.def)             Requested size: 164.57507pt x 89.16536pt.
+
+Overfull \vbox (23.05052pt too high) detected at line 253
+ []
+
+
+
+[213
+
+ <./Figuras/ultima-milha-feistel.png> <./Figuras/propriedades-xor-feistel.png>]
+<Figuras/feistel.png, id=2005, 1866.975pt x 643.40375pt>
+File: Figuras/feistel.png Graphic file (type png)
+<use Figuras/feistel.png>
+Package pdftex.def Info: Figuras/feistel.png  used on input line 266.
+(pdftex.def)             Requested size: 370.29706pt x 127.60835pt.
+
+
+[214
+
+ <./Figuras/feistel.png>]
+<Figuras/feistel-resumo-livro.png, id=2012, 983.92593pt x 344.03531pt>
+File: Figuras/feistel-resumo-livro.png Graphic file (type png)
+<use Figuras/feistel-resumo-livro.png>
+Package pdftex.def Info: Figuras/feistel-resumo-livro.png  used on input line 279.
+(pdftex.def)             Requested size: 370.29706pt x 129.47488pt.
+
+
+[215
+
+ <./Figuras/feistel-resumo-livro.png>]
+
+[216
+
+]
+<Figuras/DES-esquema.png, id=2024, 880.79062pt x 732.48656pt>
+File: Figuras/DES-esquema.png Graphic file (type png)
+<use Figuras/DES-esquema.png>
+Package pdftex.def Info: Figuras/DES-esquema.png  used on input line 316.
+(pdftex.def)             Requested size: 246.86888pt x 205.29602pt.
+
+Overfull \vbox (1.03062pt too high) detected at line 316
+ []
+
+
+
+[217
+
+ <./Figuras/DES-esquema.png>]
+
+[218
+
+]
+
+[219
+
+]
+<Figuras/DES-esquema-2.png, id=2042, 446.41782pt x 538.26094pt>
+File: Figuras/DES-esquema-2.png Graphic file (type png)
+<use Figuras/DES-esquema-2.png>
+Package pdftex.def Info: Figuras/DES-esquema-2.png  used on input line 354.
+(pdftex.def)             Requested size: 185.14853pt x 223.2427pt.
+
+Overfull \vbox (18.97731pt too high) detected at line 354
+ []
+
+
+
+[220
+
+ <./Figuras/DES-esquema-2.png>]
+
+[221
+
+]
+
+[222
+
+]
+
+[223
+
+]
+Overfull \vbox (12.36383pt too high) detected at line 448
+ []
+
+
+
+[224
+
+]
+<Figuras/one-round-des.png, id=2071, 831.105pt x 341.02406pt>
+File: Figuras/one-round-des.png Graphic file (type png)
+<use Figuras/one-round-des.png>
+Package pdftex.def Info: Figuras/one-round-des.png  used on input line 457.
+(pdftex.def)             Requested size: 411.44397pt x 168.82564pt.
+
+
+[225
+
+ <./Figuras/one-round-des.png>]
+<Figuras/palindromo-hexadecimal-des.png, id=2078, 481.04718pt x 135.50626pt>
+File: Figuras/palindromo-hexadecimal-des.png Graphic file (type png)
+<use Figuras/palindromo-hexadecimal-des.png>
+Package pdftex.def Info: Figuras/palindromo-hexadecimal-des.png  used on input line 473.
+(pdftex.def)             Requested size: 205.72198pt x 57.9502pt.
+
+
+[226
+
+ <./Figuras/palindromo-hexadecimal-des.png>]
+<Figuras/des-lado1.png, id=2085, 922.19531pt x 454.69875pt>
+File: Figuras/des-lado1.png Graphic file (type png)
+<use Figuras/des-lado1.png>
+Package pdftex.def Info: Figuras/des-lado1.png  used on input line 500.
+(pdftex.def)             Requested size: 197.49133pt x 97.36978pt.
+<Figuras/des-lado2.png, id=2086, 922.19531pt x 420.06938pt>
+File: Figuras/des-lado2.png Graphic file (type png)
+<use Figuras/des-lado2.png>
+Package pdftex.def Info: Figuras/des-lado2.png  used on input line 500.
+(pdftex.def)             Requested size: 197.49133pt x 89.95421pt.
+
+
+[227
+
+ <./Figuras/des-lado1.png> <./Figuras/des-lado2.png>]
+
+[228
+
+]
+
+[229
+
+]
+<Figuras/des-efeito-avalanche.png, id=2106, 922.19531pt x 640.64343pt>
+File: Figuras/des-efeito-avalanche.png Graphic file (type png)
+<use Figuras/des-efeito-avalanche.png>
+Package pdftex.def Info: Figuras/des-efeito-avalanche.png  used on input line 537.
+(pdftex.def)             Requested size: 288.00952pt x 200.07349pt.
+
+
+[230
+
+ <./Figuras/des-efeito-avalanche.png>]
+
+[231
+
+]
+<Figuras/des-efeito-avalanche-chave.png, id=2118, 922.19531pt x 640.64343pt>
+File: Figuras/des-efeito-avalanche-chave.png Graphic file (type png)
+<use Figuras/des-efeito-avalanche-chave.png>
+Package pdftex.def Info: Figuras/des-efeito-avalanche-chave.png  used on input line 559.
+(pdftex.def)             Requested size: 288.00952pt x 200.07349pt.
+
+
+[232
+
+ <./Figuras/des-efeito-avalanche-chave.png>]
+
+[233
+
+]
+
+[234
+
+]
+
+[235
+
+]
+
+[236
+
+]
+<Figuras/tempo-para-quebrar.png, id=2146, 922.19531pt x 426.84468pt>
+File: Figuras/tempo-para-quebrar.png Graphic file (type png)
+<use Figuras/tempo-para-quebrar.png>
+Package pdftex.def Info: Figuras/tempo-para-quebrar.png  used on input line 628.
+(pdftex.def)             Requested size: 370.29706pt x 171.39267pt.
+
+
+[237
+
+ <./Figuras/tempo-para-quebrar.png>]
+
+[238
+
+]
+
+[239
+
+]
+
+[240
+
+]
+
+[241
+
+]
+
+[242
+
+]
+<Figuras/3des-ede.png, id=2181, 922.19531pt x 540.51938pt>
+File: Figuras/3des-ede.png Graphic file (type png)
+<use Figuras/3des-ede.png>
+Package pdftex.def Info: Figuras/3des-ede.png  used on input line 723.
+(pdftex.def)             Requested size: 370.29706pt x 217.03693pt.
+
+Overfull \vbox (4.77153pt too high) detected at line 723
+ []
+
+
+
+[243
+
+ <./Figuras/3des-ede.png>]
+
+[244
+
+]
+
+[245
+
+]
+
+[246
+
+]
+
+[247
+
+]
+<Figuras/tipos-aes.png, id=2209, 444.15938pt x 187.45032pt>
+File: Figuras/tipos-aes.png Graphic file (type png)
+<use Figuras/tipos-aes.png>
+Package pdftex.def Info: Figuras/tipos-aes.png  used on input line 787.
+(pdftex.def)             Requested size: 370.29706pt x 156.2759pt.
+
+
+[248
+
+ <./Figuras/tipos-aes.png>]
+
+[249
+
+]
+
+[250
+
+]
+
+[251
+
+]
+<Figuras/aes-modo-ecb.png, id=2235, 608.2725pt x 511.15968pt>
+File: Figuras/aes-modo-ecb.png Graphic file (type png)
+<use Figuras/aes-modo-ecb.png>
+Package pdftex.def Info: Figuras/aes-modo-ecb.png  used on input line 846.
+(pdftex.def)             Requested size: 246.86888pt x 207.4553pt.
+
+
+[252
+
+ <./Figuras/aes-modo-ecb.png>]
+
+[253
+
+]
+<Figuras/aes-modo-cbc.png, id=2248, 536.0025pt x 467.49657pt>
+File: Figuras/aes-modo-cbc.png Graphic file (type png)
+<use Figuras/aes-modo-cbc.png>
+Package pdftex.def Info: Figuras/aes-modo-cbc.png  used on input line 867.
+(pdftex.def)             Requested size: 246.86888pt x 215.31496pt.
+
+Overfull \vbox (3.04956pt too high) detected at line 867
+ []
+
+
+
+[254
+
+ <./Figuras/aes-modo-cbc.png>]
+
+[255
+
+]
+<Figuras/aes-modo-ctr.png, id=2261, 628.59843pt x 467.49657pt>
+File: Figuras/aes-modo-ctr.png Graphic file (type png)
+<use Figuras/aes-modo-ctr.png>
+Package pdftex.def Info: Figuras/aes-modo-ctr.png  used on input line 890.
+(pdftex.def)             Requested size: 246.86888pt x 183.59981pt.
+
+
+[256
+
+ <./Figuras/aes-modo-ctr.png>]
+
+[257
+
+]
+<Figuras/aes-modo-gcm.png, id=2274, 766.36313pt x 375.65344pt>
+File: Figuras/aes-modo-gcm.png Graphic file (type png)
+<use Figuras/aes-modo-gcm.png>
+Package pdftex.def Info: Figuras/aes-modo-gcm.png  used on input line 920.
+(pdftex.def)             Requested size: 329.15642pt x 161.34439pt.
+
+
+[258
+
+ <./Figuras/aes-modo-gcm.png>]
+
+[259
+
+]
+
+[260
+
+]) (./slides-por-aula/Aula10-hash.tex
+
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 3.
+
+
+
+[261
+
+]
+
+[262
+
+]
+
+[263
+
+]
+
+[264
+
+]
+<Figuras/Hash-moedor.png, id=2321, 584.93532pt x 300.3722pt>
+File: Figuras/Hash-moedor.png Graphic file (type png)
+<use Figuras/Hash-moedor.png>
+Package pdftex.def Info: Figuras/Hash-moedor.png  used on input line 79.
+(pdftex.def)             Requested size: 329.15642pt x 169.03226pt.
+
+
+[265
+
+ <./Figuras/Hash-moedor.png>]
+
+[266
+
+]
+
+[267
+
+]
+
+[268
+
+]
+<Figuras/autenticacao-basica.png, id=2344, 349.305pt x 227.34938pt>
+File: Figuras/autenticacao-basica.png Graphic file (type png)
+<use Figuras/autenticacao-basica.png>
+Package pdftex.def Info: Figuras/autenticacao-basica.png  used on input line 143.
+(pdftex.def)             Requested size: 246.86888pt x 160.68027pt.
+
+
+[269
+
+ <./Figuras/autenticacao-basica.png>]
+<Figuras/mitm-autenticacao-hash.png, id=2363, 578.91281pt x 532.23843pt>
+File: Figuras/mitm-autenticacao-hash.png Graphic file (type png)
+<use Figuras/mitm-autenticacao-hash.png>
+Package pdftex.def Info: Figuras/mitm-autenticacao-hash.png  used on input line 151.
+(pdftex.def)             Requested size: 246.86888pt x 226.96579pt.
+
+Overfull \vbox (14.7004pt too high) detected at line 151
+ []
+
+
+
+[270
+
+ <./Figuras/mitm-autenticacao-hash.png>]
+
+[271
+
+]
+
+[272
+
+]
+<Figuras/esquema1-hash.png, id=2391, 501.37312pt x 128.73094pt>
+File: Figuras/esquema1-hash.png Graphic file (type png)
+<use Figuras/esquema1-hash.png>
+Package pdftex.def Info: Figuras/esquema1-hash.png  used on input line 195.
+(pdftex.def)             Requested size: 288.00952pt x 73.95094pt.
+
+
+[273
+
+ <./Figuras/esquema1-hash.png>]
+<Figuras/esquema2-hash.png, id=2398, 425.33907pt x 120.45pt>
+File: Figuras/esquema2-hash.png Graphic file (type png)
+<use Figuras/esquema2-hash.png>
+Package pdftex.def Info: Figuras/esquema2-hash.png  used on input line 209.
+(pdftex.def)             Requested size: 288.00952pt x 81.56488pt.
+
+
+[274
+
+ <./Figuras/esquema2-hash.png>]
+
+[275
+
+]
+
+[276
+
+]
+<Figuras/esquema3-hash.png, id=2446, 441.14813pt x 104.64093pt>
+File: Figuras/esquema3-hash.png Graphic file (type png)
+<use Figuras/esquema3-hash.png>
+Package pdftex.def Info: Figuras/esquema3-hash.png  used on input line 264.
+(pdftex.def)             Requested size: 288.00952pt x 68.31915pt.
+
+
+[277
+
+ <./Figuras/esquema3-hash.png>]
+
+[278
+
+]
+
+[279
+
+]
+<Figuras/esquema4-hash.png, id=2464, 506.6428pt x 104.64093pt>
+File: Figuras/esquema4-hash.png Graphic file (type png)
+<use Figuras/esquema4-hash.png>
+Package pdftex.def Info: Figuras/esquema4-hash.png  used on input line 300.
+(pdftex.def)             Requested size: 288.00952pt x 59.48627pt.
+
+
+[280
+
+ <./Figuras/esquema4-hash.png>]
+<Figuras/hash-certificado-digtal1.png, id=2480, 554.82281pt x 137.7647pt>
+File: Figuras/hash-certificado-digtal1.png Graphic file (type png)
+<use Figuras/hash-certificado-digtal1.png>
+Package pdftex.def Info: Figuras/hash-certificado-digtal1.png  used on input line 316.
+(pdftex.def)             Requested size: 288.00952pt x 71.514pt.
+
+
+[281
+
+ <./Figuras/hash-certificado-digtal1.png>]
+<Figuras/hash-certificado-digtal2.png, id=2487, 554.82281pt x 137.7647pt>
+File: Figuras/hash-certificado-digtal2.png Graphic file (type png)
+<use Figuras/hash-certificado-digtal2.png>
+Package pdftex.def Info: Figuras/hash-certificado-digtal2.png  used on input line 329.
+(pdftex.def)             Requested size: 288.00952pt x 71.514pt.
+
+
+[282
+
+ <./Figuras/hash-certificado-digtal2.png>]
+
+[283
+
+]
+
+[284
+
+]
+<Figuras/funcao-hash-simples.png, id=2507, 596.2275pt x 281.05pt>
+File: Figuras/funcao-hash-simples.png Graphic file (type png)
+<use Figuras/funcao-hash-simples.png>
+Package pdftex.def Info: Figuras/funcao-hash-simples.png  used on input line 385.
+(pdftex.def)             Requested size: 205.72198pt x 96.97092pt.
+
+
+[285
+
+ <./Figuras/funcao-hash-simples.png>]
+<Figuras/hash-simples-xor.png, id=2514, 752.8125pt x 591.71063pt>
+File: Figuras/hash-simples-xor.png Graphic file (type png)
+<use Figuras/hash-simples-xor.png>
+Package pdftex.def Info: Figuras/hash-simples-xor.png  used on input line 393.
+(pdftex.def)             Requested size: 267.43607pt x 210.20772pt.
+
+
+[286
+
+ <./Figuras/hash-simples-xor.png>]
+
+[287
+
+]
+
+[288
+
+]
+
+[289
+
+]
+<Figuras/requisitos-funcao-hash.png, id=2537, 648.92438pt x 313.17pt>
+File: Figuras/requisitos-funcao-hash.png Graphic file (type png)
+<use Figuras/requisitos-funcao-hash.png>
+Package pdftex.def Info: Figuras/requisitos-funcao-hash.png  used on input line 435.
+(pdftex.def)             Requested size: 370.29706pt x 178.70467pt.
+
+Overfull \vbox (1.63928pt too high) detected at line 435
+ []
+
+
+
+[290
+
+ <./Figuras/requisitos-funcao-hash.png>]
+
+[291
+
+]
+
+[292
+
+]
+
+[293
+
+]
+
+[294
+
+]
+<Figuras/relacao-entre-propriedades-hash.png, id=2566, 837.88031pt x 322.95656pt>
+File: Figuras/relacao-entre-propriedades-hash.png Graphic file (type png)
+<use Figuras/relacao-entre-propriedades-hash.png>
+Package pdftex.def Info: Figuras/relacao-entre-propriedades-hash.png  used on input line 507.
+(pdftex.def)             Requested size: 370.29706pt x 142.72716pt.
+
+Overfull \vbox (9.59096pt too high) detected at line 507
+ []
+
+
+
+[295
+
+ <./Figuras/relacao-entre-propriedades-hash.png>]
+<Figuras/propriedades-resistencia-hash.png, id=2574, 837.88031pt x 306.39468pt>
+File: Figuras/propriedades-resistencia-hash.png Graphic file (type png)
+<use Figuras/propriedades-resistencia-hash.png>
+Package pdftex.def Info: Figuras/propriedades-resistencia-hash.png  used on input line 517.
+(pdftex.def)             Requested size: 411.44397pt x 150.45262pt.
+
+
+[296
+
+ <./Figuras/propriedades-resistencia-hash.png>]
+
+[297
+
+]
+
+[298
+
+]
+
+[299
+
+]
+
+[300
+
+]
+
+[301
+
+]
+<Figuras/resumo-do-esforco-exigido.png, id=2607, 508.14844pt x 143.78719pt>
+File: Figuras/resumo-do-esforco-exigido.png Graphic file (type png)
+<use Figuras/resumo-do-esforco-exigido.png>
+Package pdftex.def Info: Figuras/resumo-do-esforco-exigido.png  used on input line 575.
+(pdftex.def)             Requested size: 288.00952pt x 81.4988pt.
+
+
+[302
+
+ <./Figuras/resumo-do-esforco-exigido.png>]
+
+[303
+
+]
+
+[304
+
+]
+
+[305
+
+]
+<Figuras/estrutura-gera-hash-seguro.png, id=2629, 1017.8025pt x 369.63094pt>
+File: Figuras/estrutura-gera-hash-seguro.png Graphic file (type png)
+<use Figuras/estrutura-gera-hash-seguro.png>
+Package pdftex.def Info: Figuras/estrutura-gera-hash-seguro.png  used on input line 624.
+(pdftex.def)             Requested size: 370.29706pt x 134.47705pt.
+
+
+[306
+
+ <./Figuras/estrutura-gera-hash-seguro.png>]
+<Figuras/pode-ser-resumida-seg-forma.png, id=2636, 522.45187pt x 149.05687pt>
+File: Figuras/pode-ser-resumida-seg-forma.png Graphic file (type png)
+<use Figuras/pode-ser-resumida-seg-forma.png>
+Package pdftex.def Info: Figuras/pode-ser-resumida-seg-forma.png  used on input line 632.
+(pdftex.def)             Requested size: 370.29706pt x 105.64915pt.
+
+
+[307
+
+ <./Figuras/pode-ser-resumida-seg-forma.png>]
+
+[308
+
+]
+
+[309
+
+]
+
+[310
+
+]
+
+[311
+
+]
+
+[312
+
+]
+<Figuras/tabela-sha.png, id=2669, 1023.825pt x 429.10312pt>
+File: Figuras/tabela-sha.png Graphic file (type png)
+<use Figuras/tabela-sha.png>
+Package pdftex.def Info: Figuras/tabela-sha.png  used on input line 708.
+(pdftex.def)             Requested size: 411.44397pt x 172.44356pt.
+
+
+[313
+
+ <./Figuras/tabela-sha.png>]
+
+[314
+
+]
+
+[315
+
+]
+<Figuras/buffer-hash-sha256.png, id=2687, 570.63188pt x 117.43875pt>
 File: Figuras/buffer-hash-sha256.png Graphic file (type png)
 <use Figuras/buffer-hash-sha256.png>
 Package pdftex.def Info: Figuras/buffer-hash-sha256.png  used on input line 752.
 (pdftex.def)             Requested size: 389.54391pt x 80.16908pt.
 
 
-[56
+[316
 
  <./Figuras/buffer-hash-sha256.png>])
 \tf@nav=\write6
@@ -1133,22 +2743,26 @@ Package pdftex.def Info: Figuras/buffer-hash-sha256.png  used on input line 752.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `sample.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25311 strings out of 475151
- 500623 string characters out of 5766386
- 853060 words of memory out of 5000000
- 47694 multiletter control sequences out of 15000+600000
- 571619 words of font info for 82 fonts, out of 8000000 for 9000
+ 27382 strings out of 475151
+ 549240 string characters out of 5766386
+ 900219 words of memory out of 5000000
+ 49193 multiletter control sequences out of 15000+600000
+ 577780 words of font info for 104 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 128i,11n,123p,523b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on sample.pdf (56 pages, 765652 bytes).
+ 128i,13n,123p,523b,899s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on sample.pdf (316 pages, 20486387 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 113 named destinations out of 1000 (max. 500000)
- 384 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2943 PDF objects out of 2984 (max. 8388607)
+ 1974 compressed objects within 20 object streams
+ 633 named destinations out of 1000 (max. 500000)
+ 2906 words of extra memory for PDF output out of 10000 (max. 10000000)
 
