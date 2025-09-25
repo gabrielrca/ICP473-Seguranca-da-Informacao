@@ -8,6 +8,8 @@ Os slides acompanham o conteúdo programático da disciplina, abordando fundamen
 ## Sugestões, erros ou informaçoes
 Caso encontre algum erro, queira sugerir alguma coisa ou deseje pedir alguma informação, entre em contato! :)
 
+gabrielcaldas AT ic.ufrj.br
+
 ## Estrutura
 
 - `ICP473-Listas` → Listas de exercícios criadas para a disciplina
