@@ -393,33 +393,36 @@
 \end{frame}
 
 \begin{frame}{Limitações do XOR em Funções de Hash}
+    XOR simples não é suficiente:
     \begin{itemize}
-        \item XOR simples não é suficiente quando apenas o código de hash é encriptado.
         \item Problema:  blocos de texto cifrado podem ser \textbf{reordenados} sem alterar o valor do hash.
-        \item Isso permite que um atacante modifique a mensagem sem que a integridade seja detectada.
-        \item Conclusão: para garantir a integridade, precisamos de funções de hash criptográficas \textbf{não lineares e resistentes a colisões}.
+        \item Isso permite que um atacante modifique a mensagem \textbf{sem que seja detectada mudanças na integridade} da informação.
+        \item Conclusão: para garantir a integridade, precisamos de funções de hash criptográficas \textbf{resistentes a colisões}.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Pré-imagem e Colisões em Funções de Hash}
     \begin{itemize}
         \item Para um valor de hash $h = H(x)$, $x$ é chamado de \textbf{pré-imagem} de $h$.
-        \item Isso significa que $x$ é um bloco de dados cuja função hash produz $h$.
+              \begin{itemize}
+                  \item Isso significa que $x$ é um bloco de dados cuja função hash produz $h$.
+              \end{itemize}
+
         \item Funções hash são \textbf{mapas muitos-para-um}: para qualquer valor $h$, podem existir várias pré-imagens.
-        \item Uma \textbf{colisão} ocorre se existirem $x \neq y$ tal que $H(x) = H(y)$.
+        \item \textbf{Colisão}: ocorre se existirem $x \neq y$ tal que $H(x) = H(y)$.
         \item Colisões são indesejáveis quando funções de hash são usadas para \textbf{integridade de dados}.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Pré-imagens e Potenciais Colisões}
     \begin{itemize}
-        \item Suponha uma função de hash $H$ com saída de $n$ bits e entrada de $b$ bits ($b > n$).
-        \item Total de mensagens possíveis: $2^b$.
+        \item Suponha uma função de hash $H$ com \textbf{saída} de $n$ bits e \textbf{entrada} de $b$ bits ($b > n$).
+        \item Total de mensagens de entrada possíveis: $2^b$.
         \item Total de valores de hash possíveis: $2^n$.
         \item Em média, cada valor de hash corresponde a $2^{b-n}$ pré-imagens.
         \item Se $H$ distribui uniformemente os valores de hash, cada hash terá aproximadamente $2^{b-n}$ pré-imagens.
         \item Para entradas de tamanho variável, a variação de pré-imagens por valor de hash aumenta.
-        \item Apesar disso, os riscos de segurança não são tão graves; é necessário definir requisitos precisos de segurança para funções de hash criptográficas.
+        \item Apesar disso, os riscos de segurança não são tão graves; é necessário \textbf{definir requisitos} precisos de segurança para funções de hash criptográficas.
     \end{itemize}
 \end{frame}
 
@@ -431,14 +434,17 @@
 
     \end{figure}
     As primeiras três
-    propriedades são requisitos para a aplicação prática de uma função de hash.
+    propriedades são requisitos \textbf{básicos} de uma função de hash.
 \end{frame}
 
 \begin{frame}{Resistência à Pré-imagem (Propriedade de Mão Única)}
     \begin{itemize}
-        \item A resistência à pré-imagem significa que é fácil gerar o código de hash a partir da mensagem.
-        \item Porém, é praticamente impossível gerar a mensagem a partir do código de hash.
-        \item Essencial quando a autenticação envolve um valor secreto que não é transmitido.
+        \item A resistência à pré-imagem significa que:
+              \begin{enumerate}
+                  \item É fácil gerar o código de hash a partir da mensagem.
+                  \item Porém, é praticamente impossível gerar a mensagem a partir do código de hash.
+              \end{enumerate}
+              .
         \item Se a função de hash não tiver esta propriedade, um invasor pode:
               \begin{itemize}
                   \item Observar a mensagem $M$ e o hash $h = H(S || M)$.
@@ -446,28 +452,29 @@
                   \item Recuperar o valor secreto $S$ facilmente.
               \end{itemize}
         \item Portanto, a resistência à pré-imagem é crucial para proteger valores secretos.
+        \item Geralmente esse requisito é essencial quando a autenticação envolve um valor secreto que não é transmitido
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Resistência à Segunda Pré-imagem}
     \begin{itemize}
-        \item Garante que é impossível encontrar uma mensagem alternativa com o mesmo valor de hash de uma mensagem específica.
-        \item Importante para prevenção contra falsificação quando se usa um hash encriptado.
+        \item Garante que é \textbf{impossível} encontrar uma mensagem alternativa com o mesmo valor de hash de uma mensagem específica.
+
         \item Se a função de hash não possuir essa propriedade, um invasor poderia:
               \begin{itemize}
                   \item Observar ou interceptar uma mensagem com seu hash encriptado.
-                  \item Decriptar o hash da mensagem original.
                   \item Criar uma nova mensagem diferente com o mesmo hash.
               \end{itemize}
-        \item Portanto, esta propriedade protege contra ataques de falsificação.
+        \item Portanto, esta propriedade protege contra \textbf{ataques de falsificação}.
+        \item Ou seja, é importante considerar este aspecto para prevenção contra falsificação quando se usa um hash encriptado.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Funções Hash Fraca e Forte}
     \begin{itemize}
-        \item Uma função de hash que satisfaz as primeiras cinco propriedades é chamada de \textbf{função hash fraca}.
+        \item Se uma função de hash \textbf{somente} satisfaz as primeiras cinco propriedades é chamada de \textbf{função hash fraca}.
         \item Se a função também satisfaz a sexta propriedade, \textbf{resistência à colisão}, é chamada de \textbf{função hash forte}.
-        \item Função hash forte protege contra ataques onde terceiros tentam gerar mensagens diferentes com o mesmo hash.
+
         \item Exemplo de ataque sem resistência à colisão:
               \begin{itemize}
                   \item Bob cria duas mensagens diferentes com o mesmo hash (m1 e m2).
@@ -475,19 +482,20 @@
                   \item Bob usa o hash da mensagem m1 para reivindicar que a mensagem m2 foi assinada.
               \end{itemize}
         \item Portanto, a resistência à colisão é crucial para evitar falsificação de assinaturas.
+        \item \textbf{Motivo}: Função hash forte protege contra ataques onde terceiros tentam gerar mensagens diferentes com o mesmo hash.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Pseudoaleatoriedade em Funções de Hash Criptográficas}
     \begin{itemize}
-        \item A pseudoaleatoriedade não é tradicionalmente citada como requisito formal, mas é implicitamente importante.
+        \item A pseudoaleatoriedade \textbf{não é tradicionalmente citada como requisito formal}, mas é implicitamente importante.
         \item Funções de hash criptográficas são frequentemente usadas para:
               \begin{itemize}
                   \item Derivação de chaves.
                   \item Geração de números pseudoaleatórios (PRNG/PRF).
               \end{itemize}
         \item Nas aplicações de integridade de mensagens, as propriedades de resistência dependem de a saída parecer aleatória.
-        \item Portanto, é apropriado considerar que uma função de hash produz uma saída pseudoaleatória.
+        \item \textbf{Ou seja}: é apropriado considerar que uma função de hash produz uma saída pseudoaleatória.
     \end{itemize}
 \end{frame}
 
@@ -501,7 +509,7 @@
     \begin{itemize}
 
 
-        \item  Uma função que é resistente à colisão também é resistente à segunda pré-imagem, mas o inverso não é necessariamente verdadeiro.
+        \item  Uma função que é resistente à colisão \textbf{também} é resistente à segunda pré-imagem, \textbf{mas o inverso não é necessariamente verdadeiro}.
         \item Uma função pode ser resistente à colisão, mas não ser resistente à pré-imagem, e vice-versa. Uma função pode ser resistente à pré-imagem, mas não ser resistente à segunda pré-imagem e vice-versa.
     \end{itemize}
 \end{frame}
@@ -517,36 +525,54 @@
 \end{frame}
 
 \begin{frame}{Ataques de Força Bruta em Funções de Hash}
+    Ataques de força bruta:
     \begin{itemize}
-        \item Ataques de força bruta não dependem do algoritmo de hash, apenas do tamanho do valor de hash em bits.
+        \item  \textbf{Não dependem} do algoritmo de hash: dependem \textbf{apenas do tamanho do valor de hash} em bits.
         \item Consiste em tentar todas as combinações possíveis até encontrar uma pré-imagem ou colisão.
-        \item O esforço necessário cresce exponencialmente com o tamanho do hash: para um hash de \(n\) bits, há \(2^n\) possíveis valores.
-        \item Diferente da criptoanálise, que explora vulnerabilidades específicas do algoritmo.
-        \item Exemplo: para um hash de 128 bits, seriam necessárias \(2^{128}\) tentativas em média para encontrar uma colisão por força bruta.
+        \item O esforço necessário cresce exponencialmente com o tamanho do hash:
+              \begin{itemize}
+                  \item Para um hash de \(n\) bits: há \(2^n\) possíveis valores.
+                  \item Exemplo: para um hash de 128 bits, seriam necessárias \(2^{128}\) tentativas em média para encontrar uma colisão por força bruta.
+              \end{itemize}
+    \end{itemize}
+
+    \textbf{Lembrando}:
+    \begin{itemize}
+        \item Força bruta é diferente da criptoanálise
+        \item Criptoanálise explora vulnerabilidades específicas do algoritmo
     \end{itemize}
 \end{frame}
 \begin{frame}{Ataques de Pré-imagem e Segunda Pré-imagem}
-    \textbf{Cenário}: O atacante conhece uma saída da Hash
+    \textbf{Cenário}: O atacante que conhece uma saída da Hash deseja:
     \begin{itemize}
         \item O adversário busca um valor \(y\) tal que \(H(y) = h\), onde \(h\) é um hash conhecido.
-        \item Método de força bruta: testar valores aleatórios de \(y\) até encontrar uma correspondência.
-        \item Para um hash de \(m\) bits, o esforço médio necessário é \(2^{m-1}\) tentativas.
-        \item Esse ataque explora a dificuldade de inverter a função de hash (resistência à pré-imagem).
+        \item Esse ataque explora a \textbf{dificuldade de inverter} a função de hash (resistência à pré-imagem)
+        \item Método de \textbf{força bruta}:
+              \begin{itemize}
+                  \item Testar valores aleatórios de \(y\) até encontrar uma correspondência.
+                  \item Para um hash de \(m\) bits, o esforço médio necessário é \(2^{m-1}\) tentativas.
+              \end{itemize}
+              .
     \end{itemize}
 \end{frame}
 \begin{frame}{Ataques Resistentes à Colisão}
-    \textbf{Cenário}: O atacante busca desobrir pares de saída da Hash
+    \textbf{Cenário}: O atacante busca desobrir \textbf{pares de saída} da Hash
     \begin{itemize}
         \item O adversário busca duas mensagens \(x\) e \(y\) tal que \(H(x) = H(y)\).
         \item Esse ataque exige \textbf{menos esforço} do que um ataque de pré-imagem ou segunda pré-imagem.
-        \item Baseado no \textbf{paradoxo do aniversário}: a probabilidade de colisão aumenta rapidamente com o número de tentativas.
         \item Para um hash de \(m\) bits, o esforço médio para encontrar uma colisão é aproximadamente \(2^{m/2}\) tentativas.
     \end{itemize}
+    Lembra do \textbf{paradoxo do aniversário}?
+    \begin{itemize}
+        \item Dado um grupo de 23 pessoas escolhidas aleatoriamente, a chance de que duas pessoas terão a mesma data de aniversário é de mais de 50%.
+        \item Em hashes a probabilidade de colisão aumenta rapidamente com o número de tentativas.
+    \end{itemize}
+
 \end{frame}
 \begin{frame}{Ataque de Colisão Explorado via Paradoxo do Aniversário}
     Estratégia para explorar o paradoxo do dia do aniversário:
     \begin{itemize}
-        \item Preparação da origem A: mensagem legítima \(x\) é criada
+        \item Preparação na origem: mensagem legítima \(x\) é criada
         \item Oponente gera \(2^{m/2}\) variações \(x'\) de \(x\) com mesmo significado e armazena os hashes.
         \item Oponente prepara uma mensagem fraudulenta \(y\) para a qual deseja a assinatura.
         \item Pequenas variações \(y'\) de \(y\) são geradas; o oponente calcula \(H(y')\) e verifica correspondência com algum \(H(x')\).
@@ -585,13 +611,14 @@
         \item Hashes de 160 bits (como SHA-1) aumentam a resistência:
               \begin{itemize}
                   \item Mesma máquina levaria mais de 4.000 anos para encontrar uma colisão.
-                  \item Contudo, com tecnologia atual, 160 bits começa a ficar suspeito.
+                  \item Contudo, com a evolução tecnológica: 160 bits começa a não ser mais seguro.
               \end{itemize}
 
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Criptoanálise de Funções de Hash e MACs}
+    Saindo da força bruta e entrando na criptoanálise:
     \begin{itemize}
         \item Assim como em algoritmos de criptografia, ataques criptoanalíticos em \textbf{hashes} e \textbf{MACs} buscam explorar propriedades do algoritmo para superar a simples busca exaustiva.
         \item A resistência de um hash ou MAC à criptoanálise é medida comparando-se seu esforço com o esforço de um ataque por força bruta.
@@ -599,19 +626,18 @@
     \end{itemize}
 \end{frame}
 \begin{frame}{Estrutura Iterativa de Funções de Hash}
+    Estrutura geral de uma típica  função de hash segura:
     \begin{itemize}
-        \item A estrutura iterativa de hash foi proposta por Merkle [MERK79, MERK89] e é usada na maioria das funções de hash atuais, incluindo SHA.
+        \item Estrutura iterativa de hash foi proposta por Merkle [MERK79, MERK89]
+        \item É usada na maioria das funções de hash atuais, incluindo SHA.
         \item Funcionamento geral:
               \begin{itemize}
                   \item A mensagem de entrada é dividida em $L$ blocos de tamanho fixo $b$ bits.
-                  \item Se necessário, o bloco final é preenchido para completar $b$ bits e inclui o tamanho total da mensagem.
-                  \item Incluir o tamanho dificulta ataques, pois o oponente deve encontrar colisões com mensagens do mesmo ou de tamanhos diferentes que levem ao mesmo hash.
-              \end{itemize}
-        \item O algoritmo usa repetidamente uma \textbf{função de compactação} $f$:
-              \begin{itemize}
-                  \item Recebe duas entradas: a \textbf{variável de encadeamento} (n bits da etapa anterior) e o bloco atual (b bits). Normalmente, b $>$ n;
-                  \item Produz uma saída de $n$ bits.
-                  \item A variável de encadeamento inicial é definida pelo algoritmo e o valor final dela é o \textbf{hash resultante}.
+                  \item O bloco final é preenchido para completar $b$ bits (Se necessário)
+                  \item Inclui também o tamanho total da mensagem.
+                        \begin{itemize}
+                            \item Incluir o tamanho dificulta ataques, pois o oponente deve encontrar colisões com mensagens do mesmo ou de tamanhos diferentes que levem ao mesmo hash.
+                        \end{itemize}
               \end{itemize}
     \end{itemize}
 \end{frame}
@@ -619,8 +645,14 @@
 \begin{frame}{Estrutura geral de hash seguro}
     \begin{figure}
         \centering
-        \includegraphics[width=0.9\linewidth]{Figuras/estrutura-gera-hash-seguro.png}
+        \includegraphics[width=0.85\linewidth]{Figuras/estrutura-gera-hash-seguro.png}
     \end{figure}
+    O algoritmo usa repetidamente uma \textbf{função de compactação} $f$:
+    \begin{itemize}
+        \item Duas entradas: (i) a \textbf{variável de encadeamento} (n bits da etapa anterior) e  (ii) bloco atual (b bits).
+        \item Produz uma saída de $n$ bits. Normalmente, b $>$ n;
+        \item Variável de encadeamento inicial é \textbf{definida pelo algoritmo} e o valor final dela é o \textbf{hash resultante}.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Estrutura geral de hash seguro}
@@ -632,21 +664,26 @@
 \end{frame}
 
 \begin{frame}{Motivação e Criptoanálise de Funções de Hash}
+    Motivação da estrutura iterativa (Merkle [MERK89], Damgård [DAMG89]):
+
     \begin{itemize}
-        \item Motivação da estrutura iterativa (Merkle [MERK89], Damgård [DAMG89]):
-              \begin{itemize}
-                  \item Se a função de compactação $f$ for à prova de colisão, a função de hash iterativa resultante também será.
-                  \item Permite criar hashes seguros para mensagens de qualquer tamanho.
-                  \item O design seguro de uma função de hash se reduz ao design de uma função de compactação segura para blocos de tamanho fixo.
-              \end{itemize}
-        \item Criptoanálise de funções de hash:
-              \begin{itemize}
-                  \item Foca na estrutura interna de $f$.
-                  \item Ataques procuram produzir colisões eficientes para uma única execução de $f$, considerando o valor fixo do IV.
-                  \item Normalmente, $f$ consiste em várias rodadas, e o ataque analisa padrões de mudança de bits entre rodadas.
-              \end{itemize}
+        \item Se a função de compactação $f$ for à prova de colisão, a função de hash iterativa resultante também será.
+        \item Permite criar hashes seguros para mensagens de qualquer tamanho.
+        \item O design seguro de uma função de hash se reduz ao design de uma função de compactação segura para blocos de tamanho fixo.
     \end{itemize}
+
 \end{frame}
+\begin{frame}{Criptoanálise em funções de Hash}
+
+    Criptoanálise de funções de hash:
+    \begin{itemize}
+        \item Foca na estrutura interna de $f$.
+        \item Ataques procuram produzir colisões eficientes para uma única execução de $f$, considerando o valor fixo do IV.
+        \item Normalmente, $f$ consiste em várias rodadas, e o ataque analisa padrões de mudança de bits entre rodadas.
+    \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}{Colisões em Funções de Hash}
     \begin{itemize}
@@ -657,7 +694,7 @@
               \end{itemize}
         \item O objetivo de uma função de hash segura não é eliminar colisões (isso é impossível),
               mas torná-las \textbf{computacionalmente inviáveis de encontrar}.
-        \item Assim, a segurança é definida pelo \textbf{esforço necessário para descobrir uma colisão}, não pela sua inexistência.
+        \item \textbf{Importante}: A segurança é definida pelo \textbf{esforço necessário para descobrir uma colisão, não pela sua inexistência}.
     \end{itemize}
 \end{frame}
 
