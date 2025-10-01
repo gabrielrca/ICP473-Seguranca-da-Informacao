@@ -7,7 +7,7 @@
 \maketitle
 
 \section{PRNG e TRNG}
-Tradicionalmente, a preocupação na geração de uma sequência de números supostamente aleatórios é garantir que a sequência seja estatisticamente aleatória. 
+Tradicionalmente, a preocupação na geração de uma sequência de números supostamente aleatórios é garantir que a sequência seja estatisticamente aleatória.
 \begin{itemize}
     \item Explique a diferença fundamental entre um TRNG e um PRNG.
     \item Cite dois critérios principais que são usados para validar a aleatoriedade.
@@ -16,8 +16,54 @@ Tradicionalmente, a preocupação na geração de uma sequência de números sup
 \end{itemize}
 \textbf{Justifique} suas respostas.
 
+\section{Intel DRNG}
+Descreva detalhadamente os três estágios do Intel DRNG (Digital Random Number Generator), explicando:
+\begin{itemize}
+    \item   Como são gerados os bits aleatórios no circuito físico
 
-\section{Princípios de Shannon na Cifra de Feistel} 
+    \item   Como é evitada a propensão (viés) na sequência
+
+    \item    Por que é necessário usar um PRNG após a geração da entropia inicial
+\end{itemize}
+
+Compile o código $rdrand\_bin.asm$ apresentado em sala de aula:
+
+\begin{verbatim}
+    section .text
+    global _start
+
+_start:
+    rdrand rcx          ; Bota valor aleatorio no registrador RCX - 64 bits
+    jnc .exit           ; Vai pular se NÃO tiver o carry flag (CF = 0)
+
+    ; Escreve os 64 bits diretamente na saída padrao (terminaL)
+    push rcx            ; coloca os 64 bits na stack
+    mov rax, 1          ; Fala qual e a operacao - sys_write
+    mov rdi, 1          ; Fala aonde que vai escrever - stdout
+    mov rsi, rsp        ; Fala onde que é pra ler 
+                        ;- aponta leitura para os dados na stack (rsp é o stack pointer)
+    mov rdx, 8          ; Fala a quantidade pra ler - 8 bytes (64 bits)
+    syscall
+
+    add rsp, 8          ; Joga o stack pointer 8 bytes para cima - ou seja, limpa a stack
+
+.exit:
+    mov rax, 60         ; Fala qual que e a operacao - no caso sys_exit
+    xor rdi, rdi        ; Bota zero no rdi - exit(0)
+    syscall
+    
+\end{verbatim}
+
+\textbf{Responda}:
+\begin{enumerate}
+    \item Qual é a função da \textbf{flag de carry (CF)} neste contexto?
+    \item Em que cenário a instrução RDRAND \textbf{não} setaria a CF?
+    \item Por que é importante verificar a CF antes de usar o valor gerado?
+\end{enumerate}
+
+
+
+\section{Princípios de Shannon na Cifra de Feistel}
 
 Considere o código abaixo:
 \begin{verbatim}
@@ -39,7 +85,7 @@ print(f"Fim: {invertido:016b}")
 \end{verbatim}
 
 \begin{itemize}
-    \item Explique os seguintes conceitos propostos por Claude Shannon: Confusão e Difusão. 
+    \item Explique os seguintes conceitos propostos por Claude Shannon: Confusão e Difusão.
     \item Relacione como cada um deles é implementado na estrutura de uma Cifra de Feistel, usando o a implementação de uma rodada de Feistel apresentada em aula.
     \item A Função F do código apresentado em aula é dado por: $(R * K) \& 0xFF$. Essa função é linear. Shannon enfatizou a necessidade de não-linearidade para a função F. Discuta.
     \item Apesar de simples, a Cifra de Feistel é base para uma série de cifras comerciais, antigas e atuais. Diga quais são os principais parâmetros que podemos modificar em uma Cifra de Feistel que pode deixá-la mais robusta e resistente à ataques.
@@ -52,12 +98,30 @@ O 3DES foi criado em resposta a problemas de segurança encontrados no DES.
     \item Discorra sobre os motivos principais que motivaram a substituição do DES.
     \item O 3DES teve como objetivo ser compatível com o DES. Explique como essa compatibilidade foi alcançada.
     \item Considerando que o 3DES aplica o algoritmo DES três vezes, qual é o tamanho efetivo de chave quando utilizamos:
-    \begin{enumerate}
-        \item Três chaves independentes ($K_1$, $K_2$, $K_3$)?
-        \item Apenas duas chaves ($K_1 = K_3$)?
-    \end{enumerate}
+          \begin{enumerate}
+              \item Três chaves independentes ($K_1$, $K_2$, $K_3$)?
+              \item Apenas duas chaves ($K_1 = K_3$)?
+          \end{enumerate}
     \item Apesar de o 3DES utilizar 3 chaves, o que na prática nos dá uma chave maior que o DES, ele tinha o mesmo tamanho de bloco. Qual era o problema disso?
-    Justifique sua resposta.
+          Justifique sua resposta.
 \end{enumerate}
 
+\section{Aumento de rodadas vs. tamanho de chave}
+Explique por que o aumento do tamanho da chave no AES (128, 192, 256 bits) é mais eficaz contra ataques de força bruta do que simplesmente aumentar o número de rodadas em uma cifra de Feistel como o DES.
+
+Diga se a afirmação é verdadeira ou falsa e justifique:
+\begin{itemize}
+    \item "Um AES com chave de 128 bits e 10 rodadas é mais seguro contra força bruta que um DES com 16 rodadas, mesmo que o DES tenha mais rodadas."
+\end{itemize}
+
+\section{AES-GCM, confidencialidade e autenticação}
+O AES-GCM combina confidencialidade e autenticação. Baseado nisso, descreva:
+\begin{enumerate}
+    \item Como é implementada a confidencialidade?
+    \item  Como é implementada a autenticação?
+    \item  Outros modos como o AES-CBC também nos fornecem confidencialidade e autenticação ou somente um desses aspectos. Discorra.
+\end{enumerate}
+
+
 \end{document}
+
