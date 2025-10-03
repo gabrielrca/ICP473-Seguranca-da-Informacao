@@ -36,7 +36,7 @@
   Concepções equivocadas comuns:
   \begin{itemize}
     \item Não é intrinsecamente mais segura que a criptografia simétrica — a segurança depende do \textbf{tamanho da chave} e do \textbf{custo computacional} para quebrar a cifra.
-    \item Não substitui a criptografia simétrica — devido ao \textbf{alto overhead computacional}, continua restrita principalmente a:
+    \item Não substitui a criptografia simétrica — mas apresenta todo uma gama de aplicações:
           \begin{itemize}
             \item \textbf{Gerenciamento de chaves}
             \item \textbf{Assinaturas digitais}
@@ -279,9 +279,9 @@
           \begin{enumerate}
             \item $M^{ed} \mod n = M$ para todo $M < n$
             \item Calcular $M^e \mod n$ e $C^d \mod n$ é relativamente fácil
-            \item Conhecendo $e$ e $n$, é inviável determinar $d$
+            \item Conhecendo $e$ \textbf{e} $n$, é inviável determinar $d$
           \end{enumerate}
-    \item $d$ pode ser calculado usando o algoritmo de Euclides estendido
+
   \end{itemize}
 \end{frame}
 \begin{frame}{Requisito de Inversão no RSA}
@@ -297,8 +297,9 @@
           \]
     \item Condição: $e$ e $d$ devem ser relativamente primos a $\varphi(n)$:
           \[
-            \gcd(d, \varphi(n)) = 1
+            mdc(d, \varphi(n)) = 1
           \]
+    \item $d$ pode ser calculado usando o algoritmo de Euclides estendido, que permite calcular  $ed \equiv 1 \mod \varphi(n)$
   \end{itemize}
 
 \end{frame}
@@ -426,4 +427,204 @@
 
   \end{figure}
 
+\end{frame}
+
+\begin{frame}{O Problema da Fatoração no RSA}
+  A segurança do RSA depende da dificuldade de certos problemas matemáticos.
+  Existem três possíveis formas de ataque:
+
+  \begin{enumerate}
+    \item \textbf{Fatorar $n$:} encontrar os primos $p$ e $q$ tais que $n = p \times q$.
+          Isso permite calcular $\varphi(n) = (p-1)(q-1)$ e, em seguida, $d \equiv e^{-1} \pmod{\varphi(n)}$.
+    \item \textbf{Determinar $\varphi(n)$ diretamente:} sem fatorar $n$, mas que leva igualmente à descoberta de $d$.
+    \item \textbf{Descobrir $d$ diretamente:} a partir de $e$ e $n$, sem precisar de $\varphi(n)$.
+          Até hoje, parece tão difícil quanto fatorar $n$.
+  \end{enumerate}
+
+  \medskip
+  \textbf{Conclusão:}
+  \begin{itemize}
+    \item A criptoanálise do RSA está fortemente ligada ao problema da \alert{fatoração de inteiros}.
+    \item O desempenho dos melhores algoritmos de fatoração é usado como \textbf{benchmark de segurança}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Dificuldade de Fatoração em Diferentes Tamanhos de Chave RSA}
+  \begin{itemize}
+    \item A dificuldade de fatorar cresce rapidamente com o tamanho do módulo:
+          \begin{itemize}
+            \item Fatorar um módulo RSA de \textbf{1024 bits} é cerca de \textbf{mil vezes mais difícil} do que um de 768 bits.
+            \item Um módulo de \textbf{768 bits} é milhares de vezes mais difícil que um de 512 bits.
+          \end{itemize}
+    \item A primeira fatoração bem-sucedida de um módulo de \textbf{512 bits} ocorreu há cerca de uma década.
+    \item É plausível que um módulo de \textbf{1024 bits} possa ser fatorado dentro da próxima década por grupos acadêmicos.
+  \end{itemize}
+
+  \medskip
+  \textbf{Recomendação prática:}
+  \begin{itemize}
+    \item Evitar o uso de chaves RSA de 1024 bits nos próximos \textbf{3 a 4 anos}.
+    \item Preferir módulos de pelo menos \alert{2048 bits} para segurança a médio prazo.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Troca de Chaves Diffie-Hellman}
+  \begin{itemize}
+    \item Primeiro algoritmo de chave pública, proposto por Diffie e Hellman em 1976.
+    \item Objetivo: permitir que dois usuários troquem \textbf{variáveis} para criar uma chave secreta com segurança.
+    \item Essa chave secreta pode ser usada posteriormente para criptografar mensagens.
+    \item O algoritmo em si não criptografa mensagens, apenas realiza a \textbf{troca de valores secretos}.
+    \item Baseado em propriedades da aritmética modular e do problema do logaritmo discreto.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Logaritmo Discreto e Diffie-Hellman}
+  \begin{itemize}
+    \item A segurança do algoritmo Diffie-Hellman depende da dificuldade de calcular \textbf{logaritmos discretos}.
+    \item Definição: dado um número primo $p$ e uma raiz primitiva $a$, temos:
+          \[
+            a^1 \bmod p, \; a^2 \bmod p, \; \ldots, \; a^{p-1} \bmod p
+          \]
+          que geram todos os inteiros de $1$ até $p-1$.
+    \item Para qualquer inteiro $b$, existe um único expoente $i$ tal que:
+          \[
+            b \equiv a^i \pmod{p}, \quad 0 \leq i \leq p-1
+          \]
+    \item Esse $i$ é o \textbf{logaritmo discreto} de $b$ na base $a$, módulo $p$:
+          \[
+            i = \log_a (b) \pmod{p}
+          \]
+    \item Problema: calcular $i$ é computacionalmente inviável para valores grandes de $p$.
+  \end{itemize}
+\end{frame}
+\begin{frame}{Algoritmo de Troca de Chaves Diffie-Hellman}
+  \begin{itemize}
+    \item Dois parâmetros públicos:
+          \[
+            q \ (\text{número primo}), \quad \alpha \ (\text{raiz primitiva de } q)
+          \]
+    \item Cada usuário escolhe um valor secreto:
+          \[
+            A: X_A < q, \quad B: X_B < q
+          \]
+    \item Cada um calcula sua chave pública:
+          \[
+            Y_A = \alpha^{X_A} \bmod q, \quad Y_B = \alpha^{X_B} \bmod q
+          \]
+    \item As chaves públicas $Y_A$ e $Y_B$ são trocadas.
+    \item Cálculo da chave secreta compartilhada:
+          \[
+            A: \ K = (Y_B)^{X_A} \bmod q
+          \]
+          \[
+            B: \ K = (Y_A)^{X_B} \bmod q
+          \]
+    \item Como $(Y_B)^{X_A} \equiv (Y_A)^{X_B} \pmod{q}$, ambos obtêm a mesma chave secreta $K$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Calculo da chave K - Diffie-Hellman}
+  A chave K é calculada por ambas as partes da seguinte forma:
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figuras/calculo-diffie-helman.png}
+
+  \end{figure}
+\end{frame}
+\begin{frame}{Troca de Chaves Diffie-Hellman}
+  O resultado é que os dois lados trocaram um valor secreto.
+  Esse valor secreto é normalmente usado como chave secreta simétrica compartilhada.
+
+  \medskip
+  Agora, considere um intruso que pode observar a troca de chaves e queira determinar a chave secreta $K$.
+  Como $X_A$ e $X_B$ são privados, o intruso só tem os seguintes elementos para trabalhar: $q$, $\alpha$, $Y_A$ e $Y_B$.
+
+  \medskip
+  Assim, o intruso é forçado a calcular um \textbf{logaritmo discreto} para estabelecer a chave.
+  Por exemplo, para definir a chave privada do usuário B, o intruso precisaria calcular:
+  \[
+    X_B = \log_{\alpha}(Y_B) \pmod{q}
+  \]
+\end{frame}
+
+
+\begin{frame}{Exemplo: Troca de Chaves Diffie-Hellman}
+  A segurança da troca de chaves Diffie-Hellman está no fato de que, embora seja fácil calcular exponenciais
+  módulo um primo, é muito difícil calcular logaritmos discretos. Para números grandes, esta tarefa é inviável.
+
+  \medskip
+  \textbf{Exemplo:}
+  $q = 353$, $\alpha = 3$
+  $X_A = 97$, $X_B = 233$
+
+  \medskip
+  \textbf{Cálculo das chaves públicas:}
+  \[
+    Y_A = 3^{97} \bmod 353 = 40 \quad\quad
+    Y_B = 3^{233} \bmod 353 = 248
+  \]
+
+  \medskip
+  \textbf{Cálculo da chave secreta comum:}
+  \[
+    K_A = (Y_B)^{X_A} \bmod 353 = 248^{97} \bmod 353 = 160
+  \]
+  \[
+    K_B = (Y_A)^{X_B} \bmod 353 = 40^{233} \bmod 353 = 160
+  \]
+
+  \medskip
+  \textbf{Para um intruso:}
+  Disponível apenas $q=353$, $\alpha=3$, $Y_A=40$, $Y_B=248$.
+  Para descobrir $K$, teria de resolver um \textit{logaritmo discreto}, o que é inviável para primos grandes.
+\end{frame}
+
+\begin{frame}{Diffie-Hellman na prática}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuras/diffie-helman-alice-bob.png}
+
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Protocolos de Troca de Chave}
+  \textbf{Troca simples (dois usuários):}
+  \begin{itemize}
+    \item $A$ escolhe $X_A$, calcula $Y_A = \alpha^{X_A} \bmod q$ e envia a $B$.
+    \item $B$ escolhe $X_B$, calcula $Y_B = \alpha^{X_B} \bmod q$ e envia a $A$.
+    \item Ambos calculam a chave secreta $K$:
+          \[
+            K = (Y_B)^{X_A} \bmod q = (Y_A)^{X_B} \bmod q
+          \]
+    \item Os valores públicos $q$ e $\alpha$ devem ser conhecidos previamente ou enviados na primeira mensagem.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Man-in-the-Middle - Diffie Hellman}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figuras/mitm-diffie-hellman.png}
+
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Ataque Man-in-the-Middle em Diffie–Hellman}
+
+
+  \medskip
+  \textbf{Consequência:}
+  \begin{itemize}
+    \item Alice e Bob acreditam ter uma chave secreta compartilhada.
+    \item Na prática, Alice compartilha $K_2$ com Darth e Bob compartilha $K_1$ com Darth.
+    \item Darth pode \textbf{espiar} ou \textbf{modificar} mensagens.
+  \end{itemize}
+
+  \medskip
+  \textbf{Motivo da vulnerabilidade:}
+  O protocolo não autentica os participantes.
+
+  \textbf{Solução:} uso de \alert{assinaturas digitais} e \alert{certificados}.
 \end{frame}
