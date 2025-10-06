@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{Fluhrer2001}
+Scott Fluhrer, Itsik Mantin, and Adi Shamir.
+\newblock Weaknesses in the key scheduling algorithm of {RC4}.
+\newblock In {\em Selected Areas in Cryptography}, volume 2259 of {\em Lecture Notes in Computer Science}, pages 1--24. Springer, 2001.
+
+\bibitem{Tews2007}
+Erik Tews, Ralf-Philipp Weinmann, and Andrei Pyshkin.
+\newblock Breaking 104 bit {WEP} in less than 60 seconds.
+\newblock In {\em Proceedings of the 8th International Conference on Information Security Applications (WISA 2007)}, pages 188--202. Springer, 2007.
+
+\bibitem{vibhuti2005ieee}
+Shivaputrappa Vibhuti.
+\newblock Ieee 802.11 wep wired equivalent privacy concepts and vulnerability.
+\newblock {\em San Jose State University, CA, USA, CS265 Spring}, 2005.
+
+\end{thebibliography}
