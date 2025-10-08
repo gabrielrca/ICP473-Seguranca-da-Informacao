@@ -325,6 +325,62 @@
   \end{itemize}
 \end{frame}
 
+% PQ FUNCIONA 1
+\begin{frame}{\textbf{Como funciona}: O que queremos garantir}
+  No RSA:
+  \begin{itemize}
+    \item Mensagem \(M\)
+    \item Chave pública \((n, e)\)
+    \item Chave privada \((n, d)\)
+  \end{itemize}
+
+  Criptografia:
+  \[
+    C \equiv M^e \pmod{n}
+  \]
+
+  Descriptografia:
+  \[
+    M' \equiv C^d \pmod{n} = (M^e)^d \pmod{n}
+  \]
+
+  Objetivo:
+  \[
+    M' \equiv M \pmod{n}
+  \]
+\end{frame}
+
+% PQ FUNCIONA 2
+\begin{frame}{\textbf{Como funciona}: Por que $e$ e $d$ devem ser inversos módulo $\varphi(n)$}
+  \begin{itemize}
+    \item \(n = pq\), \(\varphi(n) = (p-1)(q-1)\)
+    \item Teorema de Euler: \(M^{\varphi(n)} \equiv 1 \pmod{n}\) se \(mdc(M,n) = 1\)
+    \item Escolhemos \(d\) tal que:
+          \[
+            e \cdot d \equiv 1 \pmod{\varphi(n)}
+          \]
+    \item Ou seja, existe \(k\) tal que \(ed = 1 + k\varphi(n)\)
+  \end{itemize}
+\end{frame}
+
+% PQ FUNCIONA 3
+\begin{frame}{\textbf{Como funciona}: Aplicando na descriptografia}
+  \[
+    M' = C^d = (M^e)^d = M^{ed} = M^{1 + k\varphi(n)} = M \cdot (M^{\varphi(n)})^k
+  \]
+
+  Pelo Teorema de Euler:
+  \[
+    (M^{\varphi(n)})^k \equiv 1^k \equiv 1 \pmod{n}
+  \]
+
+  Portanto:
+  \[
+    M' \equiv M \pmod{n}
+  \]
+
+  \textbf{Conclusão:} funciona porque \(e \cdot d \equiv 1 \mod \varphi(n)\)
+\end{frame}
 
 \begin{frame}{Esquema RSA}
   \textbf{Ingredientes:}
@@ -427,6 +483,42 @@
 
   \end{figure}
 
+\end{frame}
+
+\begin{frame}[fragile]{Usando e verificando os parâmetros RSA na prática}
+
+  \begin{itemize}
+    \small
+    \item \textbf{Gerar a chave ssh}: \begin{verbatim}ssh-keygen -t rsa -f ./teste \end{verbatim}
+    \item \textbf{Verificar fingerprint da chave}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
+    \item \textbf{Tentear abrir} (não vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
+    \item \textbf{Mudar o formato}: \begin{verbatim}ssh-keygen -p -m PEM -f ./teste \end{verbatim}
+    \item \textbf{Verifiar fingerprint anterior}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
+    \item \textbf{Tentear abrir} (vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
+    \item \textbf{Mudar formato da chave pública para modo PEM}: \begin{verbatim}ssh-keygen -e -m PEM -f ./teste.pub > ./teste_pub.pem \end{verbatim}
+    \item \textbf{Abrir a chave publica}: \begin{verbatim}openssl rsa -pubin -in teste_pub.pem -text -noout \end{verbatim}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{O que é cada parâmetro de uma chave RSA}
+  \footnotesize
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+      \toprule
+      \textbf{Nome}         & \textbf{Símbolo}                  & \textbf{Função}                                       \\
+      \midrule
+      modulus               & $n = p \cdot q$                   & Base da aritmética modular — o número grande público. \\
+      publicExponent        & $e$                               & Expoente público, normalmente 65537.                  \\
+      privateExponent       & $d$                               & Expoente privado usado para assinar/decifrar.         \\
+      prime1                & $p$                               & Primeiro primo secreto.                               \\
+      prime2                & $q$                               & Segundo primo secreto.                                \\
+      exponent1 / exponent2 & $d \bmod (p-1)$ e $d \bmod (q-1)$ & Para otimização - Teorema Chinês do Resto.            \\
+      coefficient           & $q^{-1} \bmod p$                  & Outro parâmetro auxiliar do Teo. Chin. Resto.         \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 \begin{frame}{O Problema da Fatoração no RSA}

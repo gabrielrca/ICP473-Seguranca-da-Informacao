@@ -1,8 +1,14 @@
-\frametitle{Compilando o código com rdrand}
-\begin{verbatim}
-$nasm -f elf64 rdrand_bin.asm -o rdrand_bin.o
-$ld rdrand_bin.o -o rdrand_bin
-$ ./rdrand_bin | hexdump -C
+\frametitle{Usando e verificando os parâmetros RSA na prática}
 
-\end{verbatim}
+  \begin{itemize}
+    \small
+    \item \textbf{Gerar a chave ssh}: \begin{verbatim}ssh-keygen -t rsa -f ./teste \end{verbatim}
+    \item \textbf{Verificar fingerprint da chave}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
+    \item \textbf{Tentear abrir} (não vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
+    \item \textbf{Mudar o formato}: \begin{verbatim}ssh-keygen -p -m PEM -f ./teste \end{verbatim}
+    \item \textbf{Verifiar fingerprint anterior}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
+    \item \textbf{Tentear abrir} (vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
+    \item \textbf{Mudar formato da chave pública para modo PEM}: \begin{verbatim}ssh-keygen -e -m PEM -f ./teste.pub > ./teste_pub.pem \end{verbatim}
+    \item \textbf{Abrir a chave publica}: \begin{verbatim}openssl rsa -pubin -in teste_pub.pem -text -noout \end{verbatim}
+  \end{itemize}
 

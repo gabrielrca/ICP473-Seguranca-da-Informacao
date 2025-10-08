@@ -1,0 +1,69 @@
+\title{Lista de Exercícios: Números Aleatórios e Cifras de Bloco}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{Cifra de Bloco}
+
+\begin{itemize}
+    \item Explique, com suas palavras, os conceitos de \textbf{difusão} e \textbf{confusão} segundo Claude Shannon.
+    \item Descreva a \textbf{estrutura de Feistel}. Demonstre por que o mesmo algoritmo de Feistel pode ser usado tanto para encriptação quanto para decriptação apenas invertendo a ordem das subchaves $K_i$. Mostre isso para uma rodada apenas.
+\end{itemize}
+
+\section{Calculando uma Rodada da Cifra de Feistel}
+
+Considere uma cifra de Feistel com bloco de \textbf{8 bits}, dividida em duas metades de 4 bits cada: $L_0$ (bits mais significativos) e $R_0$ (bits menos significativos).
+A função de rodada $F$ recebe 4 bits de entrada e uma subchave $K_i$, mas, por simplicidade, nesta questão definimos $F(x, K_i) = 1111$ (ou seja, sempre retorna os 4 bits ‘1’, independentemente de $x$ e da subchave).
+
+\textbf{Utilize:}
+\begin{itemize}
+    \item Bloco: $10100110$
+    \item $F(R_0, K_1) = 1111$
+\end{itemize}
+
+\textbf{Faça:}
+\begin{enumerate}
+    \item Calcule $L_1$ e $R_1$ (em binário).
+    \item Concatene $L_1$ e $R_1$ para obter o bloco de 8 bits de saída após uma rodada e apresente-o também em binário.
+    \item Realize o processo inverso (descriptografe o bloco) e mostre que o texto original é recuperado.
+    \item Explique brevemente por que, com essa função $F$ constante, a cifra se torna insegura, indicando qual propriedade (confusão ou difusão) é prejudicada.
+\end{enumerate}
+
+\section{Hash simples}
+Considere a função de hash iterativa simples definida por:
+\begin{itemize}
+    \item Recebe de entrada dados de quaisquer tamanhos (Para facilitar utilize dados com tamanho múltipos de 8bits)
+    \item Inicialização $H_0=00000000$;
+    \item Funcionamento: separa o dado em blocos de 8 bits
+    \item Em cada bloco de 8 bits $B_i$, $H_{i}=H_{i-1}\oplus B_i$.
+    \item Resutado: último bloco de 8 bits
+\end{itemize}
+
+\begin{enumerate}
+    \item Mostre explicitamente (com um exemplo numérico) como é possível reordenar blocos sem alterar o hash.
+    \item Proponha uma modificação simples (mantendo iteração por blocos) que torne esse esquema resistente à simples reordenação de blocos (não precisa torná-lo criptograficamente seguro, apenas eliminar a propriedade de comutatividade).
+
+
+\end{enumerate}
+
+\section{Propriedades de Hash}
+\begin{enumerate}
+    \item Que características são necessárias em uma função de hash segura?
+    \item O que é resistência à resistência à pré-imagem?
+    \item O que é resistência à segunda pré-imagem?
+    \item O que é resistência à colisão forte?
+    \item Quais são as implicações de não se possuir resistência a colisão forte?
+    \item O que é a função de compactação de hash? O que torna uma função de compactação segura?
+\end{enumerate}
+
+\section{Colisões em Hash}
+Uma função de hash produz um resumo de (m) bits.
+\begin{enumerate}
+    \item Usando o paradoxo do aniversário, estime o esforço (número de tentativas da ordem) necessário para encontrar uma colisão por ataque de força bruta.
+    \item Para ($m=128$) e para ($m=256$), escreva a ordem de magnitude desse esforço e comente se cada tamanho é suficiente para segurança moderna frente a ataques com recursos massivos.
+\end{enumerate}
+
+\end{document}
