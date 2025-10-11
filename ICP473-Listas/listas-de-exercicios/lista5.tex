@@ -1,0 +1,109 @@
+\title{Lista de Exercícios: Criptografia Assimétrica}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{Criptografia Simétrica vs. Assimétrica}
+Compare criptografia simétrica e assimétrica em termos de:
+
+\begin{enumerate}
+    \item Distribuição de chaves.
+    \item Aplicações de criptografia simétrica e assimétrica.
+    \item Assim como a criptografia simétrica, é correto afirmar que a criptografia assimétrica pode estar suscetível a ataques de criptoanálise e força bruta?
+    \item Explique por que sistemas práticos frequentemente usam ambos os tipos de criptografia.
+\end{enumerate}
+
+
+
+\section{RSA}
+Para aplicações do RSA precisamos escolher dois números primos. Dado os seguintes números:
+\[
+    p = 17, \quad q = 11
+\]
+
+\textbf{faça}:
+\begin{enumerate}
+    \item Calcule \( n \) e \( \varphi(n) \).
+    \item Escolha \( e = 7 \) e calcule \( d \) tal que \( e \cdot d \equiv 1 \pmod{\varphi(n)} \). Mostre os passos que você utilizou para encontrar (pode usar o algoritmo de euclides extendido ou outra forma).
+    \item Encripte \( M = 88 \) usando a chave pública \((e, n)\) e mostre a decriptação com \( d \).
+\end{enumerate}
+
+\section{Segurança do RSA}
+
+\begin{enumerate}
+    \item Como a dificuldade de fatoração se relaciona com a segurança do RSA?
+    \item Qual é o efeito de se utilizar um valor $n$ pequeno no RSA?
+    \item Uma vez que o valor de $\varphi(n)$ seja conhecido, podemos dizer que a segurança do RSA foi comprometida? Justifique.
+\end{enumerate}
+
+\section{Diffie–Hellman}
+
+Considere o protocolo Diffie–Hellman com os parâmetros públicos:
+\[
+    q = 467,\qquad \alpha = 2
+\]
+(ou seja, \(q\) é primo e \(\alpha\) é uma base primitiva modulo \(q\)).
+
+\begin{enumerate}
+    \item Escolham dois expoentes privados inteiros \(X_A\) e \(X_B\). Escreva e justifique os valores escolhidos.
+    \item Para cada participante da comunicação, calcule os valores $Y$ públicos de cada participante:
+          \[
+              Y_A \equiv \alpha^{X_A} \bmod q,\qquad Y_B \equiv \alpha^{X_B} \bmod q.
+          \]
+          Apresente os cálculos
+    \item Supondo que \(Y_A\) e \(Y_B\) sejam trocados publicamente, calcule a chave secreta comum \(K\) usando cada um dos lados e verifique que ambos obtêm o mesmo valor:
+          \[
+              K_A \equiv Y_B^{X_A} \bmod q,\qquad K_B \equiv Y_A^{X_B} \bmod q.
+          \]
+          Mostre os cálculos e verifique \(K_A = K_B\).
+
+
+\end{enumerate}
+
+\section{Segurança do Diffie-Hellman}
+\begin{enumerate}
+    \item Explique por que um atacante que conheça apenas \(q,\alpha,Y_A,Y_B\) não consegue, de forma prática, obter \(K\)
+    \item Em aplicações práticas, qual o problema de se escolher um valor pequeno em  $q$. Justifique com base no conceito de função de mão única.
+    \item É correto afirmar que o diffie-Hellman é sucetível a ataques do tipo man-in-the-middle? Descreva uma forma de mitigar esse problema caso ele exista.
+\end{enumerate}
+
+\section{Aplicações da Criptografia Assimétrica}
+
+A criptografia assimétrica é amplamente utilizada em diversas aplicações reais de segurança da informação.
+
+
+\begin{enumerate}
+    \item Cite duas aplicações práticas do uso de criptografia assimétrica e justifique.
+    \item Descreva o cenário em que cada uma dessas aplicações é preferível.
+\end{enumerate}
+
+Considerando aplicações de criptografia assimetrica, faça:
+
+\begin{enumerate}
+
+    \item  Explique o papel das chaves pública e privada nas seguintes aplicações, indicando \textbf{quem usa qual chave} e \textbf{para quê}:
+          \begin{enumerate}
+              \item Assinatura digital.
+              \item Autenticação de usuários ou servidores (por exemplo, em SSH ou HTTPS).
+              \item Confidencialidade de mensagens.
+          \end{enumerate}
+
+    \item  Descreva como os \textbf{certificados digitais} garantem a autenticidade das chaves públicas em sistemas como HTTPS. Indique:
+          \begin{itemize}
+              \item quem emite o certificado,
+              \item o que é assinado dentro dele,
+              \item e por que o navegador confia nessa assinatura.
+          \end{itemize}
+
+    \item  A criptografia assimétrica é usada na \textbf{troca de chaves} (por exemplo, no início de uma conexão TLS).
+          Explique como a combinação dos dois tipos de criptografia (assimétrica + simétrica) pode ser usada em um cenário real.
+
+    \item  Em uma frase, resuma a principal diferença entre o uso da criptografia assimétrica para \textbf{autenticação} e para \textbf{confidencialidade}.
+
+\end{enumerate}
+
+
+\end{document}

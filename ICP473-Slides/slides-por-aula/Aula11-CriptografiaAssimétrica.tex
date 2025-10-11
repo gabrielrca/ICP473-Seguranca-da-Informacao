@@ -263,45 +263,49 @@
 \end{frame}
 \begin{frame}{Funcionamento do RSA}
   \begin{itemize}
-    \item RSA é uma cifra de bloco: texto claro e cifrado são inteiros entre 0 e $n-1$.
-    \item Tamanho típico: $n \approx 1024$ bits (309 dígitos decimais).
+    \item RSA é uma cifra de bloco: o texto claro e o texto cifrado são inteiros entre $0$ e $n-1$.
+    \item Tamanho típico: $n \approx 1024$ bits (cerca de 309 dígitos decimais).
     \item Cada bloco de texto claro $M$ deve satisfazer $0 \le M < n$.
     \item Encriptação e decriptação:
           \[
-            C = M^e \mod n,
+            C = M^e \bmod n,
           \]
           \[
-            \quad M = C^d \mod n = (M^e)^d \mod n
+            M = C^d \bmod n = (M^e)^d \bmod n
           \]
-    \item Chave pública: $PU = \{e, n\}$
+    \item Chave pública: $PU = \{e, n\}$ \\
           Chave privada: $PR = \{d, n\}$
     \item Requisitos:
           \begin{enumerate}
-            \item $M^{ed} \mod n = M$ para todo $M < n$
-            \item Calcular $M^e \mod n$ e $C^d \mod n$ é relativamente fácil
-            \item Conhecendo $e$ \textbf{e} $n$, é inviável determinar $d$
+            \item $M^{ed} \bmod n = M$ para todo $M < n$
+            \item Calcular $M^e \bmod n$ e $C^d \bmod n$ é eficiente
+            \item Conhecendo apenas $e$ e $n$, é inviável determinar $d$
           \end{enumerate}
-
   \end{itemize}
 \end{frame}
+
 \begin{frame}{Requisito de Inversão no RSA}
   \begin{itemize}
-    \item Para garantir $M^{ed} \mod n = M$, os expoentes $e$ e $d$ devem ser inversos multiplicativos módulo $\varphi(n)$, onde $\varphi(n)$ é a função totiente de Euler.
+    \item Para garantir que $M^{ed} \bmod n = M$, é necessário que:
+          \begin{itemize}
+            \item os expoentes $e$ e $d$ sejam \textbf{inversos multiplicativos módulo} $\varphi(n)$,
+            \item onde $\varphi(n)$ é a \textbf{função totiente de Euler}.
+          \end{itemize}
     \item Para $n = pq$, com $p$ e $q$ primos:
           \[
             \varphi(n) = (p-1)(q-1)
           \]
-    \item Relação entre $e$ e $d$:
+    \item Relação fundamental:
           \[
-            ed \equiv 1 \mod \varphi(n) \quad \Rightarrow \quad d \equiv e^{-1} \mod \varphi(n)
+            ed \equiv 1 \pmod{\varphi(n)} \quad \Rightarrow \quad d \equiv e^{-1} \pmod{\varphi(n)}
           \]
-    \item Condição: $e$ e $d$ devem ser relativamente primos a $\varphi(n)$:
+    \item O inverso multiplicativo \textbf{só existe} se $e$ for \textbf{coprimo com} $\varphi(n)$:
           \[
-            mdc(d, \varphi(n)) = 1
+            mdc(e, \varphi(n)) = 1
           \]
-    \item $d$ pode ser calculado usando o algoritmo de Euclides estendido, que permite calcular  $ed \equiv 1 \mod \varphi(n)$
+    \item O valor de $d$ pode ser obtido com o \textbf{algoritmo de Euclides estendido},
+          que encontra o inverso modular de $e$ em relação a $\varphi(n)$.
   \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Inverso Multiplicativo no RSA}
@@ -326,7 +330,7 @@
 \end{frame}
 
 % PQ FUNCIONA 1
-\begin{frame}{\textbf{Como funciona}: O que queremos garantir}
+\begin{frame}{\textbf{Entendendo como funciona}: O que queremos garantir}
   No RSA:
   \begin{itemize}
     \item Mensagem \(M\)
@@ -351,7 +355,7 @@
 \end{frame}
 
 % PQ FUNCIONA 2
-\begin{frame}{\textbf{Como funciona}: Por que $e$ e $d$ devem ser inversos módulo $\varphi(n)$}
+\begin{frame}{\textbf{Entendendo como funciona}: Por que $e$ e $d$ devem ser inversos módulo $\varphi(n)$}
   \begin{itemize}
     \item \(n = pq\), \(\varphi(n) = (p-1)(q-1)\)
     \item Teorema de Euler: \(M^{\varphi(n)} \equiv 1 \pmod{n}\) se \(mdc(M,n) = 1\)
@@ -364,7 +368,7 @@
 \end{frame}
 
 % PQ FUNCIONA 3
-\begin{frame}{\textbf{Como funciona}: Aplicando na descriptografia}
+\begin{frame}{\textbf{Entendendo como funciona}: Aplicando na descriptografia}
   \[
     M' = C^d = (M^e)^d = M^{ed} = M^{1 + k\varphi(n)} = M \cdot (M^{\varphi(n)})^k
   \]
@@ -381,6 +385,69 @@
 
   \textbf{Conclusão:} funciona porque \(e \cdot d \equiv 1 \mod \varphi(n)\)
 \end{frame}
+
+\begin{frame}{Segurança do RSA}
+  \begin{itemize}
+    \item \textbf{1. Estrutura das chaves:}
+          \begin{itemize}
+            \item Chave pública: $PU = \{e, n\}$
+            \item Chave privada: $PR = \{d, n\}$
+            \item Onde $n = p \cdot q$, e $p$ e $q$ são primos grandes e secretos
+          \end{itemize}
+
+          \vspace{0.3cm}
+
+    \item \textbf{2. Se $p$ e $q$ forem descobertos:}
+          \begin{itemize}
+            \item É possível calcular o totiente de Euler:
+                  \[
+                    \varphi(n) = (p - 1)(q - 1)
+                  \]
+            \item E então obter o inverso modular de $e$:
+                  \[
+                    d \equiv e^{-1} \pmod{\varphi(n)}
+                  \]
+            \item Logo, o atacante consegue reconstruir a chave privada $d$
+          \end{itemize}
+
+          \vspace{0.3cm}
+
+    \item \textbf{3. Conclusão:}
+          \begin{itemize}
+            \item A segurança do RSA depende da dificuldade de \textbf{fatorar $n$}.
+            \item Se alguém conseguir obter $p$ e $q$, o sistema é completamente quebrado.
+            \item Portanto, manter $p$ e $q$ secretos é \textbf{fundamental}.
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Escolha do valor $e$ no RSA}
+  \begin{itemize}
+    \item \textbf{Geralmente, escolhemos} $e = 65537 = 2^{16} + 1$
+    \item É considerado o \textbf{“ponto ideal”} entre segurança e desempenho.
+  \end{itemize}
+
+  \vspace{0.5em}
+  \textbf{Propriedades:}
+  \begin{itemize}
+    \item \textbf{Ímpar}: requisito para ser coprimo com $\varphi(n)$ na maioria dos casos.
+    \item \textbf{Pequeno o bastante para ser rápido}:
+          \begin{itemize}
+            \item Tem apenas 17 bits.
+            \item Exige pouquíssimas multiplicações na exponenciação modular.
+          \end{itemize}
+    \item \textbf{Grande o suficiente para ser seguro}:
+          \begin{itemize}
+            \item Evita ataques que exploram expoentes muito pequenos (como $e = 3$ ou $e = 17$).
+          \end{itemize}
+    \item \textbf{Forma binária simples}:
+          \[
+            e = 10000000000000001_2
+          \]
+          o que torna a operação de exponenciação modular bem eficiente.
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}{Esquema RSA}
   \textbf{Ingredientes:}
