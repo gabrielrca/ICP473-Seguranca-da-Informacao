@@ -144,11 +144,11 @@
         \item Aplica-se uma função de substituição $F$ à metade direita dos dados $R_{i-1}$, parametrizada pela subchave $K_i$.
         \item Realiza-se a operação XOR entre a saída de $F$ e a metade esquerda $L_{i-1}$:
               \[
-                  L_i = L_{i-1} \oplus F(R_{i-1}, K_i)
+                  R_i = L_{i-1} \oplus F(R_{i-1}, K_i)
               \]
         \item Executa-se a permutação trocando as metades:
               \[
-                  R_i = R_{i-1}, \quad L_i \leftrightarrow R_i
+                  L_i = R_{i-1}
               \]
     \end{enumerate}
 
