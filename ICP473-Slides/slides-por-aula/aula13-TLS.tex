@@ -276,3 +276,569 @@
         \item \textbf{Obs:} O conteúdo de \textit{application\_data} é \textbf{opaco} para o TLS (ele não sabe o que é HTTP, apenas o protege).
     \end{itemize}
 \end{frame}
+
+\begin{frame}{Protocolo Change Cipher Spec}
+    \begin{itemize}
+        \item Esse protocolo utiliza o Protocolo de Registro (TLS Record Protocol).
+        \item É o \textbf{mais simples} de todos os protocolos de gerenciamento do TLS.
+
+        \item \textbf{Estrutura do Protocolo:}
+              \begin{itemize}
+                  \item Consiste em uma \textbf{única mensagem}.
+                  \item Essa mensagem contém apenas \textbf{um byte}.
+                  \item O valor desse byte é \textbf{1}.
+              \end{itemize}
+
+        \item \textbf{Finalidade (Ação Chave):}
+              \begin{itemize}
+                  \item A sua única finalidade é sinalizar uma transição.
+                  \item A mensagem "Change Cipher Spec" \textbf{NÃO} é parte do Handshake, mas sim um sinal \textit{entre} fases.
+              \end{itemize}
+
+        \item \textbf{O Que a Mensagem Causa?}
+              \begin{itemize}
+                  \item  Atualiza (ativa) o \texttt{cipher suite} a ser usado nesta conexão a partir deste ponto.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo de Alerta (Alert Protocol)}
+    \begin{itemize}
+        \item \textbf{Finalidade:}  Usado para transmitir alertas relacionados ao TLS para o outro lado.
+
+
+        \item \textbf{Segurança:} Assim como os dados da aplicação, as mensagens de alerta são \textbf{comprimidas e criptografadas}.
+
+
+        \item \textbf{Estrutura da Mensagem (2 bytes):}
+              \begin{itemize}
+                  \item \textbf{Primeiro Byte (Severidade):}
+                        \begin{itemize}
+                            \item `warning(1)`: Um aviso (não fatal).
+                            \item `fatal(2)`: Um erro fatal.
+                        \end{itemize}
+                  \item \textbf{Segundo Byte (Código):}
+                        \begin{itemize}
+                            \item Indica o alerta específico (ex: `bad\_record\_mac`, `close\_notify`).
+                        \end{itemize}
+              \end{itemize}
+
+        \item \textbf{Consequência de Alertas Fatais:}
+              \begin{itemize}
+                  \item Se o nível for `fatal`, o TLS \textbf{termina a conexão imediatamente}.
+                  \item Outras conexões na mesma \textit{sessão} podem continuar.
+                  \item Nenhuma \textit{nova conexão} pode ser estabelecida nesta \textit{sessão}.
+              \end{itemize}
+
+        \item \textbf{Exemplos de Alertas:}
+              \begin{itemize}
+                  \item \textbf{Exemplo Fatal:} `incorrect MAC` (MAC incorreto).
+                  \item \textbf{Exemplo Não Fatal (Warning):} `close\_notify` (notifica o destinatário que o remetente não enviará mais mensagens nesta conexão).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo Handshake (Handshake Protocol)}
+    \begin{itemize}
+        \item É a parte \textbf{mais complexa} do TLS.
+        \item Usado \textbf{antes} que quaisquer dados da aplicação sejam transmitidos.
+
+        \item \textbf{Permite que o Servidor e o Cliente:}
+              \begin{itemize}
+                  \item Autentiquem-se mutuamente (especialmente o servidor ao cliente).
+                  \item Negociem um algoritmo de \textbf{criptografia}.
+                  \item Negociem um algoritmo de \textbf{MAC} (integridade).
+                  \item Negociem as \textbf{chaves criptográficas} a serem usadas para proteger os dados.
+              \end{itemize}
+
+        \item Consiste em uma série de mensagens trocadas entre cliente e servidor, divididas em quatro fases (conforme Figura 22.6).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo Handshake do TLS}
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.37\textwidth]{Figuras/tls-handhsake-protocol.png}
+
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Protocolo Handshake do TLS (zoom 1)}
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/tls-handshake-p1-p2.png}
+
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Protocolo Handshake do TLS (zoom 2)}
+
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{Figuras/tls-handshake-p3-p4.png}
+
+
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{As Quatro Fases do Handshake (Visão Geral)}
+    \begin{itemize}
+        \item O protocolo consiste em uma série de mensagens trocadas.
+        \item A troca pode ser vista como tendo quatro fases distintas:
+
+        \item \textbf{Fase 1: Iniciação e Capacidades}
+              \begin{itemize}
+                  \item Inicia a conexão lógica (\texttt{client\_hello}, \texttt{server\_hello}).
+                  \item Estabelece as capacidades de segurança (o que ambos suportam).
+              \end{itemize}
+
+        \item \textbf{Fase 2: Autenticação do Servidor}
+              \begin{itemize}
+                  \item O servidor envia seu certificado e (possivelmente) informações de chave.
+                  \item Termina com \texttt{server\_done}.
+              \end{itemize}
+
+        \item \textbf{Fase 3: Resposta do Cliente}
+              \begin{itemize}
+                  \item O cliente verifica o servidor e envia suas informações de chave (ex: \texttt{ClientKeyExchange}).
+              \end{itemize}
+
+        \item \textbf{Fase 4: Finalização}
+              \begin{itemize}
+                  \item Completa a configuração da conexão segura, ativando os novos parâmetros (\texttt{ChangeCipherSpec}, \texttt{Finished}).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Handshake - Fase 1 (Início: Client Hello)}
+    \begin{itemize}
+        \item A troca é iniciada pelo \textbf{cliente}, que envia uma mensagem \texttt{client\_hello}.
+        \item \textbf{Parâmetros do \texttt{client\_hello}:}
+
+        \item \textbf{Version:} A \textbf{versão mais alta} do TLS que o cliente entende.
+
+        \item \textbf{Random:} Uma estrutura aleatória gerada pelo cliente.
+              \begin{itemize}
+                  \item Composição: 32-bit timestamp + 28 bytes aleatórios (de um gerador seguro).
+                  \item Usado para prevenir ataques de \textit{replay}.
+              \end{itemize}
+
+        \item \textbf{Session ID:}
+              \begin{itemize}
+                  \item \textbf{Valor diferente de zero:} Cliente deseja atualizar parâmetros de uma conexão existente ou criar nova conexão nesta sessão (retomada de sessão).
+                  \item \textbf{Valor zero:} Cliente deseja estabelecer uma nova conexão em uma nova sessão.
+              \end{itemize}
+
+        \item \textbf{CipherSuite:}
+              \begin{itemize}
+                  \item Uma \textbf{lista} das combinações de algoritmos criptográficos que o cliente suporta.
+                  \item Em \textbf{ordem decrescente de preferência}.
+                  \item Cada item define: algoritmo de troca de chave E um CipherSpec (algoritmo de cifra/MAC).
+              \end{itemize}
+
+        \item \textbf{Compression method:} Lista de métodos de compressão suportados.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Handshake - Fase 1 (Resposta: Server Hello)}
+    \begin{itemize}
+        \item Após enviar o \texttt{client\_hello}, o cliente aguarda a resposta.
+
+        \item O servidor responde com uma mensagem \texttt{server\_hello}.
+
+        \item \textbf{Conteúdo do \texttt{server\_hello}:}
+              \begin{itemize}
+                  \item Contém os \textbf{mesmos parâmetros} do \texttt{client\_hello}.
+                  \item \textbf{Porém:} O servidor agora \textbf{selecionou UMA opção} de cada lista (as que serão usadas).
+                  \item \textbf{Version:} A versão que será usada (escolhida pelo servidor).
+                  \item \textbf{Random:} O valor aleatório do \textbf{servidor}.
+                  \item \textbf{Session ID:} O ID da sessão (se for retomada ou nova).
+                  \item \textbf{CipherSuite:} A \textbf{única} suíte de cifras (escolhida pelo servidor) que será usada.
+                  \item \textbf{Compression method:} O \textbf{único} método (escolhido pelo servidor) que será usado.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Handshake - Fase 2 (Autenticação do Servidor)}
+    \begin{itemize}
+        \item Os detalhes desta fase dependem do esquema de criptografia de chave pública (definido no CipherSuite).
+
+        \item \textbf{O que o servidor envia (após o \texttt{server\_hello}):}
+
+        \item \textbf{1. Certificado (Certificate):}
+              \begin{itemize}
+                  \item (Quase sempre) O servidor envia seu certificado digital para o cliente se autenticar.
+              \end{itemize}
+
+        \item \textbf{2. Informação de Chave (ServerKeyExchange):}
+              \begin{itemize}
+                  \item (Opcional) Pode enviar informações adicionais de chave (ex: parâmetros Diffie-Hellman).
+              \end{itemize}
+
+        \item \textbf{3. Solicitação de Certificado (CertificateRequest):}
+              \begin{itemize}
+                  \item (Opcional) O servidor pode solicitar um certificado do cliente (para autenticação mútua).
+              \end{itemize}
+
+        \item \textbf{4. Fim da Mensagem (Server Done):}
+              \begin{itemize}
+                  \item \textbf{Sempre obrigatória.}
+                  \item O servidor envia a mensagem \texttt{server\_done}.
+                  \item Indica o fim do "olá" do servidor e mensagens associadas.
+                  \item Após enviar, o servidor aguarda a resposta do cliente.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Handshake - Fase 3 (Resposta do Cliente)}
+    \begin{itemize}
+        \item Após receber o \texttt{server\_done} do servidor:
+
+        \item \textbf{1. Verificação (Ações do Cliente):}
+              \begin{itemize}
+                  \item O cliente deve verificar se o servidor forneceu um \textbf{certificado válido} (se foi exigido).
+                  \item O cliente deve checar se os parâmetros do \texttt{server\_hello} (CipherSuite, etc.) são aceitáveis.
+              \end{itemize}
+
+        \item \textbf{2. Envio de Mensagens (Ações do Cliente):}
+              \begin{itemize}
+                  \item Se tudo estiver satisfatório, o cliente envia uma ou mais mensagens ao servidor.
+                  \item (Ex: \texttt{ClientKeyExchange} - contendo o "pre-master secret" criptografado com a chave pública do servidor).
+                  \item (Ex: \texttt{CertificateVerify} - se o servidor solicitou um certificado do cliente e o cliente está respondendo).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Handshake - Fase 4 (Finalização - Ativação)}
+    \begin{itemize}
+        \item \textbf{1. Ação do Cliente:}
+              \begin{itemize}
+                  \item Envia a mensagem \textbf{\texttt{change\_cipher\_spec}}.
+                  \item (Esta mensagem usa o \textit{Change Cipher Spec Protocol}, não o Handshake Protocol).
+                  \item Ação: Copia o CipherSpec \textit{pendente} (negociado) para o CipherSpec \textit{atual} (em uso).
+                  \item Imediatamente, envia a mensagem \textbf{\texttt{finished}}.
+                  \item \textbf{Importante:} A mensagem \texttt{finished} já é enviada usando os \textbf{novos} algoritmos, chaves e segredos.
+                  \item A \texttt{finished} verifica se a troca de chaves e a autenticação foram bem-sucedidas.
+              \end{itemize}
+
+        \item \textbf{2. Ação do Servidor (em resposta):}
+              \begin{itemize}
+                  \item Envia sua própria mensagem \textbf{\texttt{change\_cipher\_spec}}.
+                  \item Transfere o CipherSpec pendente para o atual.
+                  \item Envia sua própria mensagem \textbf{\texttt{finished}} (também já criptografada).
+              \end{itemize}
+
+        \item \textbf{3. Conclusão:}
+              \begin{itemize}
+                  \item Neste ponto, o handshake está completo.
+                  \item Cliente e servidor podem começar a trocar dados da camada de aplicação (HTTP) de forma segura.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Protocolo Heartbeat: Definição e Contexto}
+    \begin{itemize}
+        \item \textbf{O que é um "Heartbeat"?} (Contexto Geral)
+              \begin{itemize}
+                  \item Um sinal periódico (hardware ou software) usado para indicar operação normal ou para sincronizar partes de um sistema.
+              \end{itemize}
+
+        \item \textbf{O que é um "Protocolo Heartbeat"?}
+              \begin{itemize}
+                  \item Usado para monitorar a \textbf{disponibilidade} de uma entidade de protocolo (verificar se o outro lado está "vivo").
+              \end{itemize}
+
+        \item \textbf{No contexto SSL/TLS:}
+              \begin{itemize}
+                  \item Foi definido em 2012 na \textbf{RFC 6250}.
+                  \item Nome oficial: "Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS) Heartbeat Extension".
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo Heartbeat: Propósitos}
+    \begin{itemize}
+        \item O heartbeat serve a dois propósitos principais:
+
+        \item \textbf{Propósito 1: "Keep-Alive" (Verificação de Atividade)}
+              \begin{itemize}
+                  \item Assegura ao remetente que o destinatário ainda está "vivo".
+                  \item É útil mesmo que não tenha havido atividade (envio de dados da aplicação) sobre a conexão TCP subjacente por um tempo.
+              \end{itemize}
+
+        \item \textbf{Propósito 2: "Firewall Traversal" (Evitar Ociosidade)}
+              \begin{itemize}
+                  \item Gera atividade (tráfego) na conexão durante períodos ociosos (idle).
+                  \item \textbf{Objetivo:} Evitar o fechamento da conexão por \textit{firewalls} que não toleram conexões ociosas.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo Heartbeat: Operação e Negociação}
+    \begin{itemize}
+        \item \textbf{Posição na Pilha:}
+              \begin{itemize}
+                  \item Roda "em cima" (on top) do Protocolo de Registro TLS (TLS Record Protocol).
+              \end{itemize}
+
+        \item \textbf{Tipos de Mensagem (2):}
+              \begin{itemize}
+                  \item `heartbeat\_request`
+                  \item `heartbeat\_response`
+              \end{itemize}
+
+        \item \textbf{Negociação (Como é ativado?):}
+              \begin{itemize}
+                  \item O uso do Heartbeat é estabelecido durante a \textbf{Fase 1 do Protocolo Handshake}.
+                  \item Cada lado (peer) indica se suporta heartbeats.
+                  \item Se suportado, o lado indica seu modo de operação:
+                        \begin{itemize}
+                            \item [Modo 1] Disposto a \textit{receber requests} e \textit{responder} com responses.
+                            \item [Modo 2] Disposto \textit{apenas a enviar} requests.
+                        \end{itemize}
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Protocolo Heartbeat: Estrutura da Mensagem}
+    \begin{itemize}
+        \item \textbf{Fluxo:}
+              \begin{itemize}
+                  \item Uma `heartbeat\_request` pode ser enviada a qualquer momento.
+                  \item Ao receber um \textit{request}, o receptor deve responder \textit{prontamente} com um `heartbeat\_response`.
+              \end{itemize}
+
+        \item \textbf{Conteúdo da Mensagem \texttt{request}:}
+              \begin{itemize}
+                  \item \textbf{Payload (Carga Útil):}
+                        \begin{itemize}
+                            \item Um conteúdo \textbf{aleatório}.
+                            \item Tamanho: entre 16 bytes e 64 Kbytes.
+                        \end{itemize}
+                  \item \textbf{Payload Length (Comprimento):} O tamanho do payload.
+                  \item \textbf{Padding (Preenchimento):} Um conteúdo aleatório adicional.
+              \end{itemize}
+
+        \item \textbf{Requisito da Mensagem \texttt{response}:}
+              \begin{itemize}
+                  \item Deve incluir uma \textbf{cópia exata} do \textit{payload} recebido no \textit{request}.
+              \end{itemize}
+
+        \item \textbf{Uso do Padding:}
+              \begin{itemize}
+                  \item Permite a descoberta de Path MTU (PMTU).
+                  \item (Enviando \textit{requests} com \textit{padding} crescente até que a resposta falhe).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ataques SSL/TLS: Introdução e Evolução}
+    \begin{itemize}
+        \item Desde a introdução do SSL (1994) e a padronização do TLS, inúmeros ataques foram criados.
+
+        \item \textbf{Ciclo de Ameaça e Resposta:}
+              \begin{itemize}
+                  \item A aparição de cada ataque necessitou mudanças (contramedidas) no protocolo, nas ferramentas de criptografia ou nas implementações.
+              \end{itemize}
+
+        \item \textbf{Categorias Gerais de Ataque:}
+              \begin{itemize}
+                  \item 1. Ataques ao Protocolo Handshake.
+                  \item 2. Ataques aos protocolos de Registro (Record) e Dados da Aplicação.
+                  \item 3. Ataques à PKI (Infraestrutura de Chave Pública).
+                  \item 4. Outros ataques (ex: DoS).
+              \end{itemize}
+
+        \item \textbf{A Realidade dos Protocolos de Internet:}
+              \begin{itemize}
+                  \item Um protocolo "perfeito" ou implementação "perfeita" nunca é alcançado.
+                  \item A evolução dos protocolos é determinada por um constante "vai-e-vem" (back-and-forth) entre ameaças e contramedidas.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria 1: Ataques ao Protocolo Handshake}
+    \begin{itemize}
+        \item \textbf{Objetivo:} Compromoter o Handshake Protocol.
+
+        \item \textbf{Exemplo (1998, [BLEI98]):}
+              \begin{itemize}
+                  \item Apresentada uma abordagem baseada na exploração da \textbf{formatação e implementação} do esquema de criptografia RSA.
+              \end{itemize}
+
+        \item \textbf{Evolução do Ataque:}
+              \begin{itemize}
+                  \item À medida que as contramedidas eram implementadas, o ataque foi \textbf{refinado e ajustado} (ex: [BARD12]).
+                  \item \textbf{Objetivo do Refinamento:} Não apenas burlar as contramedidas, mas também \textbf{acelerar} o tempo do ataque.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria 2: Ataques aos Protocolos de Registro e Aplicação (BEAST)}
+    \begin{itemize}
+        \item Diversas vulnerabilidades foram descobertas nestes protocolos, levando a \textit{patches} (correções).
+
+        \item \textbf{Exemplo 1: BEAST (2011)}
+              \begin{itemize}
+                  \item (Browser Exploit Against SSL/TLS) - por Thai Duong e Juliano Rizzo [GOOD11].
+                  \item Transformou o que era considerado apenas uma vulnerabilidade \textbf{teórica} em um ataque \textbf{prático}.
+                  \item \textbf{Tipo de Ataque:} \textit{Chosen-Plaintext Attack} (Ataque de Texto Plano Escolhido).
+                  \item (O atacante monta o ataque escolhendo um "palpite" (guess) para o texto plano associado a um texto cifrado conhecido).
+                  \item \textbf{Contramedida:} Patches subsequentes foram capazes de bloquear este ataque.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria 2: Ataques (Continuação - CRIME)}
+    \begin{itemize}
+        \item \textbf{Exemplo 2: CRIME (2012)}
+              \begin{itemize}
+                  \item (Compression Ratio Info-leak Made Easy) - pelos mesmos autores do BEAST [GOOD12b].
+                  \item \textbf{Como Funciona:} Explora uma vulnerabilidade quando a \textbf{compressão de dados} é usada juntamente com o TLS.
+                  \item \textbf{Resultado:} Permite ao atacante recuperar o conteúdo de \textit{web cookies}.
+                  \item \textbf{Ameaça Principal:} Se usado para recuperar cookies de autenticação secretos, permite ao atacante realizar \textbf{sequestro de sessão (session hijacking)}.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria 3: Ataques à PKI (Infraestrutura de Chave Pública)}
+    \begin{itemize}
+        \item \textbf{Vulnerabilidade:} A atividade de verificar a \textbf{validade de certificados X.509} está sujeita a ataques.
+
+        \item \textbf{Exemplo (2012, [GEOR12]):}
+              \begin{itemize}
+                  \item Demonstrou que bibliotecas SSL/TLS populares sofriam de implementações \textbf{vulneráveis de validação de certificados}.
+                  \item Foram reveladas fraquezas no código-fonte de:
+                        \begin{itemize}
+                            \item OpenSSL
+                            \item GnuTLS
+                            \item JSSE (Java)
+                            \item ApacheHttpClient
+                            \item cURL
+                            \item PHP, Python
+                            \item E aplicações construídas sobre elas.
+                        \end{itemize}
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria 4: Outros Ataques (Ex: DoS)}
+    \begin{itemize}
+        \item Refere-se a ataques que não se encaixam nas categorias anteriores [MEYE13].
+
+        \item \textbf{Exemplo: Ataque de Negação de Serviço (DoS) (2011)}
+              \begin{itemize}
+                  \item Anunciado pelo grupo hacker "The Hackers Choice" [KUMA11].
+                  \item \textbf{Como Funciona:} Cria uma carga de processamento pesada no servidor, \textbf{sobrecarregando-o com requisições de handshake} SSL/TLS.
+                  \item (Usando o estabelecimento de novas conexões ou a "renegociação" (renegotiation)).
+                  \item \textbf{Por que Funciona (Assimetria):} A maioria da computação (CPU) durante um handshake é feita pelo \textbf{servidor}, não pelo cliente.
+                  \item \textbf{Resultado:} O servidor é forçado a computar continuamente números aleatórios e chaves, levando à exaustão de recursos (DoS).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ataque: Heartbleed (2014)}
+    \begin{itemize}
+        \item Uma das vulnerabilidades TLS potencialmente \textbf{mais catastróficas} já descobertas.
+
+        \item \textbf{Onde:} Encontrado na popular biblioteca \textit{open-source} \textbf{OpenSSL}.
+
+        \item \textbf{O Quê:} Um bug (falha) na implementação do \textbf{Protocolo Heartbeat} (RFC 6250).
+
+        \item \textbf{Ponto Crítico:}
+              \begin{itemize}
+                  \item \textbf{NÃO} foi uma falha de design (design flaw) na especificação do TLS ou do Heartbeat.
+                  \item Foi um \textbf{erro de programação} (programming mistake) específico da biblioteca OpenSSL.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Heartbleed: A Natureza da Vulnerabilidade}
+    \begin{itemize}
+        \item \textbf{Revisão do Heartbeat (Comportamento Esperado):}
+              \begin{itemize}
+                  \item O Cliente envia um \texttt{heartbeat\_request}.
+                  \item O \textit{request} contém um campo \textbf{Payload Length} (L) e um \textbf{Payload} (P).
+                  \item O Servidor deve responder com uma \textbf{cópia exata} do Payload (P).
+              \end{itemize}
+
+        \item \textbf{A Falha de Programação (O Bug):}
+              \begin{itemize}
+                  \item O software OpenSSL (versão vulnerável) \textbf{NÃO CHECAVA} se o tamanho real (bytes) do \textit{payload} recebido era igual ao valor no campo \textit{Payload Length}.
+              \end{itemize}
+
+        \item \textbf{O Vetor de Ataque (Exploit):}
+              \begin{itemize}
+                  \item Um adversário envia um \texttt{heartbeat\_request} malicioso:
+                  \item Define o \textbf{Payload Length} = 64 KB (o máximo).
+                  \item Envia um \textbf{Payload} real de apenas 16 bytes (o mínimo).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Heartbleed: O Mecanismo do Vazamento (O Exploit)}
+    % (Ref: Figura 22.7)
+    \begin{itemize}
+        \item \textbf{1. Alocação (No Servidor):}
+              \begin{itemize}
+                  \item O servidor (vulnerável) recebe o \textit{request}.
+                  \item Ele lê o \textbf{Payload Length (64 KB)} e aloca um \textit{buffer} de memória deste tamanho (64 KB).
+              \end{itemize}
+
+        \item \textbf{2. Cópia (O Bug):}
+              \begin{itemize}
+                  \item O servidor copia o \textit{payload} recebido (os \textbf{16 bytes} reais) para o início deste buffer.
+                  \item \textbf{O Problema:} Os 63.9 KB restantes do buffer \textbf{não são sobrescritos} (not overwritten).
+                  \item Este espaço (quase 64 KB) contém o que quer que estivesse na memória RAM do servidor naquele momento (lixo de memória).
+              \end{itemize}
+
+        \item \textbf{3. A Resposta (O Vazamento):}
+              \begin{itemize}
+                  \item O servidor, obedecendo o protocolo, prepara uma \texttt{heartbeat\_response}.
+                  \item Ele lê o \textbf{Payload Length (64 KB)} do \textit{request} original e envia de volta \textbf{64 KB} de dados do buffer.
+                  \item \textbf{Resultado:} O atacante recebe seus 16 bytes + 63.9 KB de \textbf{dados da memória do servidor}.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Heartbleed: O Impacto Catastrófico}
+    \begin{itemize}
+        \item \textbf{Uma "Falha Espetacular":}
+              \begin{itemize}
+                  \item Ataques repetidos resultam na exposição de grandes quantidades de memória do sistema vulnerável.
+              \end{itemize}
+
+        \item \textbf{O que a memória (não sobrescrita) poderia conter?}
+              \begin{itemize}
+                  \item \textbf{Chaves Privadas} (a "joia da coroa" de um servidor SSL).
+                  \item Informações de identificação de usuário.
+                  \item Dados de autenticação (cookies de sessão).
+                  \item Senhas, e outros dados sensíveis.
+              \end{itemize}
+
+        \item \textbf{A Tempestade Perfeita:}
+              \begin{itemize}
+                  \item \textbf{Longo Período de Exposição:} O bug não foi descoberto por vários anos.
+                  \item \textbf{Ataque Fácil:} O \textit{exploit} é trivial de implementar.
+                  \item \textbf{Sem Vestígios:} O ataque não deixa rastros (logs) de que ocorreu.
+              \end{itemize}
+
+        \item \textbf{A Escala do Problema:}
+              \begin{itemize}
+                  \item OpenSSL era a implementação de TLS \textbf{mais usada} no mundo.
+                  \item Afetou finanças, bancos, e-mail, redes sociais e governos.
+                  \item Estimativa (na época): Mais de \textbf{dois terços (2/3)} dos servidores Web da Internet usavam OpenSSL [GOOD14].
+              \end{itemize}
+    \end{itemize}
+\end{frame}
