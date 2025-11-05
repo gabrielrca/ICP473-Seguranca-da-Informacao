@@ -1,0 +1,53 @@
+\title{Trabalho Prático: Implementação e Análise - TCP vs. TLS}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+
+\maketitle
+
+\section{Objetivo}
+Desenvolver um programa cliente em Python capaz de enviar um arquivo de texto para um servidor.
+O envio deve ser realizado de duas formas: utilizando conexão normal (sem criptografia) e utilizando TLS para transmissão segura.
+
+
+\textbf{Entrega: 05/12/2025}
+
+\section{Requisitos do Trabalho}
+
+\subsection{Implementação do Programa}
+\begin{itemize}
+    \item Criar um \textbf{cliente Python} que envie arquivos de texto para um servidor.
+    \item Deve-se Implementar \textbf{duas formas de transmissão}:
+          \begin{enumerate}
+              \item \textbf{Sem TLS:} envio em texto plano.
+              \item \textbf{Com TLS:} envio utilizando criptografia TLS.
+          \end{enumerate}
+\end{itemize}
+
+\subsection*{2. Relatório}
+O relatório deve conter:
+\begin{itemize}
+    \item Explicação do funcionamento do TLS, incluindo handshake e criptografia de dados.
+    \item Comparação entre a implementação sem TLS e com TLS.
+    \item Captura de pacotes de rede mostrando a diferença entre envio cifrado e envio em texto plano (pode ser feito com Wireshark ou ferramenta equivalente).
+    \item Análise do \textbf{overhead} introduzido pelo uso de TLS (ex.: tamanho do pacote, tempo de envio).
+    \item Discussão sobre o overhead.
+
+\end{itemize}
+
+\section*{Entrega}
+\begin{itemize}
+    \item Código-fonte do cliente e servidor (Python) nas implementações com e sem TLS.
+    \item Relatório em PDF ou documento de texto estruturado com todas as análises solicitadas.
+\end{itemize}
+
+\section*{Avaliação}
+\begin{itemize}
+    \item Funcionalidade do cliente e servidor em ambos os modos.
+    \item Clareza e detalhamento do relatório, incluindo evidências das capturas de pacotes.
+    \item Correção e profundidade na análise do overhead e do funcionamento do TLS.
+\end{itemize}
+
+\end{document}
