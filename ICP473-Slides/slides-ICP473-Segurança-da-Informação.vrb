@@ -1,14 +1,14 @@
-\frametitle{Usando e verificando os parâmetros RSA na prática}
-
-  \begin{itemize}
-    \small
-    \item \textbf{Gerar a chave ssh}: \begin{verbatim}ssh-keygen -t rsa -f ./teste \end{verbatim}
-    \item \textbf{Verificar fingerprint da chave}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
-    \item \textbf{Tentear abrir} (não vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
-    \item \textbf{Mudar o formato}: \begin{verbatim}ssh-keygen -p -m PEM -f ./teste \end{verbatim}
-    \item \textbf{Verifiar fingerprint anterior}: \begin{verbatim}ssh-keygen -lf ./teste \end{verbatim}
-    \item \textbf{Tentear abrir} (vai funcionar): \begin{verbatim}openssl rsa -in ./teste -text -noout \end{verbatim}
-    \item \textbf{Mudar formato da chave pública para modo PEM}: \begin{verbatim}ssh-keygen -e -m PEM -f ./teste.pub > ./teste_pub.pem \end{verbatim}
-    \item \textbf{Abrir a chave publica}: \begin{verbatim}openssl rsa -pubin -in teste_pub.pem -text -noout \end{verbatim}
-  \end{itemize}
-
+\frametitle{Regra SNORT}
+\small
+    \textbf{Regra Snort:}
+    \begin{verbatim}
+alert tcp $HOME_NET any -> $EXTERNAL_NET ![7680,1521]
+(msg:"ET P2P BitTorrent peer sync";
+ flow:established,to_server;
+ content:"|00 00 00 0d 06 00|"; depth:6;
+ threshold: type limit, track by_dst, seconds 300, count 1;
+ reference:url,bitconjurer.org/BitTorrent/protocol.html;
+ classtype:policy-violation; sid:2000334; rev:14;
+ metadata:created_at 2010_07_30, confidence Medium,
+ signature_severity Informational, updated_at 2025_06_30;)
+\end{verbatim}

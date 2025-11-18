@@ -1,0 +1,80 @@
+\title{Aula 16 - Vulnerabilidade de Software}
+
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+
+\institute
+{
+    Instituto de Computação \\
+    Universidade Federal do Rio de Janeiro\\
+    gabrielaquino@ic.ufrj.br% Your institution for the title page
+}
+\date{Compilado em: \\ \today} % Date, can be changed to a custom date
+
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDE
+%----------------------------------------------------------------------------------------
+
+
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Segurança de Software e Programação Defensiva}
+    \begin{itemize}
+        \item \textbf{A Raiz do Problema:}
+              \begin{itemize}
+                  \item Muitas vulnerabilidades de segurança resultam de \textbf{práticas de programação ruins}.
+                  \item A conscientização sobre essas falhas é um passo inicial crítico para escrever código de programa mais seguro.
+                  \item A lista dos 10 Principais Riscos de Segurança em Aplicações Web da OWASP inclui cinco falhas diretamente relacionadas a código de software inseguro.
+
+                  \item \textbf{Estas falhas incluem:}
+                        \begin{itemize}
+                            \item Entrada de dados não validada.
+                            \item Cross-site scripting (XSS).
+                            \item Estouro de buffer.
+                            \item Falhas de injeção.
+                            \item Tratamento inadequado de erros.
+                        \end{itemize}
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{As Falhas Mais Perigosas (CWE/SANS Top 25)}
+    \begin{itemize}
+        \item A lista \textbf{CWE/SANS Top 25 Most Dangerous Software Errors} detalha o consenso sobre práticas que causam a maioria dos ciberataques.
+
+        \item \textbf{As falhas são agrupadas em 3 categorias:}
+              \begin{itemize}
+                  \item \textbf{1. Interação Insegura entre Componentes.}
+                  \item \textbf{2. Gerenciamento de Recursos Arriscado.}
+                  \item \textbf{3. Defesas Porosas.}
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria de Erro de Software: Interação Insegura entre Componentes}
+    \begin{itemize}
+        \item Neutralização Imprópria de Elementos Especiais usados em um Comando SQL (``Injeção de SQL'')
+        \item Neutralização Imprópria de Elementos Especiais usados em um Comando do SO (``Injeção de Comando do SO'')
+        \item Neutralização Imprópria de Entrada Durante a Geração de Página Web (``Cross-site Scripting'')
+        \item Upload Irrestrito de Arquivo com Tipo Perigoso
+        \item Falsificação de Solicitação entre Sites (CSRF)
+        \item Redirecionamento de URL para Site Não Confiável (``Redirecionamento Aberto'')
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria de Erro de Software: Gerenciamento de Recursos Arriscado}
+    \begin{itemize}
+        \item Cópia de Buffer sem Verificar o Tamanho da Entrada (``Estouro de Buffer Clássico'')
+        \item Limitação Imprópria de um Nome de Caminho para um Diretório Restrito (``Path Traversal'')
+        \item Download de Código Sem Verificação de Integridade
+        \item Inclusão de Funcionalidade de Esfera de Controle Não Confiável
+        \item Uso de Função Potencialmente Perigosa
+        \item Cálculo Incorreto do Tamanho do Buffer
+        \item String de Formatação Não Controlada
+        \item Estouro de Inteiro ou \textit{Wraparound}
+    \end{itemize}
+\end{frame}
