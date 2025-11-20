@@ -1,0 +1,69 @@
+    \title{Lista de Exercícios: IPSec}
+    \author{Prof. Gabriel Rodrigues Caldas de Aquino}
+    \date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Tomada de Decisão sobre o fluxo do tráfego IPSec e fluxo comum}
+Um roteador de borda em uma Matriz possui uma VPN IPsec configurada para se comunicar com uma Filial. Um funcionário na Matriz realiza duas tarefas simultaneamente: "Envia um relatório confidencial para o servidor da Filial, que vai por dentro de um túnel IPSec e acessa a Internet pública".
+
+\begin{enumerate}
+    \item Descreva o que é uma \textbf{Associação de Segurança (SA)}, sua característica e como é feito para gerenciar uma comunicação bidirecional.
+    \item Explique o que é a \textbf{SPD} (Security Policy Database).
+    \item Explique o que é a \textbf{SAD} (Security Association Database).
+    \item Explique como o roteador utiliza a \textbf{SAD} e a \textbf{SPD} no cenário acima. Descreva o que acontece com cada pacote ao entrar na Internet pública.
+\end{enumerate}
+
+\section{Protocolos e Modos de Operação IPSec}
+O IPSec define dois protocolos principais para fornecer serviços de segurança: o AH e o ESP. Esses protocolos podem ser usados em dois modos: Transporte ou Túnel.
+
+\begin{enumerate}
+    \item Quais são os dois protocolos de segurança que fazem parte do IPSec e quais os serviços de segurança (Confidencialidade, Integridade e/ou Autenticidade) cada um é capaz de fornecer?
+    \item Descreva brevemente o que é o \textbf{AH} (Authentication Header) e como ele é aplicado a um pacote IP, indicando quais campos ele autentica.
+    \item Descreva brevemente o que é o \textbf{ESP} (Encapsulating Security Payload) e como ele é aplicado a um pacote IP, indicando quais serviços de segurança ele tipicamente fornece.
+    \item Explique a diferença entre o \textbf{Modo Transporte} e o \textbf{Modo Túnel} do IPSec.
+
+
+    \item No cenário da VPN entre Matriz e Filial, qual modo de operação (Transporte ou Túnel) é tipicamente utilizado e por quê?
+\end{enumerate}
+
+\section{Parâmetros da SA}
+As SADs são fundamentais para que sejam mantidas as SAs. Para isso, é necessário que dois roteadores, que estejam com uma SA entre eles, mantenham os parâmetros da SAD. Para fazer isso, é possível que sejam configurados manualmente os parâmetros da SAD em cada um, ou é possível que seja executado o IKE.
+
+\begin{enumerate}
+    \item Explique brevemente qual é o objetivo do \textbf{IKE} (Internet Key Exchange).
+    \item Dado o objetivo do IKE, diga quais são as \textbf{3 responsabilidades} do IKE.
+    \item O IKE define uma \textbf{IKE SA}. Qual é o objetivo da IKE SA e como ela difere da SA do IPSec?
+    \item O IKE possui \textbf{duas fases}, quais são essas fases e qual o motivo de existirem duas fases?
+    \item Explique a necessidade do \textbf{Diffie-Hellman} e como os conceitos de chave pública e privada são úteis nesse cenário.
+    \item Explique como que é possível resistir a ataques \textbf{man-in-the-middle} (MITM) nesse cenário.
+    \item Considerando o custo computacional da \textbf{criptografia simétrica e assimétrica}, relacione com as fases do IPSec SA e IKE SA.
+\end{enumerate}
+
+\section{Transformação e Controle de Pacotes IPSec}
+
+\textbf{Como o pacote muda ao entrar no IPSec}
+\begin{enumerate}
+    \item Explique brevemente o princípio \textbf{"Best-Effort"} do protocolo IP.
+    \item Ao utilizar o protocolo ESP no Modo Túnel, o pacote sofre encapsulamento e criptografia.
+          \begin{enumerate}
+              \item Explique a necessidade do campo Padding (Enchimento) antes da criptografia.
+              \item Como o campo de próximo protocolo do cabeçalho IP externo indica o IPSec?
+          \end{enumerate}
+    \item Diferencie o tratamento de pacotes entre o protocolo \textbf{IP} (Best-Effort) e o IPSec. Especifique como o IPSec utiliza a \textbf{Associação de Segurança (SA)} contida na \textbf{SAD} para introduzir controle e mecanismos de segurança.
+    \item No contexto da SAD, explique a função do campo \textbf{Sequence Number} (Número de Sequência) e do \textbf{Sequence Number Overflow} (Número de Sequência Estourado) e como eles se relacionam com a resistência a ataques de \textbf{replay}.
+\end{enumerate}
+
+\section{O Papel do HMAC}
+O IPSec, através dos seus protocolos (AH e ESP), garante a integridade e autenticidade dos pacotes de dados. O mecanismo mais comum e robusto utilizado para atingir esse objetivo é o HMAC (Hashed Message Authentication Code).
+
+\begin{enumerate}
+    \item Defina o que é o \textbf{HMAC} e qual é o seu principal objetivo em um protocolo de segurança como o IPSec.
+    \item Descreva o que é \textbf{Integridade de Dados} e \textbf{Autenticidade de Dados} e explique qual dos dois serviços o HMAC garante.
+    \item No contexto do protocolo \textbf{ESP}, onde o HMAC é tipicamente inserido e qual parte do pacote ele cobre?
+\end{enumerate}
+
+\end{document}
