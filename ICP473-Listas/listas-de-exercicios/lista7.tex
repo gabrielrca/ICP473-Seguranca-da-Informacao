@@ -1,0 +1,69 @@
+    \title{Lista de Exercícios: TLS}
+        \author{Prof. Gabriel Rodrigues Caldas de Aquino}
+        \date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{Conceitos: Conexão vs. Sessão}
+Um diferencial da arquitetura do TLS é a distinção clara entre uma conexão de transporte e uma sessão de segurança.
+
+\begin{enumerate}
+    \item Defina o que é uma \textbf{Conexão} no contexto do TLS.
+    \item Defina o que é uma \textbf{Sessão}.
+    \item Explique a relação entre Conexões e Sessões. É possível que múltiplas conexões seguras pertençam à mesma sessão?
+    \item Qual é o principal benefício de desempenho (performance) ao se utilizar o conceito de Sessão reutilizável? Por que seria custoso negociar novos parâmetros de segurança para cada nova conexão TCP estabelecida?
+\end{enumerate}
+
+
+\section{Arquitetura e Conceitos Fundamentais}
+O TLS é projetado para prover segurança entre aplicações, permitindo que se comuniquem de forma segura.
+
+\begin{enumerate}
+    \item Diga qual a localização do TLS na pilha de protocolos TCP/IP. Justifique.
+    \item Do ponto de vista do desenvolvedor da aplicação, como o TLS é percebido em comparação ao TCP padrão?
+    \item O TLS é composto por um conjunto de protocolos. Descreva o \textbf{Protocolo de Registro (Record Protocol)} e a sua função.
+    \item Quais são as duas camadas do TLS?
+    \item Cite outros três protocolos de gerenciamento que operam "em cima" do \textbf{Protocolo de Registro} e diga qual a função de cada um deles.
+\end{enumerate}
+
+\section{O Protocolo de Handshake}
+O Handshake é a parte mais complexa do TLS, responsável pela negociação de parâmetros e autenticação antes da troca de dados.
+
+\begin{enumerate}
+    \item Descreva as Quatro Fases do Handshake.
+    \item O Handshake ocorre em diferentes fases. Descreva o que é negociado na \textbf{Fase 1} através das mensagens \texttt{client\_hello} e \texttt{server\_hello}.
+    \item Na Fase 1, tanto o cliente quanto o servidor geram um valor \textbf{Random}. Qual é a importância desse valor para a segurança da conexão ?
+    \item Explique a função do campo \textbf{CipherSuite}.
+    \item Dado que um cliente se conecta ao servidor, diga qual o motivo de ocorrer a autenticação do servidor durante o handshake.
+\end{enumerate}
+
+
+\section{Outros protocolos do TLS}
+O TLS também possui protocolos para manutenção e sinalização.
+
+\begin{enumerate}
+    \item Qual a finalidade do \textbf{Protocolo de Alerta (Alert Protocol)}? Qual é a estrutura da mensagem?
+    \item O que acontece com a conexão TLS quando \textbf{Protocolo de Alerta (Alert Protocol)} apresenta uma mensagem de alerta de nível \texttt{fatal}? Dê um exemplo de erro que geraria tal alerta.
+    \item Diga qual a finalidade do Protocolo \textbf{Change Cipher Spec}. O que essa mensagem causa?
+\end{enumerate}
+
+
+
+\section{O Heartbeat}
+O \textbf{Heartbeat} (RFC 6250) possui dois propósitos principais.
+\begin{enumerate}
+    \item Explique o propósito de "Keep-Alive".
+    \item Explique o propósito de "Firewall Traversal" (Evitar Ociosidade).
+\end{enumerate}
+
+O \textbf{Heartbleed (2014)}  foi causado por um erro de programação na biblioteca OpenSSL ao implementar a extensão Heartbeat.
+
+\begin{enumerate}
+    \item Descreva o comportamento esperado do protocolo Heartbeat (o que o servidor deveria fazer ao receber um request).
+    \item Descreva a falha na vulnerabilidade \textbf{Heartbleed (2014)}
+    \item Explique a falha lógica: O que o servidor OpenSSL deixava de verificar ao processar a mensagem \texttt{heartbeat\_request}?
+    \item Como essa falha permitia que um atacante podesse ler dados sensíveis (como chaves privadas e senhas) da memória do servidor?
+\end{enumerate}
+\end{document}
