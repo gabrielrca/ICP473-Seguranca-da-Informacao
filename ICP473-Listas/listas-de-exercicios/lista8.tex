@@ -1,0 +1,88 @@
+    \title{Lista de Exercícios: Firewall}
+        \author{Prof. Gabriel Rodrigues Caldas de Aquino}
+        \date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{Conceitos de Segurança e Estratégia de Defesa}
+O firewall não é apenas um dispositivo técnico, mas uma peça central na estratégia de segurança da informação da organização.
+
+\begin{enumerate}
+    \item Defina o conceito de \textbf{Perímetro de Rede}. Qual é o papel fundamental do firewall em relação às redes "Confiáveis" (Trusted) e "Não Confiáveis" (Untrusted)?
+    \item A configuração de um firewall deve refletir a \textbf{Política de Segurança} da organização. Explique a diferença entre a Política de Segurança (nível estratégico) e as Regras do Firewall (nível técnico). Quem deve ditar quem?
+    \item O que é \textbf{Superfície de Ataque}? Explique como a aplicação de uma política de \textbf{Filtro Positivo} no firewall contribui para a \textbf{redução} da superfície de ataque da rede.
+    \item O conceito de \textbf{Defesa em Profundidade} baseia-se no uso de múltiplas camadas de segurança. Se uma empresa já possui um firewall de borda robusto, por que ela ainda precisa se preocupar com segurança nos hosts (antivírus, patches, firewalls locais)? Cite uma ameaça que o firewall de borda tipicamente não consegue deter.
+\end{enumerate}
+
+\section{Tipos de Firewall: Filtros de Pacotes}
+Os filtros de pacotes representam as gerações iniciais e a evolução para o monitoramento de estado.
+
+\begin{enumerate}
+    \item Defina o funcionamento de um \textbf{Firewall com Filtro de Pacotes sem Estado (Stateless)}. Quais informações ele utiliza para tomar decisões?
+    \item Ainda considerando o \textbf{Firewall com Filtro de Pacotes sem Estado (Stateless)} diga uma vantagem e uma limitação do seu uso.
+    \item Considere o problema de gerenciar o tráfego de retorno quando usando um  \textbf{Firewall com Filtro de Pacotes sem Estado (Stateless)}. Defina como isso é solucionado ao utilizar um  \textbf{Firewall com Filtro de Pacotes com Estado (Stateful)}.
+    \item Defina o que é um \textbf{Firewall com Filtro de Pacotes com Estado (Stateful)}.
+    \item O que é a "Tabela de Estado" e qual a sua função ao decidir se um pacote de entrada (inbound) deve ser aceito ou rejeitado?
+    \item Ao adicionar uma regra de bloqueio em um \textbf{Firewall com Filtro de Pacotes com Estado (Stateful)}, caso a tabela de estado não seja modificada. O que tipicamente acontece com a comunicação que já estava em curso antes de efetuar a adição da regra? Justifique.
+\end{enumerate}
+
+\section{Firewalls de Aplicação (Proxies)}
+Os \textbf{Firewalls de Aplicação} (também chamados de \textbf{Proxies de Aplicação}) operam na camada mais acima da pilha de protocolos TCP/IP.
+
+\begin{enumerate}
+    \item Em qual camada da pilha TCP/IP o \textbf{Proxy de Aplicação} opera?
+    \item Compare os \textbf{Firewalls de Aplicação} com Filtros de pacotes com ou sem estados.
+    \item Devido a esse posicionamento na pilha, o \textbf{Firewall de Aplicação} pode inspecionar aspectos que o Filtro de Pacotes (Stateful ou Stateless) não possui? O que ele é capaz de inspecionar que os outros não são? Dê um exemplo prático.
+    \item Explique como esse posicionamento permite ao \textbf{Firewall de Aplicação} realizar proteções contra ataques que exploram vulnerabilidades no software servidor?
+\end{enumerate}
+
+\section{Lógica de Filtragem e Implementação de Políticas}
+A definição da política padrão (Default Policy) determina a postura de segurança do firewall.
+
+\begin{enumerate}
+    \item Defina o que é uma política de \textbf{Filtro Positivo}.
+    \item Defina o que é uma política de \textbf{Filtro Negativo}.
+\end{enumerate}
+
+Considere a tabela de requisitos de serviços abaixo para um Servidor Web Corporativo (IP: 172.16.20.5):
+
+\begin{center}
+    \begin{tabular}{|l|l|l|c|}
+        \hline
+        \textbf{Serviço/Protocolo} & \textbf{Origem}    & \textbf{Destino}       & \textbf{Permite Acesso} \\
+        \hline
+        HTTP (TCP/80)              & Qualquer IP        & Servidor (172.16.20.5) & SIM                     \\
+        \hline
+        HTTPS (TCP/443)            & Qualquer IP        & Servidor (172.16.20.5) & SIM                     \\
+        \hline
+        SSH (TCP/22)               & Admin (10.0.0.100) & Servidor (172.16.20.5) & SIM                     \\
+        \hline
+        FTP (TCP/21)               & Qualquer IP        & Servidor (172.16.20.5) & NÃO                     \\
+        \hline
+        Outros                     & Qualquer IP        & Servidor (172.16.20.5) & NÃO                     \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Implemente as regras em um firewall com os seguintes campos: \textit{IP de origem, Porta de origem, IP de destino, Porta de destino, Ação}.
+
+\textbf{Tarefas:}
+\begin{enumerate}
+    \setcounter{enumi}{2} % Continua a numeração da seção
+    \item Implemente um \textbf{Filtro Positivo}. Crie uma tabela de firewall com as regras necessárias. Indique qual é a \textbf{regra implícita} ao final da lista.
+    \item Implemente um \textbf{Filtro Negativo}. Crie uma tabela de firewall com as regras necessárias. Indique qual é a \textbf{regra implícita} ao final da lista.
+    \item Discuta prós e contras de ambas implementações.
+\end{enumerate}
+
+\section{Ações de Bloqueio: DROP vs REJECT e Comportamento TCP}
+Ao definir uma regra de bloqueio, o administrador deve escolher entre descartar o pacote silenciosamente ou informar ao remetente que o acesso foi negado.
+
+\begin{enumerate}
+    \item Explique a diferença técnica entre ações \textbf{DROP} (também chamado de Deny ou Discard) e \textbf{REJECT}. O que o firewall envia de volta ao remetente em cada caso?
+    \item No contexto do protocolo TCP, quando uma regra de \textbf{REJECT} é acionada, o firewall simula o comportamento de um host final recusando a conexão. Para isso, ele envia um pacote de resposta com uma \textbf{Flag TCP} específica ativada. Que Flag é essa?
+    \item Por que a utilização do \textbf{DROP} é considerada uma técnica de "furtividade" (stealth) contra varreduras de porta (port scans)? Explique como o comportamento silencioso afeta a conclusão e o tempo de resposta de um atacante em comparação ao uso do REJECT.
+\end{enumerate}
+
+\end{document}
