@@ -1,0 +1,97 @@
+    \title{Lista de Exercícios: IDS/IPS}
+        \author{Prof. Gabriel Rodrigues Caldas de Aquino}
+        \date{Compilado em: \\ \today}
+
+\begin{document}
+
+\maketitle
+
+\section{Detecção e Prevenção de Intrusões (IDS/IPS)}
+Os sistemas de detecção e prevenção de intrusões representam uma camada  na estratégia de defesa em profundidade, complementando as defesas de perímetro.
+
+\begin{enumerate}
+    \item Defina o que é uma intrusão
+    \item Defina o que é um \textbf{IDS (Sistema de Detecção de Intrusão)}.
+    \item Defina o que é um \textbf{IPS (Sistema de Prevenção de Intrusão)}.
+    \item Diga qual é a diferença fundamental entre eles em termos de ação tomada quando uma intrusão é identificada?
+    \item Diga como que o uso de um firewall do tipo \textbf{filtro de pacotes} pode ser insuficiente para o trabalho de detecção de intrusão.
+\end{enumerate}
+
+\section{Detectando uma Intrusão}
+Para detectar uma intrusão é necessário analisar se o comportamento observado representa uma ameaça. Considerando que existem dois tipos fundamentais de comportamentos: (i) aqueles que já conhecemos e temos catalogados e (ii) aqueles que ainda não conhecemos.
+
+\begin{enumerate}
+    \item \textbf{Defina} e \textbf{contraste} as duas principais abordagens de análise em IDS para lidar com esses diferentes tipos de comportamentos:
+          \begin{itemize}
+              \item \textbf{Detecção por Assinaturas}
+              \item \textbf{Detecção de Anomalia}
+          \end{itemize}
+    \item \textbf{Explique} qual abordagem é mais eficaz para cada tipo de comportamento mencionado e \textbf{por quê}.
+    \item \textbf{Analise} as diferenças entre Detecção por Assinatura e Detecção de Anomalia em termos de:
+          \begin{itemize}
+              \item Capacidade de detectar ataques zero-day
+              \item Taxa de falsos positivos
+              \item Custo computacional e de manutenção
+              \item Adaptabilidade a novas ameaças
+          \end{itemize}
+
+\end{enumerate}
+
+\section{NIDS e HIDS}
+Considere as arquiteturas de sistemas de detecção de intrusão baseadas em host e em rede:
+\begin{enumerate}
+    \item  Defina e contraponha as características de:
+          \begin{itemize}
+              \item     HIDS (Host-based Intrusion Detection System)
+
+              \item   NIDS (Network-based Intrusion Detection System)
+          \end{itemize}
+    \item  Explique para cada um dos seguintes cenários qual abordagem (HIDS ou NIDS) seria mais adequada e por quê
+          \begin{itemize}
+              \item     Detecção de um malware que realiza chamadas de sistema anômalas
+
+              \item       Identificação de varredura de portas na rede corporativa
+
+              \item        Detecção de tentativas de exploração de vulnerabilidade em um servidor web
+
+              \item       Monitoramento de acesso não autorizado a arquivos sensíveis
+          \end{itemize}
+    \item Nos cenários citados acima, é possível que um uso em conjunto de NIDS e HIDS pode melhorar a detecção? Justifique como o uso poderia melhorar ou não a detecção em cada cenário.
+    \item  Descreva o passo a passo de funcionamento do SNORT como um NIDS, desde a captura do pacote até a geração do alerta.
+    \item Analise uma limitação significativa do NIDS em ambientes com tráfego criptografado e proponha uma estratégia complementar para mitigar esta limitação.
+\end{enumerate}
+
+
+\section{Regra de detecção - Snort}
+Considere a seguinte regra do SNORT para detecção de tráfego BitTorrent:
+
+\begin{verbatim}
+alert tcp $HOME_NET any -> $EXTERNAL_NET ![7680,1521] 
+(msg:"ET P2P BitTorrent peer sync"; 
+ flow:established,to_server; 
+ content:"|00 00 00 0d 06 00|"; depth:6; 
+ threshold: type limit, track by_dst, seconds 300, count 1; 
+ reference:url,bitconjurer.org/BitTorrent/protocol.html; 
+ classtype:policy-violation; sid:2000334; rev:14; 
+ metadata:created_at 2010_07_30, confidence Medium, 
+ signature_severity Informational, updated_at 2025_06_30;)
+\end{verbatim}
+
+\begin{enumerate}
+    \item Descreva o que cada parte do cabeçalho da regra especifica:
+          \begin{itemize}
+              \item     Ação a ser tomada
+              \item    Protocolo e direção do tráfego
+              \item     Endereços de origem e destino
+              \item     Portas envolvidas
+          \end{itemize}
+    \item  Explique a função de cada uma das seguintes opções:
+          \begin{itemize}
+              \item   \texttt{flow:established,to\_server}
+              \item   \texttt{content:"|00 00 00 0d 06 00|"; depth:6}
+              \item   \texttt{threshold: type limit, track by\_dst, seconds 300, count 1}
+          \end{itemize}
+    \item Identifique que tipo de abordagem de detecção esta regra representa (se é por Assinatura ou Anomalia) e justifique sua resposta.
+\end{enumerate}
+
+\end{document}
