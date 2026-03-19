@@ -1,25 +1,25 @@
-\frametitle{Verificando a Integridade de Arquivos Baixados}
-Ao baixar arquivos da internet, é comum verificar sua integridade para garantir que:
-
-  \begin{itemize}
-    \item O arquivo não foi corrompido durante a transferência.
-    \item O arquivo não foi adulterado por um atacante.
-  \end{itemize}
-
-  \vspace{0.3cm}
-  \textbf{Como fazer isso?} Usando funções de hash criptográficas como:
-
-  \begin{itemize}
-    \item \texttt{MD5} -- não recomendado hoje em dia mas muito usado.
-    \item \texttt{SHA-256} -- mais  recomendado atualmente.
-  \end{itemize}
-
-  \vspace{0.3cm}
-  \textbf{Exemplo no terminal:}
-
-  \begin{verbatim}
-$ sha256sum arquivo.iso
-$ md5sum arquivo.iso
+\frametitle{Auditd - Interpretando a saída do ausearch}
+Ao executar:
+    \begin{verbatim}
+ausearch -k test_aula
 \end{verbatim}
 
-  Compare o valor obtido com o publicado pelo site oficial.
+    Na saída, é possível observar:
+
+    \begin{block}{Exemplo de trecho relevante}
+        \begin{verbatim}
+type=SYSCALL msg=audit(1692000000.123:420): \
+    arch=c000003e syscall=257 success=yes \
+    exit=3 a0=... auid=... uid=... comm="bash" exe="/usr/bin/bash" ...
+    proctitle=6261736(...)7874
+\end{verbatim}
+    \end{block}
+
+    \begin{itemize}
+        \item \texttt{syscall=257} corresponde à chamada de sistema \texttt{openat}, usada para abrir/criar arquivos.
+        \item \texttt{proctitle} é exibido em hexadecimal.
+              Ao decodificar \texttt{62617368...}, obtemos:
+              \texttt{bash -c "echo a >> test\_audit.txt"}.
+
+        \item Veja o usuario em \textit{getent passwd "AUID"}
+    \end{itemize}
