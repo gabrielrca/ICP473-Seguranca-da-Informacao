@@ -26,73 +26,17 @@ Decifre a mensagem abaixo, que foi cifrada usando uma Cifra de César com k=5.
     \end{tabular}
 \end{table}
 
-Fórmula para decifrar:
-\[
-    \text{Letra decifrada} = (\text{índice da letra cifrada} - 5) \mod 26
-\]
 
-\subsection*{Decifração letra por letra:}
-
-\begin{itemize}
-    \item \texttt{U} (20) \(\rightarrow (20 - 5) = 15 \rightarrow\) P
-    \item \texttt{f} (5) \(\rightarrow (5 - 5) = 0 \rightarrow\) a
-    \item \texttt{w} (22) \(\rightarrow (22 - 5) = 17 \rightarrow\) r
-    \item \texttt{f} (5) \(\rightarrow (5 - 5) = 0 \rightarrow\) a
-    \item \texttt{g} (6) \(\rightarrow (6 - 5) = 1 \rightarrow\) b
-    \item \texttt{j} (9) \(\rightarrow (9 - 5) = 4 \rightarrow\) e
-    \item \texttt{s} (18) \(\rightarrow (18 - 5) = 13 \rightarrow\) n
-    \item \texttt{x} (23) \(\rightarrow (23 - 5) = 18 \rightarrow\) s \\
-          \textbf{Palavra 1:} \texttt{Ufwfgjsx} \(\rightarrow\) Parabens
-\end{itemize}
-
-\begin{itemize}
-    \item \texttt{a} (0) \(\rightarrow (0 - 5) \mod 26 = 21 \rightarrow\) v
-    \item \texttt{t} (19) \(\rightarrow (19 - 5) = 14 \rightarrow\) o
-    \item \texttt{h} (7) \(\rightarrow (7 - 5) = 2 \rightarrow\) c
-    \item \texttt{j} (9) \(\rightarrow (9 - 5) = 4 \rightarrow\) e \\
-          \textbf{Palavra 2:} \texttt{athj} \(\rightarrow\) voce
-\end{itemize}
-
-\begin{itemize}
-    \item \texttt{i} (8) \(\rightarrow (8 - 5) = 3 \rightarrow\) d
-    \item \texttt{j} (9) \(\rightarrow (9 - 5) = 4 \rightarrow\) e
-    \item \texttt{x} (23) \(\rightarrow (23 - 5) = 18 \rightarrow\) s
-    \item \texttt{h} (7) \(\rightarrow (7 - 5) = 2 \rightarrow\) c
-    \item \texttt{t} (19) \(\rightarrow (19 - 5) = 14 \rightarrow\) o
-    \item \texttt{g} (6) \(\rightarrow (6 - 5) = 1 \rightarrow\) b
-    \item \texttt{w} (22) \(\rightarrow (22 - 5) = 17 \rightarrow\) r
-    \item \texttt{n} (13) \(\rightarrow (13 - 5) = 8 \rightarrow\) i
-    \item \texttt{z} (25) \(\rightarrow (25 - 5) = 20 \rightarrow\) u \\
-          \textbf{Palavra 3:} \texttt{ijxhtgwnz} \(\rightarrow\) descobriu
-\end{itemize}
-
-\begin{itemize}
-    \item \texttt{f} (5) \(\rightarrow (5 - 5) = 0 \rightarrow\) a \\
-          \textbf{Palavra 4:} \texttt{f} \(\rightarrow\) a
-\end{itemize}
-
-\begin{itemize}
-    \item \texttt{k} (10) \(\rightarrow (10 - 5) = 5 \rightarrow\) f
-    \item \texttt{w} (22) \(\rightarrow (22 - 5) = 17 \rightarrow\) r
-    \item \texttt{f} (5) \(\rightarrow (5 - 5) = 0 \rightarrow\) a
-    \item \texttt{x} (23) \(\rightarrow (23 - 5) = 18 \rightarrow\) s
-    \item \texttt{j} (9) \(\rightarrow (9 - 5) = 4 \rightarrow\) e \\
-          \textbf{Palavra 5:} \texttt{kwfxj} \(\rightarrow\) frase
-\end{itemize}
-
-\subsection*{Mensagem decifrada:}
-
-\boxed{\text{Parabens voce descobriu a frase}}
 
 \textbf{Responda}
 \begin{itemize}
     \item O tamanho do conjunto de chaves possíveis para a Cifra de César é um problema? Explique.
 
-          \textit{    \textbf{Sim, é um problema grave.} O conjunto de chaves possíveis é pequeno. Isso permite que um atacante realize facilmente um \textbf{ataque de força bruta}. Dessa forma ele pode ir testando todas as chaves possíveis em tempo muito curto. Como existem apenas 25 opções, é trivial decifrar a mensagem sem conhecer a chave original.}
+
 
     \item Apesar de trocar as letras da frase, a cifra de césar ainda mantém a frequência das letras. Qual é o problema disso? Explique.
 
-          \textit{\textbf{Isso permite ataques de análise de frequência.} Como a cifra apenas desloca letras, a distribuição estatística das letras no texto cifrado é idêntica à do texto original. As letras são apenas transladadas. Em idiomas, como o português ou inglês, as letras têm frequências conhecidas. Em posse dessa informação um atacante pode identificar facilmente o deslocamento analisando a frequência dos símbolos no texto cifrado. Depois, pode comparar com a frequência típica do idioma. Isso torna a cifra vulnerável mesmo sem força bruta.}
+
 \end{itemize}
 
 \section{Cifra Monoalfabética}
@@ -107,33 +51,16 @@ Fórmula para decifrar:
 
 \textbf{Tarefa}: Considerando a chave acima, encripte a frase:  \textit{Chegamos na Sexta Feira}
 
-\textbf{Frase cifrada:}
-\begin{itemize}
-
-
-    \item     "Chegamos" → E I T U Q D G L
-
-    \item     "na" → F Q
-
-    \item    "Sexta" → L T B Z Q
-
-    \item     "Feira" → Y T O K Q
-
-\end{itemize}
-
-\textbf{Resultado final:}
-\boxed{\text{EITUQDGL FQ LTBZQ YTOKQEITUQDGL FQ LTBZQ YTOKQ}}
-\\
 
 \textbf{Responda}
 \begin{itemize}
     \item Qual o avanço da Cifra Monoalfabética para a cifra de césar? Explique.
 
-          \textit{O principal avanço é o \textbf{aumento do espaço de chaves}. Enquanto a Cifra de César possui \textbf{apenas 25 chaves possíveis}, a Cifra Monoalfabética utiliza uma \textbf{permutação completa do alfabeto}, resultando em \textbf{$26!$  chaves possíveis}. Isso dificulta um ataque de força bruta, já que testar todas as chaves manualmente ou computacionalmente é bem mais difícil.}
+
 
     \item Apesar do avanço, qual problema ainda persiste nessa cifra em relação à Cifra de César? Explique.
 
-          \textit{    O problema que persiste é a \textbf{preservação da frequência das letras}. A Cifra Monoalfabética mantém a distribuição estatística das letras do texto original no texto cifrado (assim como na Cifra de César). Isso permite que um atacante use \textbf{análise de frequência} para decifrar a mensagem sem conhecer a chave, mapeando as letras mais frequentes do texto cifrado para as letras mais frequentes do idioma. \textbf{Portanto, a vulnerabilidade à criptoanálise estatística permanece}.}
+
 \end{itemize}
 
 
@@ -191,7 +118,6 @@ Descubra a frase: \texttt{SIDKHKDM AF HCRKIABIE SHIMC KD LFEAILA}
 
 \end{enumerate}
 
-\textbf{Resposta}:\boxed{\text{basilisk to leviathan blake is contact}}
 
 
 
@@ -240,10 +166,6 @@ Considerando a cifra de playflair, use a chave \textbf{PROBLEMS} para criar a ta
 
     \item \textbf{Caso geral (retângulo):} Cada letra do par é substituída pela letra na sua linha e na coluna da outra letra do par.
 
-          \begin{itemize}
-              \item Separando as letras:  \boxed{SH-EW-EN-TQ-TO-TH-ES-TO-RE}
-              \item Texto cifrado: \boxed{\text{AGMVMKQYQBYTMAQBPM}}
-          \end{itemize}
 
 
 \end{enumerate}
@@ -252,12 +174,10 @@ Considerando a cifra de playflair, use a chave \textbf{PROBLEMS} para criar a ta
 \begin{itemize}
     \item Qual a motivação para a cifra Playfair? Explique.
 
-          \textit{A motivação foi \textbf{eliminar a vulnerabilidade da análise de frequência} presente em cifras de substituição simples (como a Cifra de César e monoalfabéticas). A Playfair opera com digramas em vez de letras isoladas. A idéia era dispersar a frequência das letras. Com fica mais resistente à criptoanálise baseada em estatísticas de linguagem.
-          }
+
 
     \item Apesar do avanço, a cifra Playfair ainda deixa rastros da estrutura da linguagem do texto claro? Explique.
 
-          \textit{\textbf{Sim, ainda deixa rastros.} A Playfair atenua a análise de frequência de letras isoladas. Porém, ainda \textbf{preserva a frequência de digramas}. Além disso, padrões repetitivos do texto claro podem surgir no texto cifrado. Também, a estrutura geral da mensagem (como palavras comuns) pode ser identificada através de análise de digramas frequentes. É mais complexo do que em cifras de substituição simples, mas ataques baseados em frequência de digramas ou em testes de palavras conhecidas ainda são viáveis.}
 \end{itemize}
 
 \section{Cifra de Vigenère}
@@ -268,24 +188,14 @@ Considere a chave: \textbf{VULNERABILIDADE}
 
 Encripte a mensagem: \textbf{"Fomos descobertos fujam agora"}
 
-\begin{itemize}
-    \item Resposta: \boxed{\text{AIXBW UETKZJHRWSN ZFWED AHWCI}}
-\end{itemize}
+
 
 
 \textbf{Responda}
 \begin{itemize}
     \item Na cifra de Vigenère, cada letra do texto claro pode gerar múltiplas letras cifradas dependendo da letra correspondente da chave. Diga como isso pode acontecer e qual a vantagem disso.
 
-          \textit{A cifra de Vigenère usa uma \textbf{chave repetida} para determinar o deslocamento de cada caractere. Se a mesma letra do texto claro aparecer em posições diferentes, ela será combinada com letras diferentes da chave.  Isso \textbf{elimina a vulnerabilidade da análise de frequência} simples (presente em cifras monoalfabéticas). Nesse caso, a mesma letra do texto claro não é sempre mapeada para a mesma letra cifrada. Isso obscurece os padrões estatísticos da linguagem.}
-
     \item Apesar das vantagens do uso da Cifra de Vigenère, ainda existem problemas. Quais são eles?
-          \begin{enumerate}
-              \item \textbf{Repetição da chave}: Se a chave for curta e repetida muitas vezes, padrões podem emergir no texto cifrado.
-              \item \textbf{Análise de frequência por partes}: Se o tamanho da chave for conhecido ou adivinhado, o texto pode ser dividido em grupos.
-              \item \textbf{Chave fraca}: Chaves curtas ou com padrões reduzem a segurança.
-              \item \textbf{Distribuição segura da chave}: A chave deve ser compartilhada de forma segura entre emissor e receptor, o que é um desafio prático.
-          \end{enumerate}
 
 
 \end{itemize}
