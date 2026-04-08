@@ -330,8 +330,8 @@
 \begin{frame}{Problema de usar chave fixa no WEP}
     \begin{itemize}
         \item O WEP utiliza o algoritmo RC4.
-        \item Com uma chave fixa: todos os pacotes seriam criptografados com a mesma chave.
-        \item Consequência: textos repetidos geram sempre a mesma saída.
+        \item \textbf{Se utilizasse uma chave fixa}: todos os pacotes seriam criptografados com a mesma chave.
+        \item Consequência: textos repetidos \textbf{gerariam} sempre a mesma saída.
         \item Isso permite a um atacante identificar padrões, como endereços IP,
               já que certas partes dos pacotes se repetem.
     \end{itemize}
@@ -341,7 +341,7 @@
             \item Texto: \texttt{"Source Address"}
             \item Resultado cifrado (exemplo): \texttt{"b\%fP*aF\$!Y"}
             \item Sempre que o mesmo texto for cifrado com a mesma chave, o resultado será idêntico.
-            \item Isso revela informação valiosa para o atacante.
+            \item Isso \textbf{revelaria} informação valiosa para o atacante.
         \end{itemize}
     \end{block}
 \end{frame}
