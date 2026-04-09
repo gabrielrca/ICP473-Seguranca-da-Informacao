@@ -1,25 +1,8 @@
-\frametitle{Auditd - Interpretando a saída do ausearch}
-Ao executar:
-    \begin{verbatim}
-ausearch -k test_aula
+\frametitle{Compilando o código com rdrand}
+\begin{verbatim}
+$nasm -f elf64 rdrand_bin.asm -o rdrand_bin.o
+$ld rdrand_bin.o -o rdrand_bin
+$ ./rdrand_bin | hexdump -C
+
 \end{verbatim}
 
-    Na saída, é possível observar:
-
-    \begin{block}{Exemplo de trecho relevante}
-        \begin{verbatim}
-type=SYSCALL msg=audit(1692000000.123:420): \
-    arch=c000003e syscall=257 success=yes \
-    exit=3 a0=... auid=... uid=... comm="bash" exe="/usr/bin/bash" ...
-    proctitle=6261736(...)7874
-\end{verbatim}
-    \end{block}
-
-    \begin{itemize}
-        \item \texttt{syscall=257} corresponde à chamada de sistema \texttt{openat}, usada para abrir/criar arquivos.
-        \item \texttt{proctitle} é exibido em hexadecimal.
-              Ao decodificar \texttt{62617368...}, obtemos:
-              \texttt{bash -c "echo a >> test\_audit.txt"}.
-
-        \item Veja o usuario em \textit{getent passwd "AUID"}
-    \end{itemize}
