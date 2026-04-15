@@ -1,0 +1,129 @@
+\title{Lista de exercícios: Criptografia Clássica}
+\author{Prof. Gabriel Rodrigues Caldas de Aquino}
+\date{Compilado em: \\ \today}
+
+\begin{document}
+
+
+
+\section{Cenário de Infraestrutura e NetFlow}
+
+\textbf{Contexto}:
+O administrador de rede da UFRJ monitora o tráfego usando o \textit{NfSen}. Durante o período de inscrições em disciplinas, ele observa anomalias no backbone da universidade e precisa agir para manter a tríade da segurança.
+
+\textbf{Tarefa}:
+Preencha a tabela abaixo classificando qual pilar da segurança da informação (\textbf{Confidencialidade}, \textbf{Integridade} ou \textbf{Disponibilidade}) foi comprometido em cada situação, apresentando a justificativa baseada nos conceitos da disciplina (Considere as definições de Integridade de Origem e de Sistema).
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{|p{6cm}|p{3cm}|p{6cm}|}
+        \hline
+        \textbf{Ação do Usuário/Atacante}                                                                                          & \textbf{Pilar Comprometido} & \textbf{Justificativa} \\ \hline
+        Um ataque DDoS inunda o link de internet, impedindo o acesso ao portal.                                                    &                             &                        \\ \hline
+        Um "Sniffer" na rede consegue ler os pacotes de login em texto claro.                                                      &                             &                        \\ \hline
+        Um invasor envia comandos ao roteador fingindo ser o administrador da rede.                                                &                             &                        \\ \hline
+        Um vírus modifica o firmware do roteador para desviar o tráfego sem ninguém saber.                                         &                             &                        \\ \hline
+        Um usuário solicita a exclusão de seus logs de navegação baseando-se no controle sobre seus próprios dados.                &                             &                        \\ \hline
+        Um analista utiliza o \textit{nfdump} para identificar um pico anômalo de tráfego que desviou do modelo estatístico usual. &                             &                        \\ \hline
+        Um rompimento de fibra óptica externa deixa o campus sem conexão com o \textit{backbone} central.                          &                             &                        \\ \hline
+        Um aluno altera o \textit{hash} SHA-256 no site oficial para que aponte para um instalador malicioso baixado por outros.   &                             &                        \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+
+\section*{Gabarito: Cenário de Infraestrutura e NetFlow}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{|p{5.5cm}|p{3cm}|p{6.5cm}|}
+        \hline
+        \textbf{Ação do Usuário/Atacante}                                                   & \textbf{Pilar}                           & \textbf{Justificativa}                                                                                                      \\ \hline
+        Um ataque DDoS inunda o link de internet, impedindo o acesso ao portal.             & \textbf{Disponibilidade}                 & O serviço foi negado aos usuários autorizados devido à sobrecarga intencional dos recursos (Negação de Serviço).            \\ \hline
+        Um "Sniffer" na rede consegue ler os pacotes de login em texto claro.               & \textbf{Confidencialidade}               & Informações privadas (credenciais) foram divulgadas a indivíduos não autorizados por falta de criptografia.                 \\ \hline
+        Um invasor envia comandos ao roteador fingindo ser o administrador da rede.         & \textbf{Integridade (Autenticidade)}     & Violação da integridade da origem. O sistema aceita uma fonte ilegítima como se fosse a fonte legítima (Admin).             \\ \hline
+        Um vírus modifica o firmware do roteador para desviar o tráfego sem ninguém saber.  & \textbf{Integridade (Sistema)}           & O hardware deixa de desempenhar sua função prevista de forma íntegra devido a uma manipulação não autorizada.               \\ \hline
+        Um usuário solicita a exclusão de seus logs de navegação (controle sobre dados).    & \textbf{Confidencialidade (Privacidade)} & Refere-se ao direito e controle do indivíduo sobre quais informações relacionadas a ele são armazenadas ou divulgadas.      \\ \hline
+        Um analista utiliza o \textit{nfdump} para identificar um pico anômalo de tráfego.  & \textbf{Integridade (Detecção)}          & Uso de mecanismos de detecção para verificar se o sistema ou os dados foram comprometidos por ações anômalas.               \\ \hline
+        Um rompimento de fibra óptica externa deixa o campus sem conexão.                   & \textbf{Disponibilidade}                 & Incapacidade de acessar o recurso desejado no momento necessário, independentemente de a causa ser acidental ou proposital. \\ \hline
+        Um aluno altera o \textit{hash} SHA-256 no site oficial para apontar para um vírus. & \textbf{Integridade (Dados)}             & O conteúdo da informação original (o valor de verificação) foi alterado indevidamente, enganando a confiança do usuário.    \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+
+\section{Cenário: Sistemas Críticos e Controle de Acesso}
+
+\textbf{Contexto}:
+Uma universidade gerencia tanto o sistema acadêmico  quanto o sistema de prontuários dode seu hospital universitário. Ambos lidam com dados sensíveis que exigem diferentes níveis de proteção e permissões de acesso baseadas em funções (RBAC).
+
+\textbf{Tarefa}:
+Preencha a tabela abaixo classificando qual pilar da segurança da informação (\textbf{Confidencialidade}, \textbf{Integridade} ou \textbf{Disponibilidade}) tem mais sentido com o cenário exposto.
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|p{6cm}|p{3cm}|p{6cm}|}
+        \hline
+        \textbf{Ação do Usuário/Atacante}                                                                    & \textbf{Pilar} & \textbf{Justificativa} \\ \hline
+        Um aluno consegue acessar o banco de dados e alterar sua nota de 5.0 para 9.0 sem rastro.            &                &                        \\ \hline
+        A Professora Maria visualiza a lista de notas de todos os alunos da sua turma de Cálculo II.         &                &                        \\ \hline
+        Um médico apaga acidentalmente o histórico de alergias de um paciente devido a um erro de interface. &                &                        \\ \hline
+        O sistema de prontuários fica lento e impede que enfermeiros consultem dosagens de remédios.         &                &                        \\ \hline
+        Um técnico de TI, sem autorização médica, acessa o laudo de uma biópsia de um paciente famoso.       &                &                        \\ \hline
+        O sistema registra automaticamente que a nota foi lançada pela ``Professora Ana'' às 14:30.          &                &                        \\ \hline
+        Um hacker sequestra os dados do hospital (Ransomware), impedindo qualquer acesso aos exames.         &                &                        \\ \hline
+        Um aluno tenta acessar o boletim de outro colega, mas o sistema bloqueia a visualização.             &                &                        \\ \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+
+\section*{Gabarito: Cenário de Sistemas Críticos}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|p{5.5cm}|p{3cm}|p{6.5cm}|}
+        \hline
+        \textbf{Situação}                                                                                    & \textbf{Pilar}             & \textbf{Justificativa}                                                                           \\ \hline
+        Um aluno consegue acessar o banco de dados e alterar sua nota de 5.0 para 9.0 sem rastro.            & \textbf{Integridade}       & Violação da integridade dos dados, pois o conteúdo foi modificado de maneira não autorizada.     \\ \hline
+        A Professora Maria visualiza a lista de notas de todos os alunos da sua turma de Cálculo II.         & \textbf{Confidencialidade} & Pilar exercido corretamente via RBAC; o professor tem o ``necessário saber'' sobre sua turma.    \\ \hline
+        Um médico apaga acidentalmente o histórico de alergias de um paciente devido a um erro de interface. & \textbf{Integridade}       & Perda da confiabilidade dos dados e falha do sistema em preservar a informação íntegra.          \\ \hline
+        O sistema de prontuários fica lento e impede que enfermeiros consultem dosagens de remédios.         & \textbf{Disponibilidade}   & A informação não está acessível no momento necessário, gerando riscos operacionais e clínicos.   \\ \hline
+        Um técnico de TI, sem autorização médica, acessa o laudo de uma biópsia de um paciente famoso.       & \textbf{Confidencialidade} & Violação de privacidade. O técnico não possui o perfil de acesso médico para visualizar o dado.  \\ \hline
+        O sistema registra automaticamente que a nota foi lançada pela ``Professora Ana'' às 14:30.          & \textbf{Integridade}       & Garante a autenticidade e a integridade da origem através de trilhas de auditoria.               \\ \hline
+        Um hacker sequestra os dados do hospital (Ransomware), impedindo qualquer acesso aos exames.         & \textbf{Disponibilidade}   & Impacto total na disponibilidade, pois o serviço é negado aos usuários autorizados.              \\ \hline
+        Um aluno tenta acessar o boletim de outro colega, mas o sistema bloqueia a visualização.             & \textbf{Confidencialidade} & Pilar preservado. O controle de acesso impede a divulgação de dados a terceiros não autorizados. \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\section{Avaliação de Sequências Pseudoaleatórias (PRNG)}
+
+\textbf{Contexto}:
+A robustez de um sistema criptográfico depende frequentemente da qualidade de seus geradores de números pseudoaleatórios (PRNG). Para garantir que uma sequência de bits não seja previsível, o NIST define o padrão \textit{SP 800-22} com uma bateria de testes estatísticos.
+
+\textbf{Questão}:
+Com base nos testes de aleatoriedade do NIST discutidos em aula, responda aos itens abaixo:
+
+\begin{itemize}
+    \item \textbf{A) Motivação}: Por que não podemos simplesmente confiar que uma função matemática gera números aleatórios? Qual o objetivo de aplicar testes de aleatoriedade?
+
+
+
+    \item \textbf{B) Metodologia de Teste}: Descreva, de forma simplificada, como um administrador de segurança testaria uma sequência de 1 milhão de bits? Quais testes ele deve usar?
+
+
+
+    \item \textbf{C) Interpretação}: Se uma sequência passa no Teste de Frequência, mas falha em um outro teste, ela pode ser considerada aleatória? Justifique.
+
+
+\end{itemize}
+
+
+\end{document}
